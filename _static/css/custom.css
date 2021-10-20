@@ -1,0 +1,40 @@
+.wy-side-nav-search {
+    background-color: #31e3e8;
+}
+
+.wy-menu-vertical header, .wy-menu-vertical p.caption {
+    color: #1f8b8e;
+}
+
+.rst-versions a {
+    color: #1f8b8e;
+}
+
+a {
+    color: #1f8b8e;
+}
+
+a:hover {
+    color: #1f8b8e;
+}
+
+.rst-content .section a:visited {
+    color: #1f8b8e;
+}
+
+.wy-breadcrumbs li a {
+    color: #1f8b8e;
+}
+
+.rst-content table.docutils thead th, .rst-content table.field-list thead th, .wy-table thead th {
+    background-color: #31e3e8;
+    color: #fff;
+}
+
+.rst-versions .rst-current-version {
+    color: #1f8b8e;
+}
+
+code {
+    width: 400px;
+}
