@@ -12,6 +12,7 @@ Aurora Agent User Manual
    :caption: Contents:
 
    usage/what-is-aurora
+   usage/installation
    usage/configuration
    usage/rule-management
    usage/upgrade-and-updates

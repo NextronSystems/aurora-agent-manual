@@ -12,12 +12,22 @@ Intended use cases:
    - Ransomware containment
    - Hard blocking of certain uses of a tool (otherwise sue AppLocker)
 
+Types of Actions
+----------------
+
+Aurora agent supports two types of responses:
+
+1. Predefined
+2. Custom
+
+The actions can be a list predefined actions or commands. (see examples below)
+
 Predefined Responses
 --------------------
 
-- Suspend (all events with 'ProcessId', recursive - kills all children)
+- Suspend (all events with 'ProcessId', recursive - suspends all children)
 - Kill (all events with 'ProcessId', recursive - kills all children)
-- ParentKill (all events with 'ParentProcessId', recursive - kills all children)
+- KillParent (all events with 'ParentProcessId', recursive - kills all children)
 - Dump (all events with 'ProcessId', creates dump file in folder configured as ``dump-path``)
 
 Examples
@@ -33,12 +43,14 @@ Examples
  
    response:
       type: custom 
-      action: taskkill /F /PID %ProcessId%
+      action: 
+         - copy %Image% %%ProgramData%%\aurora-samples\%ProcessId%.bin
+         - taskkill /F /PID %ProcessId%
 
 Custom Responses 
 ----------------
 
-A custom response is standard command line executed congurently with ``cmd.exe /c ...``.
+A custom response is standard command line executed as ``cmd.exe /c custom-command``.
 
 You can use the values of fields in the corresponding log line encased with single percent signs (e.g. ``%ProcessId%``).
 Windows environment variables can be used encased with double percent signs (e.g. ``%%ProgramData%%``).
@@ -46,8 +58,7 @@ Windows environment variables can be used encased with double percent signs (e.g
 Note: Be aware that the variable values correspond to the environment of the Aurora Agent process that runs as SYSTEM and not an observed user process. 
 
 .. code::bash
- 
-   response:
-      type: custom 
-      action: copy %Image% %%ProgramData%%\Aurora\sample-exports\Image-%ProcessID%.bin
 
+   response:
+      type: custom
+      action: cmd.exe /c copy %Image% %%ProgramData%%\Aurora\sample-exports\Image-%ProcessID%.bin
