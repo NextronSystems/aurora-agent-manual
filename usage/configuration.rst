@@ -57,23 +57,28 @@ Output Configuration
 
 The following output options are currently available 
 
-- Log file (JSON)
+- Log file
 - Windows Eventlog
-- JSON via UDP (full version only)
+- UDP target (full version only)
 - ASGARD Analysis Cockpit (full version only)
 - Standard Output (debugging)
 
-Log File 
-~~~~~~~~
+Log File (--logfile)
+~~~~~~~~~~~~~~~~~~~~
 
 The log file contains the matching events in JSON format.
 
-Warning: the local log file doesn't get rotated.
+Note: see the flags used for log file rotation in chapter :doc:`Usage <./usage>` for details.
 
-Windows Eventlog
-~~~~~~~~~~~~~~~~
+Windows Eventlog (default, use --no-eventlog to disable)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If enabled by setting ``eventlog: True`` Aurora writes entries into the ``Application`` Eventlog with the ``Provider Name`` set to ``Aurora Agent``.
+If enabled by setting ``eventlog: true`` Aurora writes entries into the ``Application`` Eventlog with the ``Provider Name`` set to ``Aurora Agent``.
+
+UDP target (--udp-target)
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 
 ASGARD Analysis Cockpit 
 ~~~~~~~~~~~~~~~~~~~~~~~

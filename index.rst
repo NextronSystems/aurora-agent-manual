@@ -13,11 +13,12 @@ Aurora Agent User Manual
 
    usage/what-is-aurora
    usage/installation
+   usage/usage
    usage/configuration
    usage/rule-management
    usage/upgrade-and-updates
    usage/responses
-   usage/troubleshooting
+   usage/debugging
 
 
 Indices and tables

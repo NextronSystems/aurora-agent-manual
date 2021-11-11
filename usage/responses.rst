@@ -25,10 +25,10 @@ The actions can be a list predefined actions or commands. (see examples below)
 Predefined Responses
 --------------------
 
-- Suspend (all events with 'ProcessId', recursive - suspends all children)
-- Kill (all events with 'ProcessId', recursive - kills all children)
-- KillParent (all events with 'ParentProcessId', recursive - kills all children)
-- Dump (all events with 'ProcessId', creates dump file in folder configured as ``dump-path``)
+- suspend (all events with 'ProcessId', recursive - suspends all children)
+- kill (all events with 'ProcessId', recursive - kills all children)
+- killparent (all events with 'ParentProcessId', recursive - kills all children)
+- dump (all events with 'ProcessId', creates dump file in folder configured as ``dump-path``)
 
 Examples
 ~~~~~~~~

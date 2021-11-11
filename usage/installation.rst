@@ -7,15 +7,23 @@ You can install the agent using the following command line flag.
 
     aurora-agent.exe --install
 
-The agent will then be installed to ``C:\\Program Files\\Aurora Agent\\``.
+The agent and config files will then be installed to ``C:\\Program Files\\Aurora Agent\\``.
+The rules and other data will be installed to ``C:\\ProgramData\\Aurora Agent\\``.
 
-It will automatically install all rule files located in a sub folder named ``./rules``. We ship the agent installer package with the current open source rule set maintained in the ``Sigma repository <https://github.com/SigmaHQ/sigma>`__. 
+It will automatically copy all rule files located in a sub folder named ``./rules``. We ship the agent installer package with the current open source rule set maintained in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__. 
 
-You can add the same settings as used in the configuration file as command line flags to configure the agent according to your needs. The command line flags will then be added to the configuration file. 
+If you want to add your own Sigma rules right during installation, you can do this by using the ``--rules-path`` flag.
 
 .. code::bash
 
-    aurora-agent.exe --install --eventlog True
+    aurora-agent.exe --install --rules-path .\rules --rules-path .\my-rules
+
+All the flags that you pass together with  are used for the configuration file ``agent.config``.
+
+.. code::bash
+
+    aurora-agent.exe --install --rules-path .\rules --rules-path .\my-rules
+
 
 Uninstall Aurora
 ----------------
