@@ -3,7 +3,7 @@ Debugging
 
 The best way to debug Aurora is to run it directly in the command line and don't use it as service. 
 
-.. code:: bash
+.. code:: winbatch
 
     aurora-agent-64.exe --rules-path .\my-rules --debug
 
@@ -14,7 +14,7 @@ Status Information
 
 The ``--status`` can give you information from a running Aurora service.
 
-.. code:: bash 
+.. code:: winbatch
 
     C:\aurora>aurora-agent-64.exe --status
     Aurora Agent

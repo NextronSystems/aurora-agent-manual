@@ -3,7 +3,7 @@ Configuration
 
 A default configuration file looks like this:
 
-.. code::
+.. code:: yaml
  
    # Paths to your rule files
    rules-path:
@@ -28,7 +28,7 @@ A default configuration file looks like this:
 
 A typical configuration file would look like this 
 
-.. code::
+.. code:: yaml
  
    # Paths containing the sigma files
    rules-path:
@@ -97,7 +97,7 @@ If enabled by setting ``eventlog: true`` Aurora writes entries into the ``Applic
 UDP target (--udp-target)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
+TBD
 
 ASGARD Analysis Cockpit 
 ~~~~~~~~~~~~~~~~~~~~~~~

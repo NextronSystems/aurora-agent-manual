@@ -131,7 +131,7 @@ This flag can be used to query information from the running service.
 
 Note: Make sure to also set ``--agent-name`` if you've set a non-standard name.
 
-.. code:: bash
+.. code:: winbatch
 
     C:\aurora>aurora-agent-64.exe --status
 
@@ -154,7 +154,7 @@ Note: Make sure to also set ``--agent-name`` if you've set a non-standard name.
 
 This flag can be combined with the ``--json`` flag.
 
-.. code::
+.. code:: json
 
     {
         "Parameters": {
@@ -203,11 +203,11 @@ A flag that produces output that is more verbose than ``--debug``.
 
 This flag defines a remote system to which the log data gets send via UDP. 
 
-.. code:: bash 
+.. code:: winbatch 
 
     aurora-agent-64.exe --udp-target our-siem.company.net:5001
 
-.. code:: bash 
+.. code:: winbatch 
 
     aurora-agent-64.exe --udp-target 10.0.3.101:888
 
