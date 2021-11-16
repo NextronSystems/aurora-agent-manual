@@ -33,13 +33,13 @@ Predefined Responses
 Examples
 ~~~~~~~~
 
-.. code::bash
+.. code:: bash
  
    response:
       type: predefined 
       action: kill
 
-.. code::bash
+.. code:: bash
  
    response:
       type: custom 
@@ -57,7 +57,7 @@ Windows environment variables can be used encased with double percent signs (e.g
 
 Note: Be aware that the variable values correspond to the environment of the Aurora Agent process that runs as SYSTEM and not an observed user process. 
 
-.. code::bash
+.. code:: bash
 
    response:
       type: custom

@@ -18,7 +18,7 @@ If you want to add your own Sigma rules right during installation, you can do th
 
     aurora-agent.exe --install --rules-path .\rules --rules-path .\my-rules
 
-All the flags that you pass together with  are used for the configuration file ``agent.config``.
+All the flags that you pass together with  are used for the configuration file ``agent-config.yml``.
 
 .. code:: bash
 

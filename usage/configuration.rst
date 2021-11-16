@@ -3,7 +3,7 @@ Configuration
 
 A default configuration file looks like this:
 
-.. code::bash
+.. code::
  
    # Paths to your rule files
    rules-path:
@@ -28,29 +28,48 @@ A default configuration file looks like this:
 
 A typical configuration file would look like this 
 
-.. code::bash
+.. code::
  
-   # Paths to your rule files
-   rules-path: 
-      - .\rules
-      - %ProgramData%\my-sigma-rules
-   # The location of log source mapping configurations
-   sigma-config: 
-      - .\sigma-config.yml
-      - .\my-config.yml
-   # Only sigma rule matches of this level and higher will be logged (informational, low, medium, high, critical)
-   reporting-level: medium
-   # Event matching log output streams
-   log-outputs:
-      eventlog: True
-      events-file: %ProgramData%\Aurora-Agent\aurora-agent-events.log
-   # Response actions 
-   dump-path: %ProgramData%\Aurora-Agent\dumps
-   # Automatically reload rules and configuration directory on changes
-   auto-reload: True
-   # Debugging settings (output gets only written to STDOUT)
-   debug: False
-   trace: False
+   # Paths containing the sigma files
+   rules-path:
+      - C:\ProgramData\Aurora-Agent\rules
+      - C:\ProgramData\Aurora-Agent\myrules
+   # Automatically reload the sigma files upon detecting changes
+   auto-reload: false
+   # Log file path
+   logfile: ""
+   # Paths to the sigma configurations that should be loaded
+   sigma-config:
+      - C:\ProgramData\Aurora-Agent\default-log-sources.yml
+      - C:\ProgramData\Aurora-Agent\etw-log-sources.yml
+   # Print debugging information
+   debug: false
+   # Print tracing information
+   trace: false
+   # Log matches to the Windows event log
+   event-logging: true
+   # Report Sigma matches with rules of this level or higher
+   minimum-level: high
+   # Folder where process dumps should be stored
+   dump-folder: C:\ProgramData\Aurora-Agent\process-dumps
+   # Write output as JSON instead of plain text
+   json: false
+   # Path to the directory containing the Aurora Agent license
+   license-path: C:\ProgramData\Aurora-Agent\aurora
+   # UDP Address (as host:port) where the Aurora Agent should write its logs to
+   udp-target: ""
+   # Don't print any logs'
+   silent: false
+   # Percentage of a single CPU core that the Aurora Agent should use at most
+   cpu-limit: 100
+   # Log a message about the current agent status once per hour
+   report-stats: false
+   # How many log rotations should be retained
+   log-rotate: 0
+   # At which size the log should be rotated
+   log-size: 10485760
+   # Agent name that the status information pipe and the service name are based on
+   agent-name: aurora-agent
 
 Output Configuration
 --------------------
