@@ -16,15 +16,15 @@ A default configuration file looks like this:
    # Path in which the license file can be found (non-recursive)
    license-path: .\
    # Event matching log output streams
-   eventlog: True
+   eventlog: true
    events-file: %ProgramData%\Aurora-Agent\aurora-agent-events.log
    # Response actions 
    dump-path: %ProgramData%\Aurora-Agent\dumps
    # Automatically reload rules and configuration directory on changes
-   auto-reload: True
+   auto-reload: true
    # Debugging settings (output gets only written to STDOUT and .log file)
-   debug: False
-   trace: False
+   debug: false
+   trace: false
 
 A typical configuration file would look like this 
 
@@ -47,7 +47,7 @@ A typical configuration file would look like this
    # Print tracing information
    trace: false
    # Log matches to the Windows event log
-   event-logging: true
+   eventlog: true
    # Report Sigma matches with rules of this level or higher
    minimum-level: high
    # Folder where process dumps should be stored
