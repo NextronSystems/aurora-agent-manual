@@ -3,7 +3,7 @@ Installation
 
 You can install the agent using the following command line flag.
 
-.. code::bash
+.. code:: bash
 
     aurora-agent.exe --install
 
@@ -14,13 +14,13 @@ It will automatically copy all rule files located in a sub folder named ``./rule
 
 If you want to add your own Sigma rules right during installation, you can do this by using the ``--rules-path`` flag.
 
-.. code::bash
+.. code:: bash
 
     aurora-agent.exe --install --rules-path .\rules --rules-path .\my-rules
 
 All the flags that you pass together with  are used for the configuration file ``agent.config``.
 
-.. code::bash
+.. code:: bash
 
     aurora-agent.exe --install --rules-path .\rules --rules-path .\my-rules
 
@@ -30,6 +30,6 @@ Uninstall Aurora
 
 To uninstall the agent simply run the following command:
 
-.. code::bash 
+.. code:: bash 
 
     aurora-agent.exe --uninstall
