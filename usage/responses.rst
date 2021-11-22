@@ -39,6 +39,30 @@ Examples
       type: predefined 
       action: kill
 
+Kill the process and the parent.
+
+.. code:: yaml
+ 
+   response:
+      type: predefined 
+      action: kill
+      ancestors: 1
+
+Kill the process, the parent and the grandparent.
+
+.. code:: yaml
+ 
+   response:
+      type: predefined 
+      action: kill
+      ancestors: 2
+
+.. code:: yaml
+ 
+   response:
+      type: predefined 
+      action: suspend
+
 .. code:: yaml
  
    response:

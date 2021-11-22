@@ -5,27 +5,44 @@ This chapter explains the command line options used by Aurora in more detail.
 
 .. code::
 
-        --agent-name string      Set a different name for the service, the binary and other identifiers (default "aurora-agent")
-    -a, --auto-reload            Automatically reload the sigma files upon detecting changes
-    -c, --config string          Process default parameters from this YAML file
-        --cpu-limit int          Percentage of a single CPU core that the Aurora Agent should use at most (default 100)
-        --debug                  Print debugging information
-        --dump-folder string     Folder where process dumps should be stored (default ".")
-        --no-eventlog            Don't log matches to the Windows event log
-        --install                Install Aurora Agent as a service
-        --json                   Write output as JSON instead of plain text
-        --license-path string    Path to the directory containing the Aurora Agent license (default "C:\\aurora")
-        --log-rotate uint        How many log rotations should be retained (default 7)
-        --log-size uint          At which size the log should be rotated (default 10MB)
-    -l, --logfile string         Log file path
-        --minimum-level Level    Report Sigma matches with rules of this level or higher (default high)
-        --report-stats           Log a message about the current agent status once per hour
-    -p, --rules-path strings     Paths containing the sigma files (default [C:\aurora\rules])
-    -s, --sigma-config strings   Paths to the sigma configurations that should be loaded (default [C:\aurora\default-log-sources.yml,C:\aurora\etw-log-sources.yml])
-        --status                 Query the status of a running Aurora Agent service
-        --trace                  Print tracing information
-        --udp-target string      UDP Address (as host:port) where the Aurora Agent should write its logs to
-        --uninstall              Uninstall the Aurora Agent service
+    --activate-module strings      Activate the given modules, even if they are disabled by default (default [])
+    --activate-responses           Execute responses that are specified in sigma rules (e.g. to kill a process)
+    --agent-name string            Set a different name for the service, the binary and other identifiers (default "aurora-agent")
+    -a, --auto-reload                  Automatically reload the sigma rules and configurations upon detecting changes
+    -c, --config string                Process default parameters from this YAML file
+    --cpu-limit int                Percentage of a single CPU core that the Aurora Agent should use at most (default 100)
+    --deactivate-module strings    Deactivate the given modules (default [])
+    --debug                        Print debugging information
+    --dump-folder string           Folder where process dumps should be stored (default ".")
+    --install                      Install Aurora Agent as a service
+    --json                         Write output as JSON instead of plain text
+    --license-path string          Path to the directory containing the Aurora Agent license (default "C:\\aurora")
+    --log-rotate uint              How many log rotations should be retained (default 7)
+    --log-size uint                At which size the log should be rotated (default 10MB)
+    -l, --logfile string               Log file path
+    --minimum-level Level          Report Sigma matches with rules of this level or higher (default high)
+    --module-info                  List all available modules
+    --no-eventlog                  Don't log matches to the Windows event log
+    --report-stats                 Log a message about the current agent status regularly
+    --report-stats-interval uint   Interval between status messages, see --report-stats (default 1h)
+    -p, --rules-path strings           Paths containing the sigma files (default [C:\aurora\rules])
+    -s, --sigma-config strings         Paths to the sigma configurations that should be loaded (default [C:\aurora\default-log-sources.yml,C:\aurora\etw-log-sources.yml])
+    --status                       Query the status of a running Aurora Agent service
+    --trace                        Print tracing information
+    --udp-target string            UDP Address (as host:port) where the Aurora Agent should write its logs to
+    --uninstall                    Uninstall the Aurora Agent service
+
+--activate-module
+-----------------
+
+This flag is used to explicitly activate certain modules. To get an information on the available modules use the ``--module-info`` flag.
+
+--activate-responses
+--------------------
+
+This flag enables response actions in the agent. Without setting this flag to ``true``, Aurora will not perform any response action even if response actions are defined in one or more rules. 
+
+The default is ``false``. 
 
 --agent-name
 ------------
@@ -50,6 +67,11 @@ A config or config template can be set with the ``--config`` flag. If you use th
 This flag allows to set a CPU usage limit from 1 to 100. Aurora uses only one CPU core and applies that limit to its activity on this single core. 
 
 WARNING: by setting a low CPU limit, it becomes more likely that events get dropped. Use the ``--status`` or ``--report-stats`` flag to monitor the number of dropped events.
+
+--deactivate-module
+-------------------
+
+This deactivates certain modules in Aurora. To get an information on the available modules use the ``--module-info`` flag.
 
 --debug
 -------
@@ -107,6 +129,18 @@ This sets the absolute or relative path of a text log file. The flag ``--json`` 
 
 This is the minimum Sigma rule level to report. If e.g. set to ``medium``, only Sigma rule matches with a level of ``medium``, ``high`` and ``critical`` get reported.
 
+--module-info 
+-------------
+
+Prints information on the available detection modules. (Aurora Lite only supports the Sigma matching)
+
+--no-eventlog
+-------------
+
+This flag disables the output to the local ``Application`` event log.
+
+The default is ``enabled``. 
+
 --report-stats
 --------------
 
@@ -118,6 +152,20 @@ This instructs Aurora to report the agent status once per hour to the configured
 One or more paths to Sigma rules that get used by Aurora. 
 
 If you've combined this flag with ``--install`` the files get copied to ``C:\ProgramData\Aurora Agent\rules\`` and initialized from there.
+
+--report-stats
+--------------
+
+Instructs Aurora to write a status message every X minutes into the defined output channels.
+
+Default is ``false``. 
+
+--report-stats-interval
+-----------------------
+
+Sets an interval in minutes for the status messages that get written into the defined output channels. Requires ``--report-stats``. 
+
+Default is ``60`` minutes. 
 
 -s, --sigma-config
 ------------------
