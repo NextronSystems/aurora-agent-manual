@@ -10,7 +10,7 @@ WARNING: Only use in cases in which you are absolutely sure that a rule doesn't 
 Intended use cases:
    - Worm containment
    - Ransomware containment
-   - Hard blocking of certain uses of a tool (otherwise sue AppLocker)
+   - Hard blocking of certain uses of a tool (otherwise use AppLocker)
 
 Types of Actions
 ----------------

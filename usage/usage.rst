@@ -34,37 +34,39 @@ Command Line Flags
 
 .. code:: none
 
-    --activate-module strings      Activate the given modules, even if they are disabled by default (default [])
-    --activate-responses           Execute responses that are specified in sigma rules (e.g. to kill a process)
-    --agent-name string            Set a different name for the service, the binary and other identifiers (default "aurora-agent")
-    -a, --auto-reload                  Automatically reload the sigma rules and configurations upon detecting changes
-    -c, --config string                Process default parameters from this YAML file
-    --cpu-limit int                Percentage of a single CPU core that the Aurora Agent should use at most (default 100)
-    --deactivate-module strings    Deactivate the given modules (default [])
-    --debug                        Print debugging information
-    --dump-folder string           Folder where process dumps should be stored (default ".")
-    --install                      Install Aurora Agent as a service
-    --json                         Write output as JSON instead of plain text
-    --license-path string          Path to the directory containing the Aurora Agent license (default "C:\\aurora")
-    --log-rotate uint              How many log rotations should be retained (default 7)
-    --log-size uint                At which size the log should be rotated (default 10MB)
-    -l, --logfile string               Log file path
-    --minimum-level Level          Report Sigma matches with rules of this level or higher (default high)
-    --module-info                  List all available modules
-    --no-eventlog                  Don't log matches to the Windows event log
-    --report-stats                 Log a message about the current agent status regularly
-    --report-stats-interval uint   Interval between status messages, see --report-stats (default 1h)
-    -p, --rules-path strings           Paths containing the sigma files (default [C:\aurora\rules])
-    -s, --sigma-config strings         Paths to the sigma configurations that should be loaded (default [C:\aurora\default-log-sources.yml,C:\aurora\etw-log-sources.yml])
-    --status                       Query the status of a running Aurora Agent service
-    --trace                        Print tracing information
-    --udp-target string            UDP Address (as host:port) where the Aurora Agent should write its logs to
-    --uninstall                    Uninstall the Aurora Agent service
+      --activate-module strings      Activate the given modules, even if they are disabled by default (default [])
+      --activate-responses           Execute responses that are specified in sigma rules (e.g. to kill a process)
+      --agent-name string            Set a different name for the service, the binary and other identifiers (default "aurora-agent")
+  -a, --auto-reload                  Automatically reload the sigma rules and configurations upon detecting changes
+  -c, --config string                Process default parameters from this YAML file
+      --cpu-limit int                Percentage of a single CPU core that the Aurora Agent should use at most (default 100)
+      --deactivate-module strings    Deactivate the given modules (default [])
+      --debug                        Print debugging information
+      --dump-folder string           Folder where process dumps should be stored (default ".")
+      --event-throttling uint        minimum average time between log messages (warning: if set, it will slow down Aurora Agent if many matches occur!) (default 0h)
+      --install                      Install Aurora Agent as a service
+      --json                         Write output as JSON instead of plain text
+      --license-path string          Path to the directory containing the Aurora Agent license (default ".")
+      --log-rotate uint              How many log rotations should be retained (default 7)
+      --log-size uint                At which size the log should be rotated (default 10MB)
+  -l, --logfile string               Log file path
+      --minimum-level Level          Report Sigma matches with rules of this level or higher (default high)
+      --module-info                  List all available modules
+      --no-eventlog                  Don't log matches to the Windows event log
+      --no-stdout                    Disable logging to the standard output
+      --report-stats                 Log a message about the current agent status regularly
+      --report-stats-interval uint   Interval between status messages, see --report-stats (default 1h)
+  -p, --rules-path strings           Paths containing the sigma files (default [./rules])
+  -s, --sigma-config strings         Paths to the sigma configurations that should be loaded (default [./default-log-sources.yml,./etw-log-sources.yml])
+      --status                       Query the status of a running Aurora Agent service
+      --trace                        Print tracing information
+      --udp-target string            UDP Address (as host:port) where the Aurora Agent should write its logs to
+      --uninstall                    Uninstall the Aurora Agent service
 
 --activate-module
 -----------------
 
-This flag is used to explicitly activate certain modules. To get an information on the available modules use the ``--module-info`` flag.
+This flag is used to explicitly activate certain modules. To get an overview of the available modules, use the ``--module-info`` flag.
 
 --activate-responses
 --------------------
@@ -112,10 +114,14 @@ This flag can be used for debugging purposes as it increases the verbosity level
 
 Use to set the folder for process memory dumps created by the predefined response action ``dump``. (see chapter :doc:`Responses <./responses>`)
 
---no-eventlog
--------------
+--event-throttling
+------------------
 
-Disable the output to the Windows Eventlog ``Application``.
+Use to set a time interval. Aurora will on average log at most one entry per interval. If a log entry would be written, but cannot, it waits until it can log.
+
+Supported units are ``s`` (seconds), ``m`` (minutes) and ``h`` (hours).
+
+WARNING: by setting a maximum event output, it becomes more likely that events get dropped. Use the ``--status`` or ``--report-stats`` flag to monitor the number of dropped events.
 
 --install 
 ---------
@@ -144,9 +150,9 @@ The default is ``7``.
 --log-size
 ----------
 
-The maximum number of Megabytes before a log file gets rotated.
+The maximum size of a log file before it is rotated.
 
-The default is ``10``.
+The default is ``10MB``. Supported units are ``B``, ``KB``, ``MB``, and ``GB``.
 
 -l, --log-file
 --------------
@@ -168,7 +174,10 @@ Prints information on the available detection modules. (Aurora Lite only support
 
 This flag disables the output to the local ``Application`` event log.
 
-The default is ``enabled``. 
+--no-stdout
+-------------
+
+This flag disables the output to the standard output.
 
 -p, --rules-path
 ----------------
@@ -187,9 +196,9 @@ Default is ``false``.
 --report-stats-interval
 -----------------------
 
-Sets an interval in minutes for the status messages that get written into the defined output channels. Requires ``--report-stats``. 
+Sets an interval for the status messages that get written into the defined output channels. Requires ``--report-stats``. 
 
-Default is ``60`` minutes. 
+Default is ``1h``. Supported units are ``s`` (seconds), ``m`` (minutes) and ``h`` (hours).
 
 -s, --sigma-config
 ------------------
