@@ -18,6 +18,7 @@ Aurora Agent User Manual
    usage/rule-management
    usage/upgrade-and-updates
    usage/responses
+   usage/function-tests
    usage/debugging
 
 

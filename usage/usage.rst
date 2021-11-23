@@ -3,6 +3,35 @@ Usage
 
 This chapter explains the command line options used by Aurora in more detail. 
 
+Run Aurora
+----------
+
+If you simply run Aurora in your terminal, it'll use the default values for each flag and no dedicated config file. 
+
+.. code:: winbatch
+    
+    aurora-agent-64.exe
+
+An existing config file can be used with the respective flag. 
+
+.. code:: winbatch
+    
+    aurora-agent-64.exe -c my-config-file.yml
+
+A typical command line that runs Aurora and prints messages and matches to the command line and the Windows ``Application`` eventlog looks like this:
+
+.. code:: winbatch 
+
+    aurora-agent-64.exe --minimum-level medium 
+
+Run Aurora as Service
+---------------------
+
+To install Aurora as a service, use the ``--install`` flag and see the chapter :doc:`installation </usage/installation>` for more details.
+
+Command Line Flags
+------------------
+
 .. code::
 
     --activate-module strings      Activate the given modules, even if they are disabled by default (default [])
