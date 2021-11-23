@@ -32,7 +32,7 @@ To install Aurora as a service, use the ``--install`` flag and see the chapter :
 Command Line Flags
 ------------------
 
-.. code::
+.. code:: none
 
     --activate-module strings      Activate the given modules, even if they are disabled by default (default [])
     --activate-responses           Execute responses that are specified in sigma rules (e.g. to kill a process)
@@ -169,11 +169,6 @@ Prints information on the available detection modules. (Aurora Lite only support
 This flag disables the output to the local ``Application`` event log.
 
 The default is ``enabled``. 
-
---report-stats
---------------
-
-This instructs Aurora to report the agent status once per hour to the configured output channels.
 
 -p, --rules-path
 ----------------
