@@ -22,7 +22,7 @@ All the flags that you pass together with  are used for the configuration file `
 
 .. code:: winbatch
 
-    aurora-agent.exe --install --rules-path .\rules --rules-path .\my-rules
+    aurora-agent.exe --install --rules-path .\rules --rules-path .\my-rules --activate-responses --auto-reload
 
 Uninstall Aurora
 ----------------
