@@ -12,7 +12,7 @@ The rules and other data will be installed to ``C:\\ProgramData\\Aurora Agent\\`
 
 It will automatically copy all rule files located in a sub folder named ``./rules``. We ship the agent installer package with the current open source rule set maintained in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__. 
 
-If you want to add your own Sigma rules right during installation, you can do this by using the ``--rules-path`` flag.
+If you want to add your own Sigma rules right during installation, you can do this by using the ``--rules-path`` flag. If you're using this flag, don't forget to add the path to the shipped rules as well. 
 
 .. code:: winbatch
 
@@ -20,9 +20,11 @@ If you want to add your own Sigma rules right during installation, you can do th
 
 All the flags that you pass together with  are used for the configuration file ``agent-config.yml``.
 
+A typical command to install Aurora could look like this
+
 .. code:: winbatch
 
-    aurora-agent.exe --install --rules-path .\rules --rules-path .\my-rules --activate-responses --auto-reload
+    aurora-agent.exe --install --rules-path .\rules --rules-path .\my-rules --activate-responses --auto-reload --minimum-level medium
 
 Uninstall Aurora
 ----------------
@@ -32,3 +34,12 @@ To uninstall the agent simply run the following command:
 .. code:: winbatch 
 
     aurora-agent.exe --uninstall
+
+If the uninstaller fails due to unknown errors, you can uninstall Aurora manually with these commands 
+
+.. code:: winbatch
+
+    sc stop aurora-agent 
+    sc delete aurora-agent
+    rmdir /s /q "C:\Program Files\Aurora-Agent"
+    rmdir /s /q "C:\ProgramData\Aurora-Agent"
