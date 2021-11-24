@@ -13,42 +13,44 @@ Each event consumer consists of:
 - A number of requested event sources
 - Logic to handle incoming events from these sources
 
-Performance is primarily determined by the number of incoming events that Aurora has to process.
+Performance is primarily determined by the number of incoming events that Aurora has to process;
+The impact of Sigma rule matching, in comparison, is fairly low.
+
 Therefore, to optimize performance, choose your event sources wisely and avoid event sources that
 produce an extreme number of events.
 
 Event Source Analysis
 ---------------------
 
-When executing **aurora-agent.exe --status --trace** while Aurora is running, an overview
+When executing ``aurora-agent.exe --status --trace`` while Aurora is running, an overview
 of events that was received for each event source is generated. The performance impact of each source
 scales roughly linear with the number of events.
 
 To see which built-in modules requests which event source, the requested log sources can be listed with 
-**aurora-agent.exe --module-info --trace**. 
+``aurora-agent.exe --module-info --trace``. 
 
 For sigma log sources, inspect the sigma configurations that are used by Aurora. 
-By default, `etw-log-sources.yml` and `default-log-sources.yml` from the Aurora directory are used.
+By default, ``etw-log-sources.yml`` and ``default-log-sources.yml`` from the Aurora directory are used.
 
-Each sigma log source in these files that has a **sources** element requests the event sources listed
+Each sigma log source in these files that has a ``sources`` element requests the event sources listed
 in that element.
 
 Event Source Definitions
 ------------------------
 Aurora Agent supports the following event source prefixes:
 
-- **WinEventLog:** Events from an Eventlog channel or ETW provider. 
+- ``WinEventLog:`` Events from an Eventlog channel or ETW provider. 
 
-  The schema for these sources is: **WinEventLog:Provider/Channel?Options**
+  The schema for these sources is: ``WinEventLog:Provider/Channel?Options``
 
   Channel and options are optional and add further restrictions on events from the channel that are
   requested.
   A full list of Eventlog channels on a system can be found using the Event Viewer. A full list of ETW providers on a system
   can be found using e.g. https://github.com/zodiacon/EtwExplorer.
-- **SystemLogger:** Events from the System Trace Provider
+- ``SystemLogger:`` Events from the System Trace Provider
   (see https://docs.microsoft.com/en-us/windows/win32/etw/configuring-and-starting-a-systemtraceprovider-session for details).
 
-  The schema is: **SystemLogger:SystemLoggerFlag** and the supported flags are:
+  The schema is: ``SystemLogger:SystemLoggerFlag`` and the supported flags are:
 
   - FileIO
   - Process
@@ -57,13 +59,13 @@ Aurora Agent supports the following event source prefixes:
   - Image
   - Network-TCP-IP
   - Handle
-- **PollNamedPipes**: This event source is handled by a provider in Aurora that regularly lists all named pipes that exist on a system
+- ``PollNamedPipes``: This event source is handled by a provider in Aurora that regularly lists all named pipes that exist on a system
   and creates an event for each named pipe.
 
 Example: Disabling a noisy log source
 -------------------------------------
 
-In this example, say that `aurora-agent.exe --status --trace` results in this event overview:
+In this example, say that ``aurora-agent.exe --status --trace`` results in this event overview:
 
 .. code:: none
 
@@ -85,12 +87,12 @@ In this example, say that `aurora-agent.exe --status --trace` results in this ev
         3 events from WinEventLog:Application
         2 events from WinEventLog:Microsoft-Windows-Kernel-Registry/DeleteKey
 
-As we can see, the by far noisiest event source is `WinEventLog:Microsoft-Windows-Kernel-Audit-API-Calls`.
+As we can see, the by far noisiest event source is ``WinEventLog:Microsoft-Windows-Kernel-Audit-API-Calls``.
 
 If we want to disable this event source to lessen Aurora's CPU usage, we must find the event consumers that request
 it.
 
-`aurora-agent.exe --module-info --trace` shows these modules which use this event source:
+``aurora-agent.exe --module-info --trace`` shows these modules which use this event source:
 
 .. code:: none
 
@@ -105,7 +107,7 @@ it.
                 WinEventLog:Microsoft-Windows-Kernel-Audit-API-Calls
                 ...
 
-Searching in `etw-log-sources.yml`, we find that there is also a Sigma log source definition which uses this event source: 
+Searching in ``etw-log-sources.yml``, we find that there is also a Sigma log source definition which uses this event source: 
 
 .. code:: yaml
 
