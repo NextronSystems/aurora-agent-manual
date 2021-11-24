@@ -12,112 +12,114 @@ Examples
 A default configuration file looks like this:
 
 .. code:: yaml
-# Paths containing the sigma files
-rules-path:
-    - .\rules
-# Automatically reload the sigma rules and configurations upon detecting changes
-auto-reload: false
-# Log file path
-logfile: ''
-# Paths to the sigma configurations that should be loaded
-sigma-config:
-    - .\default-log-sources.yml
-    - .\etw-log-sources.yml
-# Print debugging information
-debug: false
-# Print tracing information
-trace: false
-# Don't log matches to the Windows event log
-no-eventlog: false
-# Report Sigma matches with rules of this level or higher
-minimum-level: high
-# Write output as JSON instead of plain text
-json: false
-# Path to the directory containing the Aurora Agent license
-license-path: .
-# UDP Address (as host:port) where the Aurora Agent should write its logs to
-udp-target: ''
-# Don't print any logs
-silent: false
-# Percentage of a single CPU core that the Aurora Agent should use at most
-cpu-limit: 100
-# Log a message about the current agent status regularly
-report-stats: false
-# Interval between status messages, see --report-stats
-report-stats-interval: 1h
-# How many log rotations should be retained
-log-rotate: 7
-# At which size the log should be rotated
-log-size: 10MB
-# Set a different name for the service, the binary and other identifiers
-agent-name: aurora-agent
-# Activate the given modules, even if they are disabled by default
-activate-module: []
-# Deactivate the given modules
-deactivate-module: []
-# Disable logging to the standard output
-no-stdout: false
-# minimum average time between log messages (warning: if set, it will slow down Aurora Agent if many matches occur!)
-event-throttling: 0h
-# Execute responses that are specified in sigma rules (e.g. to kill a process)
-activate-responses: false
-# Folder where process dumps should be stored
-dump-folder: .
+    
+    # Paths containing the sigma files
+    rules-path:
+        - .\rules
+    # Automatically reload the sigma rules and configurations upon detecting changes
+    auto-reload: false
+    # Log file path
+    logfile: ''
+    # Paths to the sigma configurations that should be loaded
+    sigma-config:
+        - .\default-log-sources.yml
+        - .\etw-log-sources.yml
+    # Print debugging information
+    debug: false
+    # Print tracing information
+    trace: false
+    # Don't log matches to the Windows event log
+    no-eventlog: false
+    # Report Sigma matches with rules of this level or higher
+    minimum-level: high
+    # Write output as JSON instead of plain text
+    json: false
+    # Path to the directory containing the Aurora Agent license
+    license-path: .
+    # UDP Address (as host:port) where the Aurora Agent should write its logs to
+    udp-target: ''
+    # Don't print any logs
+    silent: false
+    # Percentage of a single CPU core that the Aurora Agent should use at most
+    cpu-limit: 100
+    # Log a message about the current agent status regularly
+    report-stats: false
+    # Interval between status messages, see --report-stats
+    report-stats-interval: 1h
+    # How many log rotations should be retained
+    log-rotate: 7
+    # At which size the log should be rotated
+    log-size: 10MB
+    # Set a different name for the service, the binary and other identifiers
+    agent-name: aurora-agent
+    # Activate the given modules, even if they are disabled by default
+    activate-module: []
+    # Deactivate the given modules
+    deactivate-module: []
+    # Disable logging to the standard output
+    no-stdout: false
+    # minimum average time between log messages (warning: if set, it will slow down Aurora Agent if many matches occur!)
+    event-throttling: 0h
+    # Execute responses that are specified in sigma rules (e.g. to kill a process)
+    activate-responses: false
+    # Folder where process dumps should be stored
+    dump-folder: .
 
 A typical configuration file would look like this 
 
 .. code:: yaml
- # Paths containing the sigma files
-rules-path:
-    - C:\ProgramData\Aurora-Agent\rules
-# Automatically reload the sigma rules and configurations upon detecting changes
-auto-reload: false
-# Log file path
-logfile: ''
-# Paths to the sigma configurations that should be loaded
-sigma-config:
-    - C:\Program Files\Aurora-Agent\default-log-sources.yml
-    - C:\Program Files\Aurora-Agent\etw-log-sources.yml
-# Print debugging information
-debug: false
-# Print tracing information
-trace: false
-# Don't log matches to the Windows event log
-no-eventlog: false
-# Report Sigma matches with rules of this level or higher
-minimum-level: high
-# Write output as JSON instead of plain text
-json: false
-# Path to the directory containing the Aurora Agent license
-license-path: C:\ProgramData\Aurora-Agent\Aurora
-# UDP Address (as host:port) where the Aurora Agent should write its logs to
-udp-target: ''
-# Don't print any logs
-silent: false
-# Percentage of a single CPU core that the Aurora Agent should use at most
-cpu-limit: 100
-# Log a message about the current agent status regularly
-report-stats: false
-# Interval between status messages, see --report-stats
-report-stats-interval: 1h
-# How many log rotations should be retained
-log-rotate: 7
-# At which size the log should be rotated
-log-size: 10MB
-# Set a different name for the service, the binary and other identifiers
-agent-name: aurora-agent
-# Activate the given modules, even if they are disabled by default
-activate-module: []
-# Deactivate the given modules
-deactivate-module: []
-# Disable logging to the standard output
-no-stdout: false
-# minimum average time between log messages (warning: if set, it will slow down Aurora Agent if many matches occur!)
-event-throttling: 0h
-# Execute responses that are specified in sigma rules (e.g. to kill a process)
-activate-responses: false
-# Folder where process dumps should be stored
-dump-folder: C:\ProgramData\Aurora-Agent\process-dumps
+
+    # Paths containing the sigma files
+    rules-path:
+        - C:\ProgramData\Aurora-Agent\rules
+    # Automatically reload the sigma rules and configurations upon detecting changes
+    auto-reload: false
+    # Log file path
+    logfile: ''
+    # Paths to the sigma configurations that should be loaded
+    sigma-config:
+        - C:\Program Files\Aurora-Agent\default-log-sources.yml
+        - C:\Program Files\Aurora-Agent\etw-log-sources.yml
+    # Print debugging information
+    debug: false
+    # Print tracing information
+    trace: false
+    # Don't log matches to the Windows event log
+    no-eventlog: false
+    # Report Sigma matches with rules of this level or higher
+    minimum-level: high
+    # Write output as JSON instead of plain text
+    json: false
+    # Path to the directory containing the Aurora Agent license
+    license-path: C:\ProgramData\Aurora-Agent\Aurora
+    # UDP Address (as host:port) where the Aurora Agent should write its logs to
+    udp-target: ''
+    # Don't print any logs
+    silent: false
+    # Percentage of a single CPU core that the Aurora Agent should use at most
+    cpu-limit: 100
+    # Log a message about the current agent status regularly
+    report-stats: false
+    # Interval between status messages, see --report-stats
+    report-stats-interval: 1h
+    # How many log rotations should be retained
+    log-rotate: 7
+    # At which size the log should be rotated
+    log-size: 10MB
+    # Set a different name for the service, the binary and other identifiers
+    agent-name: aurora-agent
+    # Activate the given modules, even if they are disabled by default
+    activate-module: []
+    # Deactivate the given modules
+    deactivate-module: []
+    # Disable logging to the standard output
+    no-stdout: false
+    # minimum average time between log messages (warning: if set, it will slow down Aurora Agent if many matches occur!)
+    event-throttling: 0h
+    # Execute responses that are specified in sigma rules (e.g. to kill a process)
+    activate-responses: false
+    # Folder where process dumps should be stored
+    dump-folder: C:\ProgramData\Aurora-Agent\process-dumps
 
 Output Options
 --------------
