@@ -274,10 +274,66 @@ This flag can be combined with the ``--json`` flag.
         "SigmaMatches": 4
     }
 
+You can combine the ``--status`` flag with the ``--trace`` flag to get a more detailed version. 
+
+.. code:: 
+
+    Aurora Agent
+    Version: 0.1.4
+    Build Revision: d79fa653
+    Sigma Revision: 0.20-1706-g653950e4
+    Status: running
+    Uptime (in hours): 0
+
+    Active Outputs:
+    Eventlog: enabled
+    Stdout: enabled
+
+    Rule Statistics:
+    Loaded rules: 1030
+    Number of rule reloads: 0
+
+    Event Statistics:
+    Events observed so far: 85605
+            42177 events from WinEventLog:Microsoft-Windows-Kernel-Audit-API-Calls
+            20095 events from WinEventLog:Microsoft-Windows-Sysmon/Operational
+            19164 events from WinEventLog:Microsoft-Antimalware-Engine
+            2356 events from PollNamedPipes
+            857 events from WinEventLog:Microsoft-Windows-Kernel-Registry/CreateKey
+            527 events from WinEventLog:Microsoft-Windows-Kernel-Process/WINEVENT_KEYWORD_IMAGE
+            157 events from SystemLogger:Process
+            126 events from WinEventLog:Microsoft-Windows-Kernel-Process/WINEVENT_KEYWORD_PROCESS
+            31 events from WinEventLog:Microsoft-Windows-TaskScheduler/Operational
+            29 events from WinEventLog:Microsoft-Windows-DNS-Client
+            25 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_CREATE_NEW_FILE
+            25 events from WinEventLog:Microsoft-Windows-TCPIP/ut:ConnectPath
+            19 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_DELETE_PATH
+            12 events from WinEventLog:Security
+            4 events from WinEventLog:Microsoft-Windows-Kernel-Registry/DeleteKey
+            1 events from WinEventLog:Application
+    Events lost so far: 0
+    Sigma matches: 91
+            New TaskCache Entry: 18
+            Suspicious In-Memory Module Execution: 4
+            Credentials Dumping Tools Accessing LSASS Memory: 69
+    Suppressed Sigma matches of those: 74
+            New TaskCache Entry: 12
+            Credentials Dumping Tools Accessing LSASS Memory: 62
+
+    Response Actions: disabled
+
+
 --trace
 -------
 
 A flag that produces output that is more verbose than ``--debug``.
+
+In most cases it is recommended to redirect the output of this command into a file, which you can review later. Otherwise the terminal gets flooded with event messages (often more than 1000 per second).
+
+.. code:: winbatch
+
+    aurora-agent-64.exe --trace > d:\aurora-trace.log
+
 
 --udp-target
 ------------

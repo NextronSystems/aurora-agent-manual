@@ -21,6 +21,7 @@ Aurora Agent User Manual
    usage/function-tests
    usage/debugging
    usage/performance-tuning
+   usage/faqs
 
 
 Indices and tables
