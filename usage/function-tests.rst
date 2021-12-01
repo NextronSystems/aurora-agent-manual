@@ -19,7 +19,7 @@ This should create a ``ALERT`` level message for a Sigma rule with level ``criti
 
 .. code:: winbatch 
 
-    ping aaa.stage1.123456.test.com
+    ping aaa.stage.123456.test.com
 
 File Creation
 -------------
@@ -28,4 +28,4 @@ This should create a ``WARNING`` level message for a Sigma rule with level ``hig
 
 .. code:: winbatch 
 
-    echo "test" >> C:\temp\lsass.dmp
+    echo "test" > C:\temp\lsass.dmp
