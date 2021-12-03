@@ -54,6 +54,7 @@ This should create a ``WARNING`` level message for a Sigma rule with level ``hig
 Cleanup:
 
 .. code:: winbatch
+    
     del /f %temp%\lsass.dmp
 
 Included in profiles: Standard, Intense
@@ -68,6 +69,7 @@ This should create a ``WARNING`` level message for a Sigma rule with level ``hig
     reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AuroraTest" /V "AuroraTest" /t REG_SZ /F /D "vbscript"
 
 Cleanup:
+
 .. code:: winbatch
 
     reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AuroraTest" /F 
