@@ -42,7 +42,7 @@ The ``--status`` can give you information from a running Aurora service.
 
 It displays the number of events that the agent was able to see and process, the number of initialized rules and rule matches. 
 
-TBD
+Adding the flag ``--trace`` includes more information in the output, e.g. the number of processed events per ETW event channel.
 
 .. code:: winbatch
 
@@ -83,7 +83,7 @@ TBD
 
     Response Actions: disabled
 
-TBD
+The JSON output includes all the information plus the agent configuration settings. 
 
 .. code:: winbatch
 
@@ -161,9 +161,15 @@ TBD
 Performance Profiling
 ---------------------
 
-TBD 
-``--pprof``
+We've added a performance profiler to detect and debug performance problems. The flag ``--pprof`` enables the performance profiler and makes it available on local port ``8080``. 
 
+The interface can be access with a normal web browser: 
+
+.. code:: none 
+
+    http://localhost:8080/debug/pprof/
+
+Data for our support can be gather with curl commands on the command line: 
 
 .. code:: winbatch 
 
@@ -174,7 +180,7 @@ TBD
 Crashes 
 -------
 
-TBD
+In cases of unexpected crashes, the following command lines can help you identify the source of the problem. 
 
 .. code:: winbatch 
 
@@ -183,7 +189,6 @@ TBD
 .. code:: winbatch 
 
     C:\Program Files\Aurora Agent\>aurora-agent.exe -c agent-config.yml --trace > aurora-crash-trace.log 2>&1
-
 
 Error Messages
 --------------
