@@ -46,6 +46,7 @@ TBD
 
 .. code:: winbatch
 
+    C:\aurora\>aurora-agent-64.exe --status --trace
     Aurora Agent
     Version: 0.1.6
     Build Revision: 5fef68a1
