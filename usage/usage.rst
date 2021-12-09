@@ -16,13 +16,13 @@ An existing config file can be used with the respective flag.
 
 .. code:: winbatch
     
-    aurora-agent-64.exe -c my-config-file.yml
+    aurora-agent-64.exe -c agent-config-reduced.yml
 
 A typical command line that runs Aurora and prints messages and matches to the command line and the Windows ``Application`` eventlog looks like this:
 
 .. code:: winbatch 
 
-    aurora-agent-64.exe --minimum-level medium 
+    aurora-agent-64.exe --minimum-level low
 
 Run Aurora as Service
 ---------------------

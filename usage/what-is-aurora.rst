@@ -5,7 +5,6 @@ What is Aurora?
 - It uses Event Tracing for Windows (ETW) to subscribe to certain event channels.
 - It extends the Sigma standard with so-called "response actions" that can get executed after a rule match
 - It supports multiple output channels: the Windows Eventlog, a log file and remote UDP targets
-- 
 
 What is Aurora Lite? 
 --------------------
@@ -14,11 +13,11 @@ Aurora Lite is our free version of Aurora which is free for private and commerci
 
 It has a few technical limitations, doesn't use our private Sigma rule set, lacks resource control features and special modules. 
 
-Additional features in the full version:
+Features and services that are not included in the Aurora Lite version:
 
-- Comfortable Aurora Agent and Sigma rule management via ASGARD Management Center
-- Additional detection modules (not Sigma-based; e.g. Cobalt Strike beaconing, LSASS dumping)
-- Nextron Sigma rule feed 
-- Encrypted Sigma rules (protect rules from spying eyes or the AV)
-- Log output rate throttling 
-- CPU load limiting
+- No comfortable Sigma rule management via ASGARD Management Center
+- No additional detection modules (non-Sigma-based detection; e.g. Cobalt Strike beaconing, LSASS dumping)
+- No private Nextron Sigma rule feed 
+- No encrypted Sigma rules (protect rules from spying eyes or the AV)
+- No UDP/TCP Output
+- Only 2 rules with response actions allowed

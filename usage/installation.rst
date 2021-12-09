@@ -1,6 +1,9 @@
 Installation
 ============
 
+Install Aurora
+--------------
+
 You can install the agent using the following command line from command line terminal that has been started "As Administrator".
 
 .. code:: winbatch
