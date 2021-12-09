@@ -34,34 +34,41 @@ Command Line Flags
 
 .. code:: none
 
-      --activate-module strings      Activate the given modules, even if they are disabled by default (default [])
-      --activate-responses           Execute responses that are specified in sigma rules (e.g. to kill a process)
-      --agent-name string            Set a different name for the service, the binary and other identifiers (default "aurora-agent")
-  -a, --auto-reload                  Automatically reload the sigma rules and configurations upon detecting changes
-  -c, --config string                Process default parameters from this YAML file
-      --cpu-limit int                Percentage of a single CPU core that the Aurora Agent should use at most (default 100)
-      --deactivate-module strings    Deactivate the given modules (default [])
-      --debug                        Print debugging information
-      --dump-folder string           Folder where process dumps should be stored (default ".")
-      --event-throttling uint        minimum average time between log messages (warning: if set, it will slow down Aurora Agent if many matches occur!) (default 0h)
-      --install                      Install Aurora Agent as a service
-      --json                         Write output as JSON instead of plain text
-      --license-path string          Path to the directory containing the Aurora Agent license (default ".")
-      --log-rotate uint              How many log rotations should be retained (default 7)
-      --log-size uint                At which size the log should be rotated (default 10MB)
-  -l, --logfile string               Log file path
-      --minimum-level Level          Report Sigma matches with rules of this level or higher (default high)
-      --module-info                  List all available modules
-      --no-eventlog                  Don't log matches to the Windows event log
-      --no-stdout                    Disable logging to the standard output
-      --report-stats                 Log a message about the current agent status regularly
-      --report-stats-interval uint   Interval between status messages, see --report-stats (default 1h)
-  -p, --rules-path strings           Paths containing the sigma files (default [./rules])
-  -s, --sigma-config strings         Paths to the sigma configurations that should be loaded (default [./default-log-sources.yml,./etw-log-sources.yml])
-      --status                       Query the status of a running Aurora Agent service
-      --trace                        Print tracing information
-      --udp-target string            UDP Address (as host:port) where the Aurora Agent should write its logs to
-      --uninstall                    Uninstall the Aurora Agent service
+    --activate-module strings        Activate the given modules, even if they are disabled by default (default [])
+    --activate-responses             Execute responses that are specified in sigma rules (e.g. to kill a process)
+    --agent-name string              Set a different name for the service, the binary and other identifiers (default "aurora-agent")
+    -a, --auto-reload                    Automatically reload the sigma rules and configurations upon detecting changes
+    -c, --config string                  Process default parameters from this YAML file
+    --cpu-limit int                  CPU usage (as percentage) that the Aurora Agent should use at most (default 70)
+    --deactivate-module strings      Deactivate the given modules (default [])
+    --debug                          Print debugging information
+    --dump-folder string             Folder where process dumps should be stored (default ".")
+    --install                        Install Aurora Agent as a service
+    --json                           Write output as JSON instead of plain text
+    --license-path string            Path to the directory containing the Aurora Agent license (default "C:\\aurora\\aurora-agent-lite-win-pack-dev")
+    --log-rotate uint                How many log rotations should be retained (default 7)
+    --log-size string                Maximum file size for the log file. It will be rotated once it exceeds this. (default "10MB")
+    -s, --log-source strings             Paths to the sigma log sources that should be loaded (default [C:\aurora\aurora-agent-lite-win-pack-dev\log-sources\event-log-sources.yml,C:\aurora\aurora-agent-lite-win-pack-dev\log-sources\etw-log-sources-standard.yml,C:\aurora\aurora-agent-lite-win-pack-dev\log-sources\etw-log-source-mappings.yml])
+    -l, --logfile string                 Log file path
+    --low-prio                       Run Aurora Agent with low process priority
+    --match-burst uint               Number of matches for a single rule that are allowed to exceed the throttling for a short time (default 5)
+    --match-throttling string        Minimum average time between matches. Sigma Rules with responses will ignore this setting. (default "1m")
+    --minimum-level Level            Report Sigma matches with rules of this level or higher (default medium)
+    --module-info                    List all available modules
+    --no-content-info                Deactivate calculations that rely on disk access (e.g. hashes) for executables and DLLs in important events
+    --no-eventlog                    Don't log matches to the Windows event log
+    --no-stdout                      Disable logging to the standard output
+    --output-throttling string       minimum average time between log messages (warning: if set, it will slow down Aurora Agent if many matches occur!) (default "0h")
+    --print-event-id                 Print the Event ID that Aurora would assign when logging to the Eventlog as part of each message
+    --report-stats                   Log a message about the current agent status regularly
+    --report-stats-interval string   Interval between status messages, see --report-stats (default "1h")
+    -p, --rules-path strings             Paths containing the sigma files (default [C:\aurora\aurora-agent-lite-win-pack-dev\signatures\rules])
+    --status                         Query the status of a running Aurora Agent service
+    --tcp-target string              TCP Address (as host:port) where the Aurora Agent should write its logs to
+    --trace                          Print tracing information. This generates a very high number of events per second.
+    --udp-target string              UDP Address (as host:port) where the Aurora Agent should write its logs to
+    --uninstall                      Uninstall the Aurora Agent service
+    --version                        Show Aurora Agent version
 
 --activate-module
 -----------------
@@ -114,15 +121,6 @@ This flag can be used for debugging purposes as it increases the verbosity level
 
 Use to set the folder for process memory dumps created by the predefined response action ``dump``. (see chapter :doc:`Responses <./responses>`)
 
---event-throttling
-------------------
-
-Use to set a time interval. Aurora will on average log at most one entry per interval. If a log entry would be written, but cannot, it waits until it can log.
-
-Supported units are ``s`` (seconds), ``m`` (minutes) and ``h`` (hours).
-
-WARNING: by setting a maximum event output, it becomes more likely that events get dropped. Use the ``--status`` or ``--report-stats`` flag to monitor the number of dropped events.
-
 --install 
 ---------
 
@@ -154,10 +152,33 @@ The maximum size of a log file before it is rotated.
 
 The default is ``10MB``. Supported units are ``B``, ``KB``, ``MB``, and ``GB``.
 
+-s, --log-source
+------------------
+
+Paths to the sigma configs that should be loaded. Sigma config files are files that select the log sources, channels and map field names. (see `Sigma config files <https://github.com/SigmaHQ/sigma/tree/master/tools/config>`_)
+
 -l, --log-file
 --------------
 
 This sets the absolute or relative path of a text log file. The flag ``--json`` can be used to instruct Aurora to format each messages in JSON.
+
+--low-prio
+----------
+
+Run Aurora Agent with low process priority.
+
+--match-burst
+-------------
+Number of matches for a single rule that are allowed to exceed the throttling for a short time.
+
+(default 5)
+
+--match-throttling
+------------------
+
+Minimum average time between matches. Sigma Rules with responses will ignore this setting. 
+
+(default "1m")
 
 --minimum-level
 ---------------
@@ -169,6 +190,11 @@ This is the minimum Sigma rule level to report. If e.g. set to ``medium``, only 
 
 Prints information on the available detection modules. (Aurora Lite only supports the Sigma matching)
 
+--no-content-info
+-----------------
+
+Deactivate calculations that rely on disk access (e.g. hashes) for executables and DLLs in important events
+
 --no-eventlog
 -------------
 
@@ -179,12 +205,26 @@ This flag disables the output to the local ``Application`` event log.
 
 This flag disables the output to the standard output.
 
+--output-throttling
+------------------
+
+Minimum average time between log messages (warning: if set, it will slow down Aurora Agent if many matches occur!) (default "0h")
+
+Supported units are ``s`` (seconds), ``m`` (minutes) and ``h`` (hours).
+
+WARNING: by setting a maximum event output, it becomes more likely that events get dropped. Use the ``--status`` or ``--report-stats`` flag to monitor the number of dropped events.
+
 -p, --rules-path
 ----------------
 
 One or more paths to Sigma rules that get used by Aurora. 
 
 If you've combined this flag with ``--install`` the files get copied to ``C:\ProgramData\Aurora Agent\rules\`` and initialized from there.
+
+--print-event-id
+----------------
+
+Print the Event ID that Aurora would assign when logging to the Eventlog as part of each message
 
 --report-stats
 --------------
@@ -199,11 +239,6 @@ Default is ``false``.
 Sets an interval for the status messages that get written into the defined output channels. Requires ``--report-stats``. 
 
 Default is ``1h``. Supported units are ``s`` (seconds), ``m`` (minutes) and ``h`` (hours).
-
--s, --sigma-config
-------------------
-
-Sigma config files that select the log sources, channels and map field names. (see `Sigma config files <https://github.com/SigmaHQ/sigma/tree/master/tools/config>`_)
 
 --status
 --------
@@ -323,6 +358,15 @@ You can combine the ``--status`` flag with the ``--trace`` flag to get a more de
     Response Actions: disabled
 
 
+--tcp-target
+------------
+
+This flag defines a remote system to which the log data gets send via TCP. 
+
+.. code:: winbatch 
+
+    aurora-agent-64.exe --tcp-target our-siem.company.net:5001
+
 --trace
 -------
 
@@ -333,7 +377,6 @@ In most cases it is recommended to redirect the output of this command into a fi
 .. code:: winbatch
 
     aurora-agent-64.exe --trace > d:\aurora-trace.log
-
 
 --udp-target
 ------------
@@ -356,3 +399,8 @@ You can combine this flag with the ``--json`` flag to format the output in JSON.
 Use this flag to uninstall Aurora. 
 
 Note: Make sure to also set ``--agent-name`` if you've set a non-standard name.
+
+--version
+---------
+
+Print Aurora Agent version
