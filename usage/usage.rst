@@ -34,41 +34,55 @@ Command Line Flags
 
 .. code:: none
 
-    --activate-module strings        Activate the given modules, even if they are disabled by default (default [])
-    --activate-responses             Execute responses that are specified in sigma rules (e.g. to kill a process)
-    --agent-name string              Set a different name for the service, the binary and other identifiers (default "aurora-agent")
+        ___                                  ___                    __
+       /   | __  ___________  _________ _   /   | ____ ____  ____  / /_
+      / /| |/ / / / ___/ __ \/ ___/ __ `/  / /| |/ __ `/ _ \/ __ \/ __/
+     / ___ / /_/ / /  / /_/ / /  / /_/ /  / ___ / /_/ /  __/ / / / /_
+    /_/  |_\__,_/_/   \____/_/   \__,_/  /_/  |_\__, /\___/_/ /_/\__/
+                                                /____/
+
+    Aurora Agent Version 0.1.12 (4f37cd07), Sigma Revision 0.20-2208-g85981669
+    (C) Nextron Systems GmbH, 2021
+
+    Usage of aurora-agent-64.exe:
+        --activate-module strings        Activate the given modules, even if they are disabled by default (default [])
+        --activate-responses             Execute responses that are specified in sigma rules (e.g. to kill a process)
+        --agent-name string              Set a different name for the service, the binary and other identifiers (default "aurora-agent")
     -a, --auto-reload                    Automatically reload the sigma rules and configurations upon detecting changes
     -c, --config string                  Process default parameters from this YAML file
-    --cpu-limit int                  CPU usage (as percentage) that the Aurora Agent should use at most (default 70)
-    --deactivate-module strings      Deactivate the given modules (default [])
-    --debug                          Print debugging information
-    --dump-folder string             Folder where process dumps should be stored (default ".")
-    --install                        Install Aurora Agent as a service
-    --json                           Write output as JSON instead of plain text
-    --license-path string            Path to the directory containing the Aurora Agent license (default "C:\\aurora\\aurora-agent-lite-win-pack-dev")
-    --log-rotate uint                How many log rotations should be retained (default 7)
-    --log-size string                Maximum file size for the log file. It will be rotated once it exceeds this. (default "10MB")
-    -s, --log-source strings             Paths to the sigma log sources that should be loaded (default [C:\aurora\aurora-agent-lite-win-pack-dev\log-sources\event-log-sources.yml,C:\aurora\aurora-agent-lite-win-pack-dev\log-sources\etw-log-sources-standard.yml,C:\aurora\aurora-agent-lite-win-pack-dev\log-sources\etw-log-source-mappings.yml])
+        --cpu-limit int                  CPU usage (as percentage) that the Aurora Agent should use at most (default 70)
+        --deactivate-all-modules         Deactivate all modules, except for those specified by --activate-module
+        --deactivate-module strings      Deactivate the given modules (default [])
+        --debug                          Print debugging information
+        --dump-folder string             Folder where process dumps should be stored (default ".")
+        --install                        Install Aurora Agent as a service
+        --ioc-path strings               Folders containing IOC files (default [C:\aurora-beta\signatures\iocs])
+        --json                           Write output as JSON instead of plain text
+        --license-path string            Path to the directory containing the Aurora Agent license (default "C:\\aurora-beta")
+        --log-rotate uint                How many log rotations should be retained (default 7)
+        --log-size string                Maximum file size for the log file. It will be rotated once it exceeds this. (default "10MB")
+    -s, --log-source strings             Paths to the sigma log sources that should be loaded (default [C:\aurora-beta\log-sources\event-log-sources.yml,C:\aurora-beta\log-sources\etw-log-sources-standard.yml,C:\aurora-beta\log-sources\etw-log-source-mappings.yml])
     -l, --logfile string                 Log file path
-    --low-prio                       Run Aurora Agent with low process priority
-    --match-burst uint               Number of matches for a single rule that are allowed to exceed the throttling for a short time (default 5)
-    --match-throttling string        Minimum average time between matches. Sigma Rules with responses will ignore this setting. (default "1m")
-    --minimum-level Level            Report Sigma matches with rules of this level or higher (default medium)
-    --module-info                    List all available modules
-    --no-content-info                Deactivate calculations that rely on disk access (e.g. hashes) for executables and DLLs in important events
-    --no-eventlog                    Don't log matches to the Windows event log
-    --no-stdout                      Disable logging to the standard output
-    --output-throttling string       minimum average time between log messages (warning: if set, it will slow down Aurora Agent if many matches occur!) (default "0h")
-    --print-event-id                 Print the Event ID that Aurora would assign when logging to the Eventlog as part of each message
-    --report-stats                   Log a message about the current agent status regularly
-    --report-stats-interval string   Interval between status messages, see --report-stats (default "1h")
-    -p, --rules-path strings             Paths containing the sigma files (default [C:\aurora\aurora-agent-lite-win-pack-dev\signatures\rules])
-    --status                         Query the status of a running Aurora Agent service
-    --tcp-target string              TCP Address (as host:port) where the Aurora Agent should write its logs to
-    --trace                          Print tracing information. This generates a very high number of events per second.
-    --udp-target string              UDP Address (as host:port) where the Aurora Agent should write its logs to
-    --uninstall                      Uninstall the Aurora Agent service
-    --version                        Show Aurora Agent version
+        --low-prio                       Run Aurora Agent with low process priority
+        --match-burst uint               Number of matches for a single rule that are allowed to exceed the throttling for a short time (default 5)
+        --match-throttling string        Minimum average time between matches. Sigma Rules with responses will ignore this setting. (default "1m")
+        --minimum-level Level            Report Sigma matches with rules of this level or higher (default medium)
+        --module-info                    List all available modules
+        --no-content-enrichment          Deactivate calculations that rely on disk access (e.g. hashes) for executables and DLLs in important events
+        --no-eventlog                    Don't log matches to the Windows event log
+        --no-stdout                      Disable logging to the standard output
+        --output-throttling string       minimum average time between log messages (warning: if set, it will slow down Aurora Agent if many matches occur!) (default "0h")
+        --print-event-id                 Print the Event ID that Aurora would assign when logging to the Eventlog as part of each message
+        --report-stats                   Log a message about the current agent status regularly
+        --report-stats-interval string   Interval between status messages, see --report-stats (default "1h")
+    -p, --rules-path strings             Paths containing the sigma files (default [C:\aurora-beta\signatures\sigma-rules])
+        --status                         Query the status of a running Aurora Agent service
+        --tcp-target string              TCP Address (as host:port) where the Aurora Agent should write its logs to
+        --trace                          Print tracing information. This generates a very high number of events per second.
+        --udp-target string              UDP Address (as host:port) where the Aurora Agent should write its logs to
+        --uninstall                      Uninstall the Aurora Agent service
+        --version                        Show Aurora Agent version
+
 
 --activate-module
 -----------------

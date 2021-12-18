@@ -20,6 +20,7 @@ Aurora Agent User Manual
    usage/responses
    usage/modules
    usage/function-tests
+   usage/aurora-agent-util
    usage/debugging
    usage/performance-tuning
    usage/faqs

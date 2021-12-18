@@ -15,6 +15,24 @@ The Sigma rules and other data reside in ``C:\\ProgramData\\Aurora Agent\\``.
 
 It automatically copies all rule files located in a sub folder named ``./rules``. This folder contains the current open source rule set maintained in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__. 
 
+Aurora ships with 4 preset configurations that we encourage you to explorer and use: 
+
+- Standard (``agent-config-standard.yml``)
+- Reduced (``agent-config-reduced.yml``)
+- Minimal (``agent-config-minimal.yml``)
+- Intense (``agent-config-intense.yml``)
+
+The different presets are explained in more detail in the chapter :doc:`configuration </usage/configuration>`.
+
+An installation that uses the preset named "reduced" would look like this: 
+
+.. code:: winbatch
+
+    aurora-agent.exe --install -c agent-config-reduced.yml
+ 
+Custom Settings
+---------------
+
 If you want to add your own Sigma rules, you can do this by using the ``--rules-path`` flag. If you're using this flag, don't forget to add the path of the built-in rules as well. 
 
 .. code:: winbatch

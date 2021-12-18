@@ -1,10 +1,63 @@
 Configuration
 =============
 
-Aurora uses the YAML format for its configuration file. All values set in the config file can also be used as command line flags. There are two use cases in which a configuration file is used:
+Aurora uses the YAML format for its configuration file. All values set in the config file can also be used as command line flags. 
 
-1. Aurora started from command line using a config passed by the ``--config`` / ``-c`` flag
+Since there are two modes of operation 
+
+1. Aurora started from command line using a config passed with the ``--config`` / ``-c`` flag
 2. Aurora started as a service with a config file located in ``C:\Program Files\Aurora-Agent\agent-config.yml`` (see chapter :doc:`installation </usage/installation>` for more details)
+
+Configuration Profiles
+----------------------
+
+To facilitate the use of Aurora, we provide 
+
+1. Minimal 
+2. Reduced
+3. Standard
+4. Intense 
+
+Minimal 
+~~~~~~~
+
+Inactive ETW Sources 
+
+- Registry
+- Image Loads 
+- Raw Disk Access
+- Process Access
+- Create Remote Thread
+
+Agent Config 
+
+TBD
+
+Reduced 
+~~~~~~~
+
+Inactive ETW Sources 
+
+- Registry
+- Raw Disk Access
+- Process Access
+
+Standard
+~~~~~~~~
+
+Inactive ETW Sources 
+
+- Registry
+- Raw Disk Access
+
+Intense 
+~~~~~~~
+
+All possible ETW log source are activated. 
+
+WARNING: This preset uses the most system resources and can put the system under heavy load, especially if a process accesses many registry keys in a short amount of time. 
+
+We recommend using this preset only on a very selective set of systems or in cases in which maximum detection is required. 
 
 Examples 
 --------

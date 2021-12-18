@@ -3,8 +3,11 @@ Function Tests
 
 There are easy ways to test Aurora and see if it matches suspicious / malicious events.
 
+Sigma Matching
+--------------
+
 Process Creation
-----------------
+================
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
@@ -21,7 +24,7 @@ This should create a ``WARNING`` level message for a Sigma rule with level ``hig
 Included in profiles: Minimal, Reduced, Standard, Intense
 
 Network Communication
----------------------
+=====================
 
 This should create a ``ALERT`` level message for a Sigma rule with level ``critical``.
 
@@ -32,7 +35,7 @@ This should create a ``ALERT`` level message for a Sigma rule with level ``criti
 Included in profiles: Minimal, Reduced, Standard, Intense
 
 File Creation
--------------
+=============
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
@@ -43,7 +46,7 @@ This should create a ``WARNING`` level message for a Sigma rule with level ``hig
 Included in profiles: Minimal, Reduced, Standard, Intense
 
 Process Access
--------------
+==============
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
@@ -60,7 +63,7 @@ Cleanup:
 Included in profiles: Standard, Intense
 
 Registry
---------
+========
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
@@ -75,3 +78,58 @@ Cleanup:
     reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AuroraTest" /F 
 
 Included in profiles: Intense
+
+IOC Matching
+------------
+
+Note: the Aurora Lite version uses only a very limited set of IOCs. 
+
+Filenames
+=========
+
+.. code:: winbatch
+
+    echo "test" > %temp%\loader.ps1
+
+Cleanup: 
+
+.. code:: winbatch 
+
+    del %temp%\loader.ps1
+
+C2 
+==
+
+Warning: this could trigger an alert in your internal monitoring (old Sofacy C2)
+
+.. code:: winbatch 
+
+    ping drivres-update.info
+
+Hash 
+====
+
+TDB
+
+NamedPipe
+=========
+
+TBD
+
+Mutex
+=====
+
+TBD
+
+CommandLineMismatchDetector
+---------------------------
+
+Download Process Ghosting PoC `release package<https://github.com/hasherezade/process_ghosting/releases>`__ named "proc_ghost.zip" by @hasherezade
+
+Extract the package and then run:
+
+.. code:: winbatch 
+
+    proc_ghost.exe %comspec% c1.exe
+
+Note: Only available in the full version (not Aurora Lite)
