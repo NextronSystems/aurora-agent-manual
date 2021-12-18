@@ -7,7 +7,7 @@ Sigma Matching
 --------------
 
 Process Creation
-================
+~~~~~~~~~~~~~~~~
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
@@ -24,7 +24,7 @@ This should create a ``WARNING`` level message for a Sigma rule with level ``hig
 Included in profiles: Minimal, Reduced, Standard, Intense
 
 Network Communication
-=====================
+~~~~~~~~~~~~~~~~~~~~~
 
 This should create a ``ALERT`` level message for a Sigma rule with level ``critical``.
 
@@ -35,7 +35,7 @@ This should create a ``ALERT`` level message for a Sigma rule with level ``criti
 Included in profiles: Minimal, Reduced, Standard, Intense
 
 File Creation
-=============
+~~~~~~~~~~~~~
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
@@ -46,7 +46,7 @@ This should create a ``WARNING`` level message for a Sigma rule with level ``hig
 Included in profiles: Minimal, Reduced, Standard, Intense
 
 Process Access
-==============
+~~~~~~~~~~~~~~
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
@@ -63,7 +63,7 @@ Cleanup:
 Included in profiles: Standard, Intense
 
 Registry
-========
+~~~~~~~~
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
@@ -85,7 +85,7 @@ IOC Matching
 Note: the Aurora Lite version uses only a very limited set of IOCs. 
 
 Filenames
-=========
+~~~~~~~~~
 
 .. code:: winbatch
 
@@ -98,7 +98,7 @@ Cleanup:
     del %temp%\loader.ps1
 
 C2 
-==
+~~
 
 Warning: this could trigger an alert in your internal monitoring (old Sofacy C2)
 
@@ -107,17 +107,17 @@ Warning: this could trigger an alert in your internal monitoring (old Sofacy C2)
     ping drivres-update.info
 
 Hash 
-====
+~~~~
 
 TDB
 
 NamedPipe
-=========
+~~~~~~~~~
 
 TBD
 
 Mutex
-=====
+~~~~~
 
 TBD
 
