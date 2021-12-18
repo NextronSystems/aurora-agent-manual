@@ -23,6 +23,7 @@ Aurora Agent User Manual
    usage/aurora-agent-util
    usage/debugging
    usage/performance-tuning
+   usage/known-issues
    usage/faqs
 
 
