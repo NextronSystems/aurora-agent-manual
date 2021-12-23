@@ -24,14 +24,14 @@ State
 
 Work in progress
 
+Rule: "Rundll32 Internet Connection" Misses CommandLine Field 
+-------------------------------------------------------------
+
+Matches with the rule "Rundll32 Internet Connection" currently miss a ``CommandLine`` field. Adding that field to the rule is already on our list of features. 
+
 Missing Self-Defense
 --------------------
 
 - Folder permission checks
 - ETW manipulations (the ETW canary module already covers some of them)
 - Warning events on configuration changes
-
-State
-~~~~~
-
-Work in progress
