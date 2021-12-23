@@ -1,7 +1,7 @@
 What is Aurora?
 ===============
 
-- Aurora is a lightweight endpoint agent that applies Sigma rules on local event streams.
+- Aurora is a lightweight endpoint agent that applies Sigma rules and IOCs on local event streams.
 - It uses Event Tracing for Windows (ETW) to subscribe to certain event channels.
 - It extends the Sigma standard with so-called "response actions" that can get executed after a rule match
 - It supports multiple output channels: the Windows Eventlog, a log file and remote UDP targets

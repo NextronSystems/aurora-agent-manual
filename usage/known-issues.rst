@@ -23,3 +23,15 @@ State
 ~~~~~
 
 Work in progress
+
+Missing Self-Defense
+--------------------
+
+- Folder permission checks
+- ETW manipulations (the ETW canary module already covers some of them)
+- Warning events on configuration changes
+
+State
+~~~~~
+
+Work in progress
