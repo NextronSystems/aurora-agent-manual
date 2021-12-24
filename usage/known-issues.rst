@@ -19,10 +19,20 @@ Affects
 - Sigma matching in which values of ``CommandLine`` or ``ParentCommandLine`` are used in combination with ``Image`` or ``ParentImage``
 - Module: Command Line Mismatch Detector
 
-State 
-~~~~~
+Status
+~~~~~~
 
-Work in progress
+Work in progress. Fix in January.
+
+x86 Version Broken
+------------------
+
+The x86 version of Aurora is currently broken. 
+
+Status
+~~~~~~
+
+Will be fixed in week 2 of 2022. 
 
 Rule: "Rundll32 Internet Connection" Misses CommandLine Field 
 -------------------------------------------------------------
