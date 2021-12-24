@@ -29,6 +29,22 @@ x86 Version Broken
 
 The x86 version of Aurora is currently broken. 
 
+Unknown Flags in Default Configs 
+--------------------------------
+
+.. code:: winbatch 
+
+    error while parsing arguments: unknown flag: --no-hashes
+
+.. code:: winbatch 
+
+    module LsaDumpCheck specified as deactivated, but does not exist
+
+Status
+~~~~~~
+
+Fixed in build 71e787c from 24th of December
+
 Status
 ~~~~~~
 
