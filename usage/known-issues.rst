@@ -24,10 +24,27 @@ Status
 
 Work in progress. Fix in January.
 
-x86 Version Broken
-------------------
+x86 Version doesn't start
+-------------------------
 
-The x86 version of Aurora is currently broken. 
+The ``EtwCanary`` module is broken and doesn't work on x86 systems. You won't get an appropriate error message. The agent just crashes silently on Windows x86 systems. 
+
+Work Around
+~~~~~~~~~~~
+
+Use this flag to start the agent: ``--deactivate-module EtwCanary``
+
+Set this flag in the config file:
+
+.. code:: yaml 
+
+    deactivate-module:
+        - EtwCanary
+
+Status
+~~~~~~
+
+The module has been temporarily disabled in all configs except ``agent-config-intense.yml`` in build ``4a34c34`` (24.12.2021)
 
 Unknown Flags in Default Configs 
 --------------------------------
@@ -43,7 +60,7 @@ Unknown Flags in Default Configs
 Status
 ~~~~~~
 
-Fixed in build 71e787c from 24th of December
+Fixed in build ``71e787c`` (24.12.2021)
 
 Status
 ~~~~~~
