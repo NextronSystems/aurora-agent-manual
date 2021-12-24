@@ -44,7 +44,7 @@ Set this flag in the config file:
 Status
 ~~~~~~
 
-The module has been temporarily disabled in all configs except ``agent-config-intense.yml`` in build ``4a34c34`` (24.12.2021)
+The module has been temporarily disabled in all configs except ``agent-config-intense.yml`` in build ``4a34c345`` (24.12.2021)
 
 Unknown Flags in Default Configs 
 --------------------------------
@@ -60,7 +60,7 @@ Unknown Flags in Default Configs
 Status
 ~~~~~~
 
-Fixed in build ``71e787c`` (24.12.2021)
+Fixed in build ``71e787c9`` (24.12.2021)
 
 Status
 ~~~~~~
