@@ -44,7 +44,7 @@ Set this flag in the config file:
 Status
 ~~~~~~
 
-The module has been temporarily disabled in all configs except ``agent-config-intense.yml`` in build ``4a34c345`` (24.12.2021)
+The ``EtwCanary`` module has been temporarily disabled in all configs except ``agent-config-intense.yml`` in build ``4a34c345`` (24.12.2021)
 
 Unknown Flags in Default Configs 
 --------------------------------
