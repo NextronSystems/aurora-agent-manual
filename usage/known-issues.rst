@@ -62,10 +62,15 @@ Status
 
 Fixed in build ``71e787c9`` (24.12.2021)
 
+Rule that use "Provider_Name" don't match
+-----------------------------------------
+
+Sigma rules that use the field ``Provider_Name``, e.g. the rule ``Eventlog Cleared`` (UUID: ``d99b79d2-0a6f-4f46-ad8b-260b6e17f982``) that looks for EventID ``1102`` and a certain provider name couldn't match because Aurora uses ``Provider.Name`` internally. 
+
 Status
 ~~~~~~
 
-Will be fixed in week 2 of 2022. 
+Fixed in build ``06b7d44d`` (07.01.2022)
 
 Rule: "Rundll32 Internet Connection" Misses CommandLine Field 
 -------------------------------------------------------------
