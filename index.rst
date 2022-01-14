@@ -24,6 +24,7 @@ Aurora Agent User Manual
    usage/debugging
    usage/performance-tuning
    usage/known-issues
+   usage/detection-gaps
    usage/faqs
 
 
