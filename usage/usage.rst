@@ -39,50 +39,50 @@ Command Line Flags
       / /| |/ / / / ___/ __ \/ ___/ __ `/  / /| |/ __ `/ _ \/ __ \/ __/
      / ___ / /_/ / /  / /_/ / /  / /_/ /  / ___ / /_/ /  __/ / / / /_
     /_/  |_\__,_/_/   \____/_/   \__,_/  /_/  |_\__, /\___/_/ /_/\__/
-                                                /____/
+                                               /____/
 
-    Aurora Agent Version 0.1.12 (4f37cd07), Sigma Revision 0.20-2208-g85981669
+    Aurora Agent Version 0.2.0 (b365ca69), Sigma Revision 0.20-2182-g9a96b77f1
     (C) Nextron Systems GmbH, 2021
 
     Usage of aurora-agent-64.exe:
-        --activate-module strings        Activate the given modules, even if they are disabled by default (default [])
-        --activate-responses             Execute responses that are specified in sigma rules (e.g. to kill a process)
-        --agent-name string              Set a different name for the service, the binary and other identifiers (default "aurora-agent")
-    -a, --auto-reload                    Automatically reload the sigma rules and configurations upon detecting changes
-    -c, --config string                  Process default parameters from this YAML file
-        --cpu-limit int                  CPU usage (as percentage) that the Aurora Agent should use at most (default 70)
-        --deactivate-all-modules         Deactivate all modules, except for those specified by --activate-module
-        --deactivate-module strings      Deactivate the given modules (default [])
-        --debug                          Print debugging information
-        --dump-folder string             Folder where process dumps should be stored (default ".")
-        --install                        Install Aurora Agent as a service
-        --ioc-path strings               Folders containing IOC files (default [C:\aurora-beta\signatures\iocs])
-        --json                           Write output as JSON instead of plain text
-        --license-path string            Path to the directory containing the Aurora Agent license (default "C:\\aurora-beta")
-        --log-rotate uint                How many log rotations should be retained (default 7)
-        --log-size string                Maximum file size for the log file. It will be rotated once it exceeds this. (default "10MB")
-    -s, --log-source strings             Paths to the sigma log sources that should be loaded (default [C:\aurora-beta\log-sources\event-log-sources.yml,C:\aurora-beta\log-sources\etw-log-sources-standard.yml,C:\aurora-beta\log-sources\etw-log-source-mappings.yml])
-    -l, --logfile string                 Log file path
-        --low-prio                       Run Aurora Agent with low process priority
-        --match-burst uint               Number of matches for a single rule that are allowed to exceed the throttling for a short time (default 5)
-        --match-throttling string        Minimum average time between matches. Sigma Rules with responses will ignore this setting. (default "1m")
-        --minimum-level Level            Report Sigma matches with rules of this level or higher (default medium)
-        --module-info                    List all available modules
-        --no-content-enrichment          Deactivate calculations that rely on disk access (e.g. hashes) for executables and DLLs in important events
-        --no-eventlog                    Don't log matches to the Windows event log
-        --no-stdout                      Disable logging to the standard output
-        --output-throttling string       minimum average time between log messages (warning: if set, it will slow down Aurora Agent if many matches occur!) (default "0h")
-        --print-event-id                 Print the Event ID that Aurora would assign when logging to the Eventlog as part of each message
-        --report-stats                   Log a message about the current agent status regularly
-        --report-stats-interval string   Interval between status messages, see --report-stats (default "1h")
-    -p, --rules-path strings             Paths containing the sigma files (default [C:\aurora-beta\signatures\sigma-rules])
-        --status                         Query the status of a running Aurora Agent service
-        --tcp-target string              TCP Address (as host:port) where the Aurora Agent should write its logs to
-        --trace                          Print tracing information. This generates a very high number of events per second.
-        --udp-target string              UDP Address (as host:port) where the Aurora Agent should write its logs to
-        --uninstall                      Uninstall the Aurora Agent service
-        --version                        Show Aurora Agent version
-
+          --activate-module strings             Activate the given modules, even if they are disabled by default (default [])
+          --activate-responses                  Execute responses that are specified in sigma rules (e.g. to kill a process)
+          --agent-name string                   Set a different name for the service, the binary and other identifiers (default "aurora-agent")
+      -a, --auto-reload                         Automatically reload the sigma rules and configurations upon detecting changes
+      -c, --config string                       Process default parameters from this YAML file
+          --cpu-limit int                       CPU usage (as percentage) that the Aurora Agent should use at most (default 70)
+          --deactivate-all-modules              Deactivate all modules, except for those specified by --activate-module
+          --deactivate-module strings           Deactivate the given modules (default [])
+          --debug                               Print debugging information
+          --dump-folder string                  Folder where process dumps should be stored (default ".")
+          --false-positive-filter-file string   Path to a file containing false positive regexes (one per line)
+          --install                             Install Aurora Agent as a service
+          --ioc-path strings                    Folders containing IOC files (default [signatures\iocs])
+          --json                                Write output as JSON instead of plain text
+          --license-path string                 Path to the directory containing the Aurora Agent license (default ".")
+          --log-rotate uint                     How many log rotations should be retained (default 7)
+          --log-size string                     Maximum file size for the log file. It will be rotated once it exceeds this. (default "10MB")
+      -s, --log-source strings                  Paths to the sigma log sources that should be loaded (default [log-sources\event-log-sources.yml,log-sources\etw-log-sources-standard.yml,log-sources\etw-log-source-mappings.yml])
+      -l, --logfile string                      Log file path
+          --low-prio                            Run Aurora Agent with low process priority
+          --match-burst uint                    Number of matches for a single rule that are allowed to exceed the throttling for a short time (default 5)
+          --match-throttling string             Minimum average time between matches. Sigma Rules with responses will ignore this setting. (default "1m")
+          --minimum-level Level                 Report Sigma matches with rules of this level or higher (default medium)
+          --module-info                         List all available modules
+          --no-content-enrichment               Deactivate calculations that rely on disk access (e.g. hashes) for executables and DLLs in important events
+          --no-eventlog                         Don't log matches to the Windows event log
+          --no-stdout                           Disable logging to the standard output
+          --output-throttling string            minimum average time between log messages (warning: if set, it can cause Aurora Agent to drop messages if many matches occur!) (default "0h")
+          --print-event-id                      Print the Event ID that Aurora would assign when logging to the Eventlog as part of each message
+          --report-stats                        Log a message about the current agent status regularly
+          --report-stats-interval string        Interval between status messages, see --report-stats (default "1h")
+      -p, --rules-path strings                  Paths containing the sigma files (default [signatures\sigma-rules])
+          --status                              Query the status of a running Aurora Agent service
+          --tcp-target string                   TCP Address (as host:port) where the Aurora Agent should write its logs to
+          --trace                               Print tracing information. This generates a very high number of events per second.
+          --udp-target string                   UDP Address (as host:port) where the Aurora Agent should write its logs to
+          --uninstall                           Uninstall the Aurora Agent service
+          --version                             Show Aurora Agent version
 
 --activate-module
 -----------------
@@ -120,6 +120,11 @@ This flag allows to set a CPU usage limit from 1 to 100. Aurora uses only one CP
 
 WARNING: by setting a low CPU limit, it becomes more likely that events get dropped. Use the ``--status`` or ``--report-stats`` flag to monitor the number of dropped events.
 
+--deactivate-all-modules
+------------------------
+
+This flag deactivates all modules in Aurora that are not explicitly enabled with ``--activate-module``. It can be used to debug issues with specific modules.
+
 --deactivate-module
 -------------------
 
@@ -135,6 +140,14 @@ This flag can be used for debugging purposes as it increases the verbosity level
 
 Use to set the folder for process memory dumps created by the predefined response action ``dump``. (see chapter :doc:`Responses <./responses>`)
 
+--false-positive-filter-file
+----------------------------
+Requires a path to file containing one regular expression per line. Log lines that match any regular expression are suppressed.
+
+--ioc-path
+----------
+Path to the directories containing IOCs for Aurora. (see chapter :doc:`Configuration <./configuration>`)
+
 --install 
 ---------
 
@@ -143,14 +156,14 @@ See the chapter :doc:`Installation <./installation>`.
 --json 
 ------
 
-Formats the log lines as JSON. Applies to the log file and UDP outputs. 
+Formats the log lines as JSON. Applies to all outputs except for the Windows Eventlog.
 
 --license-path 
 --------------
 
 A path to a valid license file.
 
-Note: Event the free version named Aurora Lite requires a license file.
+Note: Even the free version named Aurora Lite requires a license file.
 
 --log-rotate
 ------------
@@ -169,7 +182,8 @@ The default is ``10MB``. Supported units are ``B``, ``KB``, ``MB``, and ``GB``.
 -s, --log-source
 ------------------
 
-Paths to the sigma configs that should be loaded. Sigma config files are files that select the log sources, channels and map field names. (see `Sigma config files <https://github.com/SigmaHQ/sigma/tree/master/tools/config>`_)
+Paths to the sigma configs that should be loaded. Sigma config files are files that select the log sources, channels and map field names. 
+(see `Sigma config files <https://github.com/SigmaHQ/sigma/tree/master/tools/config>`_)
 
 -l, --log-file
 --------------
@@ -204,8 +218,8 @@ This is the minimum Sigma rule level to report. If e.g. set to ``medium``, only 
 
 Prints information on the available detection modules. (Aurora Lite only supports the Sigma matching)
 
---no-content-info
------------------
+--no-content-enrichment
+-----------------------
 
 Deactivate calculations that rely on disk access (e.g. hashes) for executables and DLLs in important events
 
@@ -220,9 +234,9 @@ This flag disables the output to the local ``Application`` event log.
 This flag disables the output to the standard output.
 
 --output-throttling
-------------------
+-------------------
 
-Minimum average time between log messages (warning: if set, it will slow down Aurora Agent if many matches occur!) (default "0h")
+Minimum average time between log messages (default "0h")
 
 Supported units are ``s`` (seconds), ``m`` (minutes) and ``h`` (hours).
 
@@ -257,120 +271,18 @@ Default is ``1h``. Supported units are ``s`` (seconds), ``m`` (minutes) and ``h`
 --status
 --------
 
-This flag can be used to query information from the running service.
+This flag can be used to query status information from the running service.
 
 Note: Make sure to also set ``--agent-name`` if you've set a non-standard name.
 
-.. code:: winbatch
+This flag can be combined with the ``--json`` and ``--trace`` flags for JSON formatted or more detailed output.
 
-    C:\aurora>aurora-agent-64.exe --status
+Status information will include information about: 
 
-    Aurora Agent
-    Version: 1.0.0
-    Sigma Revision: 0.20-1442-g80d2aee9
-    Uptime (in hours): 1
-
-    Active Outputs:
-    Eventlog: enabled
-
-    Rule Statistics:
-    Loaded rules: 723
-    Number of rule reloads: 0
-
-    Event Statistics:
-    Events observed so far: 2004511
-    Events lost so far: 0
-    Sigma matches: 4
-
-This flag can be combined with the ``--json`` flag.
-
-.. code:: json
-
-    {
-        "Parameters": {
-            "SigmaFolders": [
-                "C:\\ProgramData\\Aurora-Agent\\rules",
-                "C:\\ProgramData\\Aurora-Agent\\myrules"
-            ],
-            "AutoReload": false,
-            "LogFile": "",
-            "LogSources": [
-                "C:\\ProgramData\\Aurora-Agent\\default-log-sources.yml",
-                "C:\\ProgramData\\Aurora-Agent\\etw-log-sources.yml"
-            ],
-            "Debug": false,
-            "Trace": false,
-            "EventLogging": true,
-            "ReportingLevel": "high",
-            "DumpFolder": "C:\\ProgramData\\Aurora-Agent\\process-dumps",
-            "Json": false,
-            "LicensePath": "C:\\ProgramData\\Aurora-Agent\\aurora",
-            "UdpTarget": "",
-            "Silent": false,
-            "CpuLimit": 100,
-            "ReportStats": false,
-            "LogRotateCount": 0,
-            "LogSize": 10485760,
-            "AgentName": "aurora-agent"
-        },
-        "Uptime": 3828388216900,
-        "Version": "1.0.0",
-        "SigmaRevision": "0.20-1442-g80d2aee9",
-        "LoadedRules": 723,
-        "ReloadCounter": 0,
-        "EventsProcessed": 2066052,
-        "EventsLost": 0,
-        "SigmaMatches": 4
-    }
-
-You can combine the ``--status`` flag with the ``--trace`` flag to get a more detailed version. 
-
-.. code:: 
-
-    Aurora Agent
-    Version: 0.1.4
-    Build Revision: d79fa653
-    Sigma Revision: 0.20-1706-g653950e4
-    Status: running
-    Uptime (in hours): 0
-
-    Active Outputs:
-    Eventlog: enabled
-    Stdout: enabled
-
-    Rule Statistics:
-    Loaded rules: 1030
-    Number of rule reloads: 0
-
-    Event Statistics:
-    Events observed so far: 85605
-            42177 events from WinEventLog:Microsoft-Windows-Kernel-Audit-API-Calls
-            20095 events from WinEventLog:Microsoft-Windows-Sysmon/Operational
-            19164 events from WinEventLog:Microsoft-Antimalware-Engine
-            2356 events from PollNamedPipes
-            857 events from WinEventLog:Microsoft-Windows-Kernel-Registry/CreateKey
-            527 events from WinEventLog:Microsoft-Windows-Kernel-Process/WINEVENT_KEYWORD_IMAGE
-            157 events from SystemLogger:Process
-            126 events from WinEventLog:Microsoft-Windows-Kernel-Process/WINEVENT_KEYWORD_PROCESS
-            31 events from WinEventLog:Microsoft-Windows-TaskScheduler/Operational
-            29 events from WinEventLog:Microsoft-Windows-DNS-Client
-            25 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_CREATE_NEW_FILE
-            25 events from WinEventLog:Microsoft-Windows-TCPIP/ut:ConnectPath
-            19 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_DELETE_PATH
-            12 events from WinEventLog:Security
-            4 events from WinEventLog:Microsoft-Windows-Kernel-Registry/DeleteKey
-            1 events from WinEventLog:Application
-    Events lost so far: 0
-    Sigma matches: 91
-            New TaskCache Entry: 18
-            Suspicious In-Memory Module Execution: 4
-            Credentials Dumping Tools Accessing LSASS Memory: 69
-    Suppressed Sigma matches of those: 74
-            New TaskCache Entry: 12
-            Credentials Dumping Tools Accessing LSASS Memory: 62
-
-    Response Actions: disabled
-
+- Loaded sigma rules
+- Observed events
+- Sigma matches
+- Active outputs
 
 --tcp-target
 ------------
