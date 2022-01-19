@@ -3,52 +3,54 @@ Configuration
 
 Aurora uses the YAML format for its configuration file. All values set in the config file can also be used as command line flags. 
 
-Since there are two modes of operation 
+There are two modes of operation:
 
-1. Aurora started from command line using a config passed with the ``--config`` / ``-c`` flag
-2. Aurora started as a service with a config file located in ``C:\Program Files\Aurora-Agent\agent-config.yml`` (see chapter :doc:`installation </usage/installation>` for more details)
+1. Aurora started directly from the command line, optionally using a config passed with the ``--config`` / ``-c`` flag
+2. Aurora started as a service (see chapter :doc:`installation </usage/installation>` for more details) with a config file located in ``C:\Program Files\Aurora-Agent\agent-config.yml``
 
 Configuration Profiles
 ----------------------
 
-To facilitate the use of Aurora, we provide 
+To facilitate the use of Aurora, four configuration files are part of the Aurora package:
 
-1. Minimal 
+1. Minimal
 2. Reduced
 3. Standard
 4. Intense 
 
+These profiles are explained below in some detail. If you need further information, you can also inspect the configuration files directly.
+
 Minimal 
 ~~~~~~~
 
-Inactive ETW Sources 
+The ``minimal`` configuration file limits Aurora process priority and CPU usage to a low level. It deactivates the following ETW sources:
 
 - Registry
 - Image Loads 
 - Raw Disk Access
 - Process Access
 - Create Remote Thread
+- Kernel Handles
 
-Agent Config 
-
-TBD
 
 Reduced 
 ~~~~~~~
 
-Inactive ETW Sources 
+The ``reduced`` configuration file deactivates expensive ETW log sources and limits Aurora CPU usage. It deactivates the following ETW sources:
 
 - Registry
 - Raw Disk Access
 - Process Access
+- Kernel Handles
 
 Standard
 ~~~~~~~~
 
-Inactive ETW Sources 
+The ``standard`` configuration file deactivates very expensive ETW log sources and limits Aurora CPU usage. It deactivates the following ETW sources:
 
 - Registry
 - Raw Disk Access
+- Kernel Handles
 
 Intense 
 ~~~~~~~
@@ -59,138 +61,41 @@ WARNING: This preset uses the most system resources and can put the system under
 
 We recommend using this preset only on a very selective set of systems or in cases in which maximum detection is required. 
 
-Examples 
---------
+Custom Profiles
+~~~~~~~~~~~~~~~
 
-A default configuration file looks like this:
-
-.. code:: yaml
-    
-    # Paths containing the sigma files
-    rules-path:
-        - .\rules
-    # Automatically reload the sigma rules and configurations upon detecting changes
-    auto-reload: false
-    # Log file path
-    logfile: ''
-    # Paths to the sigma configurations that should be loaded
-    sigma-config:
-        - .\default-log-sources.yml
-        - .\etw-log-sources.yml
-    # Print debugging information
-    debug: false
-    # Print tracing information
-    trace: false
-    # Don't log matches to the Windows event log
-    no-eventlog: false
-    # Report Sigma matches with rules of this level or higher
-    minimum-level: high
-    # Write output as JSON instead of plain text
-    json: false
-    # Path to the directory containing the Aurora Agent license
-    license-path: .
-    # UDP Address (as host:port) where the Aurora Agent should write its logs to
-    udp-target: ''
-    # Don't print any logs
-    silent: false
-    # Percentage of a single CPU core that the Aurora Agent should use at most
-    cpu-limit: 100
-    # Log a message about the current agent status regularly
-    report-stats: false
-    # Interval between status messages, see --report-stats
-    report-stats-interval: 1h
-    # How many log rotations should be retained
-    log-rotate: 7
-    # At which size the log should be rotated
-    log-size: 10MB
-    # Set a different name for the service, the binary and other identifiers
-    agent-name: aurora-agent
-    # Activate the given modules, even if they are disabled by default
-    activate-module: []
-    # Deactivate the given modules
-    deactivate-module: []
-    # Disable logging to the standard output
-    no-stdout: false
-    # minimum average time between log messages (warning: if set, it will slow down Aurora Agent if many matches occur!)
-    event-throttling: 0h
-    # Execute responses that are specified in sigma rules (e.g. to kill a process)
-    activate-responses: false
-    # Folder where process dumps should be stored
-    dump-folder: .
-
-A typical configuration file would look like this 
-
-.. code:: yaml
-
-    # Paths containing the sigma files
-    rules-path:
-        - C:\ProgramData\Aurora-Agent\rules
-    # Automatically reload the sigma rules and configurations upon detecting changes
-    auto-reload: false
-    # Log file path
-    logfile: ''
-    # Paths to the sigma configurations that should be loaded
-    sigma-config:
-        - C:\Program Files\Aurora-Agent\default-log-sources.yml
-        - C:\Program Files\Aurora-Agent\etw-log-sources.yml
-    # Print debugging information
-    debug: false
-    # Print tracing information
-    trace: false
-    # Don't log matches to the Windows event log
-    no-eventlog: false
-    # Report Sigma matches with rules of this level or higher
-    minimum-level: high
-    # Write output as JSON instead of plain text
-    json: false
-    # Path to the directory containing the Aurora Agent license
-    license-path: C:\ProgramData\Aurora-Agent\Aurora
-    # UDP Address (as host:port) where the Aurora Agent should write its logs to
-    udp-target: ''
-    # Don't print any logs
-    silent: false
-    # Percentage of a single CPU core that the Aurora Agent should use at most
-    cpu-limit: 100
-    # Log a message about the current agent status regularly
-    report-stats: false
-    # Interval between status messages, see --report-stats
-    report-stats-interval: 1h
-    # How many log rotations should be retained
-    log-rotate: 7
-    # At which size the log should be rotated
-    log-size: 10MB
-    # Set a different name for the service, the binary and other identifiers
-    agent-name: aurora-agent
-    # Activate the given modules, even if they are disabled by default
-    activate-module: []
-    # Deactivate the given modules
-    deactivate-module: []
-    # Disable logging to the standard output
-    no-stdout: false
-    # minimum average time between log messages (warning: if set, it will slow down Aurora Agent if many matches occur!)
-    event-throttling: 0h
-    # Execute responses that are specified in sigma rules (e.g. to kill a process)
-    activate-responses: false
-    # Folder where process dumps should be stored
-    dump-folder: C:\ProgramData\Aurora-Agent\process-dumps
+If you need a more specialized configuration than these predefined ones, you can also create your own configuration for maximal adaptability.
 
 Output Options
 --------------
 
-The following output options are currently available 
+The following output options are available:
 
-- Windows Eventlog (default)
+- Windows Eventlog (on by default)
 - Log file
-- UDP target (full version only)
+- TCP or UDP target (full version only)
 - ASGARD Analysis Cockpit (full version only)
-- Standard Output
+- Standard Output (on by default)
 
 ASGARD Analysis Cockpit 
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Whenever you install an ASGARD Agent, the controlled Aurora Agent Services gets its configuration automatically. In a default setup, all logs generated by an Aurora Agent will be relayed via an ASGARD to an Analysis Cockpit system.
 
-Standard Output
-~~~~~~~~~~~~~~~
+False positive filtering
+------------------------
+When encountering false positives or known anomalies, besides reporting them, you can also exclude them using a false positive filter file and passing it to Aurora
+via the ``--false-positive-filter-file`` option.
 
-The standard output can be used for debugging purposes. It contains all the matching events plus debugging and tracing messages when set to ``True`` in the config file. 
+The file passed should contain a regular expression per line; any log lines where any of these false positive regexps matches
+will not be logged.
+
+Custom Signatures
+-----------------
+Sigma rules and IOCs can be passed to Aurora using the ``--rules-path`` and ``--ioc-path`` paremeters. These parameters default to the built-in rules and IOCs at 
+``signatures/sigma-rules`` and ``signatures/iocs`` respectively. 
+
+IOCs follow the same format that THOR IOCs do; the full description can be found in the `THOR manual <https://thor-manual.nextron-systems.com/en/latest/usage/custom-signatures.html#simple-iocs>`_.
+
+Both IOCs and sigma rules can be encrypted using the ``encrypt`` function in Aurora Agent Util. Aurora will automatically decrypt encrypted signatures at startup. 
+This functionality is only available in the full version of Aurora.
