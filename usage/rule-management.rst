@@ -1,14 +1,14 @@
 Rule Management
 ===============
 
-The rules used by Aurora are stored in ``C:\ProgramData\Aurora-Agent\rules`` unless you've used a different agent name with the ``--agent-name`` command line flag. In the free Aurora Lite version, you have to update and manage the rules manually.
+The rules used by Aurora are stored in ``C:\Program Files\Aurora-Agent\rules`` unless you've used a different agent name with the ``--agent-name`` command line flag. In the free Aurora Lite version, you have to update and manage the rules manually.
 
 There are two ways to update the rules that the currently running Aurora agent uses:
 
 1. You edit / update the rules in the source folders and reinstall the agent
 2. You edit / update the rules in the target folder and restart the service 
 
-(e.g. source folder = ``C:\aurora``, target folder = ``C:\ProgramData\Aurora-Agent\rules``)
+(e.g. source folder = ``C:\aurora``, target folder = ``C:\Program Files\Aurora-Agent\rules``)
 
 Rule Management with ASGARD
 ---------------------------

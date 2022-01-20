@@ -199,5 +199,5 @@ Check the configured log outputs for error messages. A faulty rule would e.g. le
 
     Could not reload sigma rules 
     Module: Aurora-Agent 
-    Changed_files: C:\ProgramData\Aurora-Agent\myrules\my-ransomware.yml 
-    Error: could not parse rule response in file "C:\\ProgramData\\Aurora-Agent\\myrules\\my-ransomware.yml": invalid predefined response action kil 
+    Changed_files: C:\Program Files\Aurora-Agent\myrules\my-ransomware.yml 
+    Error: could not parse rule response in file "C:\\Program Files\\Aurora-Agent\\myrules\\my-ransomware.yml": invalid predefined response action kil 

@@ -10,7 +10,7 @@ WARNING: Only use in cases in which you are absolutely sure that a rule doesn't 
 Intended use cases:
    - Worm containment
    - Ransomware containment
-   - Hard blocking of certain uses of a tool (otherwise use AppLocker)
+   - Hard blocking of certain uses of a tool (otherwise sue AppLocker)
 
 Types of Actions
 ----------------
@@ -68,7 +68,7 @@ Kill the process, the parent and the grandparent.
    response:
       type: custom 
       action: 
-         - copy %Image% %%ProgramData%%\aurora-samples\%ProcessId%.bin
+         - copy %Image% %%ProgramFiles%%\aurora-samples\%ProcessId%.bin
          - taskkill /F /PID %ProcessId%
 
 Custom Responses 
@@ -85,4 +85,11 @@ Note: Be aware that the variable values correspond to the environment of the Aur
 
    response:
       type: custom
-      action: cmd.exe /c copy %Image% %%ProgramData%%\Aurora\sample-exports\Image-%ProcessID%.bin
+      action: cmd.exe /c copy %Image% %%ProgramData%%\Aurora\Image-%ProcessID%.bin
+
+Action Results
+--------------
+
+The results of the actions are logged into the respective output channels. 
+
+

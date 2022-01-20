@@ -233,7 +233,7 @@ WARNING: by setting a maximum event output, it becomes more likely that events g
 
 One or more paths to Sigma rules that get used by Aurora. 
 
-If you've combined this flag with ``--install`` the files get copied to ``C:\ProgramData\Aurora Agent\rules\`` and initialized from there.
+If you've combined this flag with ``--install`` the files get copied to ``C:\Program Files\Aurora Agent\rules\`` and initialized from there.
 
 --print-event-id
 ----------------
@@ -289,22 +289,22 @@ This flag can be combined with the ``--json`` flag.
     {
         "Parameters": {
             "SigmaFolders": [
-                "C:\\ProgramData\\Aurora-Agent\\rules",
-                "C:\\ProgramData\\Aurora-Agent\\myrules"
+                "C:\\Program Files\\Aurora-Agent\\rules",
+                "C:\\Program Files\\Aurora-Agent\\myrules"
             ],
             "AutoReload": false,
             "LogFile": "",
             "LogSources": [
-                "C:\\ProgramData\\Aurora-Agent\\default-log-sources.yml",
-                "C:\\ProgramData\\Aurora-Agent\\etw-log-sources.yml"
+                "C:\\Program Files\\Aurora-Agent\\default-log-sources.yml",
+                "C:\\Program Files\\Aurora-Agent\\etw-log-sources.yml"
             ],
             "Debug": false,
             "Trace": false,
             "EventLogging": true,
             "ReportingLevel": "high",
-            "DumpFolder": "C:\\ProgramData\\Aurora-Agent\\process-dumps",
+            "DumpFolder": "C:\\Program Files\\Aurora-Agent\\process-dumps",
             "Json": false,
-            "LicensePath": "C:\\ProgramData\\Aurora-Agent\\aurora",
+            "LicensePath": "C:\\Program Files\\Aurora-Agent\\aurora",
             "UdpTarget": "",
             "Silent": false,
             "CpuLimit": 100,
