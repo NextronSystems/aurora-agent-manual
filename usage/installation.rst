@@ -1,6 +1,27 @@
 Installation
 ============
 
+Quick Start
+-----------
+
+1. Extract the program package into a temporary folder (e.g. C:\aurora-agent)
+2. Make sure to place the *.lic file into the extracted folder
+3. Start a cmd.exe as administrator
+4. Navigate to the extracted folder
+5. Run the following command 
+
+.. code:: winbatch
+
+    aurora-agent.exe --install
+
+6. Verify that new events arrived in the local "Application" event log (Event Viewer)
+7. Run the following commands to get details on the current status of the agent 
+
+.. code:: winbatch
+
+    aurora-agent.exe --status 
+    aurora-agent.exe --status --trace
+
 Install Aurora
 --------------
 
@@ -14,7 +35,7 @@ After the installation the agent, configuration files and rules reside in ``C:\\
 
 It automatically copies all rule files located in a sub folder named ``./rules``. This folder contains the current open source rule set maintained in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__. 
 
-Aurora ships with 4 preset configurations that we encourage you to explorer and use: 
+Aurora comes with with 4 preset configurations that we encourage you to explore and use: 
 
 - Standard (``agent-config-standard.yml``)
 - Reduced (``agent-config-reduced.yml``)
