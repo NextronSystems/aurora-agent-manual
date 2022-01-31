@@ -69,13 +69,21 @@ If you need a more specialized configuration than these predefined ones, you can
 Output Options
 --------------
 
-The following output options are available:
+The following output options are available 
 
-- Windows Eventlog (on by default)
+- Windows Eventlog (default)
 - Log file
-- TCP or UDP target (full version only)
-- ASGARD Analysis Cockpit (full version only)
-- Standard Output (on by default)
+- UDP target
+- TCP target
+
+Windows Eventlog
+~~~~~~~~~~~~~~~~
+
+By default Aurora writes its event into the Windows event log "Application". To review the events use the Windows "EventViewer". Make sure to check the "Details" tab to see all fields and values.
+
+.. figure:: ../images/windows-eventlog-details.png
+   :target: ../images/windows-eventlog-details.png
+   :alt: Aurora Events in Windows Eventlog
 
 ASGARD Analysis Cockpit 
 ~~~~~~~~~~~~~~~~~~~~~~~
