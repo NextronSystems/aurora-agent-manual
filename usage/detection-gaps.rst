@@ -25,6 +25,23 @@ The events for setting values here also are apparently broken; while the manifes
 To query the new value of the registry key, it is necessary to read the registry after receiving the event (which is less reliable since the
 value might have been changed again).
 
+.. code::
+
+   EventID:2 Provider_Name:Microsoft-Windows-Kernel-Registry
+   BaseName: BaseObject:0xFFFFB700E2344C40 Disposition:0 KeyObject:0xFFFFB700E23442C0
+   RelativeName:{34ce6e13-aec9-43ca-a80c-7ee47260ef84} Status:0x0
+
+   EventID:7 Provider_Name:Microsoft-Windows-Kernel-Registry
+   CapturedDataSize:0 DataSize:16 InfoClass:2 KeyName: KeyObject:0xFFFFB700E23442C0
+   Status:0x0 ValueName:EnableDhcp
+
+   Could not parse event ERROR: "failed to parse \"CapturedData\" value; TdhFormatProperty failed; The parameter is incorrect."
+
+These captured events display the issues here: The first event (with Event ID 2) is an `OpenKey` event. While we see the relative name, the ``BaseName`` field is empty. Therefore, in order to determine the full name of the key, we need to correlate this with previous `OpenKey` events for the key referenced as ``BaseObject``.
+
+The second event (with Event ID 7) is a `QueryValue` event. Again, the ``KeyName`` is empty; instead, the ``KeyObject`` field needs to be correlated with previous `OpenKey` events.
+The data that was returned from the `QueryValue` is also missing. There is a field for it, (``CapturedData``) but it is apparently empty based on the ``CapturedDataSize`` and querying its value fails with the displayed error message.
+
 ETW disabling
 -------------
 
