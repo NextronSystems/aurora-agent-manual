@@ -195,7 +195,7 @@ Error Messages
 
 Check the configured log outputs for error messages. A faulty rule would e.g. lead to error messages like this one in the ``Application`` eventlog with EventID 
 
-.. code::
+.. code:: none
 
     Could not reload sigma rules 
     Module: Aurora-Agent 
