@@ -15,7 +15,6 @@ Aurora Agent User Manual
    usage/installation
    usage/usage
    usage/configuration
-   usage/rule-management
    usage/upgrade-and-updates
    usage/responses
    usage/modules
