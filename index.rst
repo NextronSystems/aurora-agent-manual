@@ -19,6 +19,7 @@ Aurora Agent User Manual
    usage/responses
    usage/modules
    usage/function-tests
+   usage/custom-signatures
    usage/aurora-agent-util
    usage/debugging
    usage/performance-tuning
