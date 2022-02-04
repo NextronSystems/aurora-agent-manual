@@ -32,7 +32,6 @@ The ``minimal`` configuration file limits Aurora process priority and CPU usage 
 - Create Remote Thread
 - Kernel Handles
 
-
 Reduced 
 ~~~~~~~
 
