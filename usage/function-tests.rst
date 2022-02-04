@@ -124,7 +124,7 @@ TBD
 CommandLineMismatchDetector
 ---------------------------
 
-Download Process Ghosting PoC `release package<https://github.com/hasherezade/process_ghosting/releases>`__ named "proc_ghost.zip" by @hasherezade
+Download Process Ghosting PoC `release package <https://github.com/hasherezade/process_ghosting/releases>`__ named "proc_ghost.zip" by @hasherezade
 
 Extract the package and then run:
 

@@ -59,8 +59,7 @@ Aurora Agent supports the following event source prefixes:
   - Image
   - Network-TCP-IP
   - Handle
-- ``PollNamedPipes``: This event source is handled by a provider in Aurora that regularly lists all named pipes that exist on a system
-  and creates an event for each named pipe.
+- ``PollHandles``: This event source is handled by a provider in Aurora that regularly creates an event for each handle that exists on a system.
 
 Example: Disabling a noisy log source
 -------------------------------------

@@ -6,23 +6,11 @@ x86 Version doesn't start
 
 The ``EtwCanary`` module is broken and doesn't work on x86 systems. You won't get an appropriate error message. The agent just crashes silently on Windows x86 systems. 
 
-Work Around
-~~~~~~~~~~~
-
-Use this flag to start the agent: ``--deactivate-module EtwCanary``
-
-Set this flag in the config file:
-
-.. code:: yaml 
-
-    deactivate-module:
-        - EtwCanary
-
 Status
 ~~~~~~
 
-- The ``EtwCanary`` module has been temporarily disabled in all configs except ``agent-config-intense.yml`` in build ``4a34c345`` (24.12.2021)
-- Inactive on x86 systems
+Fixed in build ``4a34c345`` 
+
 
 Rule that use "Provider_Name" don't match
 -----------------------------------------

@@ -5,7 +5,7 @@ Quick Start
 -----------
 
 1. Extract the program package into a temporary folder (e.g. C:\aurora-agent)
-2. Make sure to place the *.lic file into the extracted folder
+2. Make sure to place the \*.lic file into the extracted folder
 3. Start a cmd.exe as administrator
 4. Navigate to the extracted folder
 5. Run the following command 
@@ -33,7 +33,7 @@ You can install the agent using the following command line from command line ter
 
 After the installation the agent, configuration files and rules reside in ``C:\\Program Files\\Aurora Agent\\``.
 
-It automatically copies all rule files located in a sub folder named ``./rules``. This folder contains the current open source rule set maintained in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__. 
+It automatically copies all rule files located in a sub folder named ``./signatures/sigma-rules``. This folder contains the current open source rule set maintained in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__. 
 
 Aurora comes with with 4 preset configurations that we encourage you to explore and use: 
 
@@ -57,7 +57,7 @@ If you want to add your own Sigma rules, you can do this by using the ``--rules-
 
 .. code:: winbatch
 
-    aurora-agent.exe --install --rules-path .\rules --rules-path .\my-rules
+    aurora-agent.exe --install --rules-path .\signatures\sigma-rules --rules-path .\my-rules
 
 All the flags that you use after ``--install`` get written to the configuration file named ``agent-config.yml`` in the ``C:\\Program Files\\Aurora Agent\\`` folder and will be used by the service.
 
@@ -65,7 +65,7 @@ A typical command to install Aurora would look like this
 
 .. code:: winbatch
 
-    aurora-agent.exe --install --rules-path .\rules --rules-path .\our-custom-rules --activate-responses
+    aurora-agent.exe --install --rules-path .\signatures\sigma-rules --rules-path .\our-custom-rules --activate-responses
 
 Uninstall Aurora
 ----------------

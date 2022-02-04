@@ -100,7 +100,7 @@ will not be logged.
 Custom Signatures
 -----------------
 Sigma rules and IOCs can be passed to Aurora using the ``--rules-path`` and ``--ioc-path`` paremeters. These parameters default to the built-in rules and IOCs at 
-``signatures/sigma-rules`` and ``signatures/iocs`` respectively. 
+``signatures/sigma-rules`` and ``signatures/iocs`` and the provided paths for custom signatures at ``custom-signatures/sigma-rules`` and ``custom-signatures/iocs`` respectively. 
 
 IOCs follow the same format that THOR IOCs do; the full description can be found in the `THOR manual <https://thor-manual.nextron-systems.com/en/latest/usage/custom-signatures.html#simple-iocs>`_.
 

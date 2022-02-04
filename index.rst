@@ -15,11 +15,11 @@ Aurora Agent User Manual
    usage/installation
    usage/usage
    usage/configuration
-   usage/rule-management
    usage/upgrade-and-updates
    usage/responses
    usage/modules
    usage/function-tests
+   usage/custom-signatures
    usage/aurora-agent-util
    usage/debugging
    usage/performance-tuning

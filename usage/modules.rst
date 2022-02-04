@@ -21,7 +21,7 @@ A detector module that tries to detect tampering with the ETW channels. (self-de
 Command Line Mismatch Detector 
 ------------------------------
 
-Detects `process ghosting <https://pentestlaboratories.com/2021/12/08/process-ghosting/`_ and similar process creation anomalies. 
+Detects `process ghosting <https://pentestlaboratories.com/2021/12/08/process-ghosting/>`_ and similar process creation anomalies. 
 
 Process Tampering Detector
 --------------------------

@@ -11,7 +11,7 @@ There is no ETW provider that provides information about creation of or connecti
 is the Kernel Object Handle provider which provides information about all handles that are opened and closed, but which is therefore very "noisy"
 and only enabled in the intense configuration. 
 
-For this reason, Aurora in its standard configuration is unable to detect named pipe creations or connections.
+To fill this detection gap, Sysmon can be used with e.g. `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
 
 Registry Events
 ---------------
@@ -41,6 +41,8 @@ These captured events display the issues here: The first event (with Event ID 2)
 
 The second event (with Event ID 7) is a `QueryValue` event. Again, the ``KeyName`` is empty; instead, the ``KeyObject`` field needs to be correlated with previous `OpenKey` events.
 The data that was returned from the `QueryValue` is also missing. There is a field for it, (``CapturedData``) but it is apparently empty based on the ``CapturedDataSize`` and querying its value fails with the displayed error message.
+
+To fill this detection gap, Sysmon can be used with e.g. `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
 
 ETW disabling
 -------------
