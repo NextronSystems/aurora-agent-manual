@@ -7,11 +7,17 @@ not easily usable. Also, an attacker might try to prevent ETW events from reachi
 Named Pipes
 -----------
 
-There is no ETW provider that provides information about creation of or connection to named pipes. The only way to observe named pipe events
-is the Kernel Object Handle provider which provides information about all handles that are opened and closed, but which is therefore very "noisy"
-and only enabled in the intense configuration. 
+There is no ETW provider that provides information about creation of or connection to named pipes. The only way to observe named pipe events is the Kernel Object Handle provider which provides information about all handles that are opened and closed, but which is therefore very "noisy" and only enabled in the intense configuration. 
 
-To fill this detection gap, Sysmon can be used with e.g. `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
+We've integrated a polling for named pipes that would detect opened named pipes if they exist for more than 10 seconds. In the default configuration we miss named pipes that only exist for a very short amount of time. 
+
+Solution
+~~~~~~~~
+
+To close this detection gap:
+
+* use Aurora with the "Intense" configuration preset (could cause high CPU load on systems)
+* additionally install and use Sysmon with `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
 
 Registry Events
 ---------------
@@ -42,14 +48,25 @@ These captured events display the issues here: The first event (with Event ID 2)
 The second event (with Event ID 7) is a `QueryValue` event. Again, the ``KeyName`` is empty; instead, the ``KeyObject`` field needs to be correlated with previous `OpenKey` events.
 The data that was returned from the `QueryValue` is also missing. There is a field for it, (``CapturedData``) but it is apparently empty based on the ``CapturedDataSize`` and querying its value fails with the displayed error message.
 
-To fill this detection gap, Sysmon can be used with e.g. `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
+Solution
+~~~~~~~~
+
+To close this detection gap:
+
+* use Aurora with the "Intense" configuration preset (could cause high CPU load on systems with a lot of registry access events)
+* additionally install and use Sysmon with `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
+
+We plan to get in contact with Microsoft to get this ETW channel fixed in future Windows versions.
 
 ETW disabling
 -------------
 
-Since ETW events partially originate from user space, an attacker can disable user space ETW events from its own process by patching the syscalls
-that Windows uses to create ETW events. Doing so is, in fact, common for attacker frameworks.
+Since ETW events partially originate from user space, an attacker can disable user space ETW events from its own process by patching the syscalls that Windows uses to create ETW events. Doing so is, in fact, common for attacker frameworks.
 
-While this does not make Aurora useless, you should be aware of this when writing detection rules that are based on these providers.
-Usually, any event that originates from the process and is caused by a provider that does not start with ``Microsoft-Windows-Kernel`` can be 
-suppressed and should be handled with care.
+While this does not make Aurora useless, you should be aware of this when writing detection rules that are based on these providers. Usually, any event that originates from the process and is caused by a provider that does not start with ``Microsoft-Windows-Kernel`` can be suppressed and should be handled with care.
+
+Solution
+~~~~~~~~
+
+* The full version of Aurora uses a ETW Canary module to detect ETW manipulations.
+* The flag ``--report-stats`` allows you to report the status of the agent to your central log collector (SIEM). This status includes statistics of the observed, process and dropped events that can be used to detect manipulations. (e.g. number of observed events doesn't increas over time)
