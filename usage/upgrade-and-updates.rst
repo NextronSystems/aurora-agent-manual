@@ -38,4 +38,10 @@ To manually update Aurora's built-in signatures, use the Aurora Agent Util binar
 
    .\aurora-agent-util.exe update
 
-You can specify ``--auto-reload`` when starting or installing Aurora to automatically reload built-in or custom signatures after you have manually updated them (see the :doc:`configuration </usage/configuration>` chapter for more details). If you do not use ``--auto-reload``, make sure to restart Aurora for the new signatures to take effect.
+You can specify ``--auto-reload`` when starting or installing Aurora to automatically reload built-in or custom signatures after you have manually updated them (see the :doc:`configuration </usage/configuration>` chapter for more details):
+
+.. code::
+
+   .\aurora-agent-64.exe --install --auto-reload
+
+If you do not use ``--auto-reload``, make sure to restart Aurora for the new signatures to take effect.
