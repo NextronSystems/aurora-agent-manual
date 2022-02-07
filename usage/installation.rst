@@ -83,3 +83,5 @@ If the uninstaller fails due to unknown errors, you can uninstall Aurora manuall
     sc stop aurora-agent 
     sc delete aurora-agent
     rmdir /s /q "C:\Program Files\Aurora-Agent"
+    schtasks /Delete /F /TN aurora-agent-update
+    schtasks /Delete /F /TN aurora-agent-upgrade
