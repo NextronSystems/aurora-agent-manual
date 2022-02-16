@@ -84,3 +84,14 @@ Use the flag combination ``--status --trace`` to view which Sigma rule matches h
     Response Actions: disabled
 
 The match throttling can be configured with the flags ``--match-burst`` and ``--match-throttling``. We recommend keeping it in the default. It does not suppress  matches of a certain rule that you haven't already noticed in the defined time frame. It throttles numerous matches of a single rule; cases in which a single rule causes numerous matches in the defined time frame, which is typically the cause of a noisy / too sensitive rule. 
+
+Why does the Event ID in the Windows Eventlog differ from the one in the Event Data?
+------------------------------------------------------------------------------------
+
+There's a difference between the Event IDs in the source channels and the Event IDs that we use to write into the various output channels. 
+
+The Event ID that you find in the event data is the one provided in the ETW channel that Aurora subscribes to. The Event ID used to write these events into the local Windows Eventlog differ from these Event IDs and are controlled by Aurora.  
+
+.. figure:: ../images/event-id-difference.png
+   :target: ../images/event-id-difference.png
+   :alt: Difference in EventIDs
