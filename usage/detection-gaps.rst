@@ -69,4 +69,19 @@ Solution
 ~~~~~~~~
 
 * The full version of Aurora uses a ETW Canary module to detect ETW manipulations.
-* The flag ``--report-stats`` allows you to report the status of the agent to your central log collector (SIEM). This status includes statistics of the observed, process and dropped events that can be used to detect manipulations. (e.g. number of observed events doesn't increas over time)
+* The flag ``--report-stats`` allows you to report the status of the agent to your central log collector (SIEM). This status includes statistics of the observed, process and dropped events that can be used to detect manipulations. (e.g. number of observed events doesn't increase over time)
+
+Handle polling and asynchronous handles
+---------------------------------------
+
+Some handles are asynchronous, meaning that it is impossible to query their named and type; trying to do so causes the querying thread to permanently hang, ultimately leading to resource leaks. Unfortunately, it is impossible to query
+from user space whether a handle is asynchronous, so there is no guaranteed way of avoiding these handles either.
+
+In practice, this means that Aurora tries to predict based on a handle's other properties whether a handle would hang and skips those. However, this also causes Aurora to skip some "valid" handles, 
+meaning they won't be listed by the ``Handle-Polling`` module.
+
+Solution
+~~~~~~~~
+
+* use Aurora with the "Intense" configuration preset (could cause high CPU load on systems)
+* additionally install and use Sysmon with `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_ to at least guarantee events about named pipes
