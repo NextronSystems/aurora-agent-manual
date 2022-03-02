@@ -8,17 +8,23 @@ There are two modes of operation:
 1. Aurora started directly from the command line, optionally using a config passed with the ``--config`` / ``-c`` flag
 2. Aurora started as a service (see chapter :doc:`installation </usage/installation>` for more details) with a config file located in ``C:\Program Files\Aurora-Agent\agent-config.yml``
 
-Configuration Profiles
-----------------------
+Configuration Presets
+---------------------
 
 To facilitate the use of Aurora, four configuration files are part of the Aurora package:
 
-1. Minimal
-2. Reduced
-3. Standard
-4. Intense 
+- Standard (``agent-config-standard.yml``)
+- Reduced (``agent-config-reduced.yml``)
+- Minimal (``agent-config-minimal.yml``)
+- Intense (``agent-config-intense.yml``)
 
 These profiles are explained below in some detail. If you need further information, you can also inspect the configuration files directly.
+
+An installation that uses the preset named "reduced" would look like this: 
+
+.. code:: winbatch
+
+    aurora-agent.exe --install -c agent-config-reduced.yml
 
 Minimal 
 ~~~~~~~

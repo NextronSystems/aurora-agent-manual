@@ -35,7 +35,7 @@ After the installation the agent, configuration files and rules reside in ``C:\\
 
 It automatically copies all rule files located in a sub folder named ``./signatures/sigma-rules``. This folder contains the current open source rule set maintained in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__. 
 
-Aurora comes with with 4 preset configurations that we encourage you to explore and use: 
+Aurora comes with with 4 configuration presets that we encourage you to explore and use: 
 
 - Standard (``agent-config-standard.yml``)
 - Reduced (``agent-config-reduced.yml``)
