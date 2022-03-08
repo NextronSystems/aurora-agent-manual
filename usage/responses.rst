@@ -85,7 +85,7 @@ Examples
 .. code:: yaml
  
    response:
-      type: predefined 
+      type: predefined
       action: kill
 
 Kill the parent process from a process creation event:
@@ -93,7 +93,7 @@ Kill the parent process from a process creation event:
 .. code:: yaml
  
    response:
-      type: predefined 
+      type: predefined
       action: kill
       processidfield: ParentProcessId
 
@@ -102,21 +102,34 @@ Kill the process, the parent and the grandparent:
 .. code:: yaml
  
    response:
-      type: predefined 
+      type: predefined
       action: kill
       ancestors: 2
 
 .. code:: yaml
  
    response:
-      type: predefined 
+      type: predefined
       action: suspend
+
+Copy the executed image to a backup folder, then kill the target process:
 
 .. code:: yaml
 
    response:
-      type: custom
-      action: cmd.exe /c copy %Image% %%ProgramData%%\Aurora\Image-%ProcessID%.bin
+      - type: custom
+        action: xcopy %Image% %%ProgramData%%\Aurora\Image-%ProcessID%.bin
+      - type: predefined
+        action: kill
+
+Simulate a process kill:
+
+.. code:: yaml
+
+   response:
+      type: predefined
+      action: kill
+      simulate: true
 
 Specifying a Response for a Sigma rule
 --------------------------------------
