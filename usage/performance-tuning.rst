@@ -140,6 +140,9 @@ excludes.
 Please be aware that adding process exclusions can cause malware that uses process hollowing or similar techniques to
 mask themselves as an excluded process to go unreported.
 
+Examples
+~~~~~~~~
+
 .. code::
 
    # Exclude a specific process
