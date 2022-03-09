@@ -1,8 +1,11 @@
 Performance Tuning
 ==================
 
+Event Source Tuning
+-------------------
+
 Event Sources and Consumers
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Internally, Aurora has a number of event consumers. The event consumers are: 
 
 - Aurora's built-in modules
@@ -20,7 +23,7 @@ Therefore, to optimize performance, choose your event sources wisely and avoid e
 produce an extreme number of events.
 
 Event Source Analysis
----------------------
+~~~~~~~~~~~~~~~~~~~~~
 
 When executing ``aurora-agent.exe --status --trace`` while Aurora is running, an overview
 of events that was received for each event source is generated. The performance impact of each source
@@ -36,7 +39,7 @@ Each sigma log source in these files that has a ``sources`` element requests the
 in that element.
 
 Event Source Definitions
-------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 Aurora Agent supports the following event source prefixes:
 
 - ``WinEventLog:`` Events from an Eventlog channel or ETW provider. 
@@ -62,7 +65,7 @@ Aurora Agent supports the following event source prefixes:
 - ``PollHandles``: This event source is handled by a provider in Aurora that regularly creates an event for each handle that exists on a system.
 
 Example: Disabling a noisy log source
--------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this example, say that ``aurora-agent.exe --status --trace`` results in this event overview:
 
@@ -121,3 +124,26 @@ and remove the log source definition from the sigma configuration.
 
 Obviously, this will also impact Aurora's detection capabilities to some degree. Choose your trade-off between detection
 and performance carefully.
+
+
+.. _Process Exclusions:
+
+Process exclusions
+------------------
+
+To exclude specific processes from analysis, you can configure Aurora to ignore all events from specific image paths.
+
+In order to do so, the excluded images must be specified (as regexps) in a file that is passed to ``--process-excludes``.
+By default, ``custom-signatures/process-excludes.txt`` is used. This file contains further examples on how to specify the
+excludes.
+
+Please be aware that adding process exclusions can cause malware that uses process hollowing or similar techniques to
+mask themselves as an excluded process to go unreported.
+
+.. code::
+
+   # Exclude a specific process
+   ^C:\\Program Files\\My Antivirus\\antivirus\.exe$
+
+   # Exclude a directory
+   ^C:\\Program Files\\Some Folder\\
