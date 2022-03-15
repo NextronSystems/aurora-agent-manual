@@ -148,5 +148,5 @@ Examples
    # Exclude a specific process
    ^C:\\Program Files\\My Antivirus\\antivirus\.exe$
 
-   # Exclude a directory
-   ^C:\\Program Files\\Some Folder\\
+   # Exclude Windows Defender
+   ^C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\[^\\]{5,20}\\MsMpEng\.exe$
