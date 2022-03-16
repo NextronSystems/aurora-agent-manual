@@ -46,10 +46,11 @@ The configuration presets effect the following settings:
 |                               | | BeaconHunter        |                          |                        |                   |
 +-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
 
-WARNING: Intense preset uses the most system resources and can put the system under heavy load, 
-especially if a process accesses many registry keys in a short amount of time.
+.. warning::
+    Intense preset uses the most system resources and can put the system under heavy load,
+    especially if a process accesses many registry keys in a short amount of time.
 
-We recommend using this preset only on a very selective set of systems or in cases in which maximum detection is required. 
+    We recommend using this preset only on a very selective set of systems or in cases in which maximum detection is required.
 
 Custom Profiles
 ~~~~~~~~~~~~~~~
