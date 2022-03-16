@@ -95,3 +95,13 @@ The Event ID that you find in the event data is the one provided in the ETW chan
 .. figure:: ../images/event-id-difference.png
    :target: ../images/event-id-difference.png
    :alt: Difference in EventIDs
+
+Why does Aurora take so long to start?
+--------------------------------------
+
+Almost all of the startup time comes from loading and compiling the IOCs and Sigma rules. ``--debug`` gives more information on what Aurora is doing during startup.
+
+If you don't need all IOCs and Sigma rules, it can be helpful to use ``--deactivate-module``, ``--ioc-path`` and ``--rules-path`` to significantly reduce the startup time:
+
+- ``--deactivate-module ApplyIOCs --rules-path my-custom-rule.yml`` deactivates IOCs completely and only loads the specified sigma rule.
+- ``--deactivate-module Sigma --ioc-path my-custom-filename-ioc.txt`` deactivates Sigma rules completely and only loads the specified filename IOC file.
