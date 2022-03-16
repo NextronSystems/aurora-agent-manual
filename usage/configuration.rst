@@ -30,11 +30,11 @@ The configuration presets effect the following settings:
 | Affected Setting              | Minimal               | Reduced                  | Standard               | Intense           |
 +===============================+=======================+==========================+========================+===================+
 | Deactivated sources           | | Registry            | | Registry               | | Registry             |                   |
-|                               | | Image Loads         | | Raw Disk Access        | | Raw Disk Access      |                   |
-|                               | | Raw Disk Access     | | Process Access         | | Kernel Handles       |                   |
-|                               | | Process Access      | | Kernel Handles         | | Create Remote Thread |                   |
-|                               | | Create Remote Thread| | Create Remote Thread   |                        |                   |
-|                               | | Kernel Handles      |                          |                        |                   |
+|                               | | Raw Disk Access     | | Raw Disk Access        | | Raw Disk Access      |                   |
+|                               | | Kernel Handles      | | Kernel Handles         | | Kernel Handles       |                   |
+|                               | | Create Remote Threat| | Create Remote Thread   | | Create Remote Thread |                   |
+|                               | | Process Access      | | Process Access         |                        |                   |
+|                               | | Image Loads         |                          |                        |                   |
 +-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
 | CPU Limit                     | 20%                   | 70%                      | 70%                    | 100%              |
 +-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
@@ -42,8 +42,8 @@ The configuration presets effect the following settings:
 +-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
 | Minimum Reporting Level       | High                  | High                     | Medium                 | Low               |
 +-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
-| Deactivated modules           | | BeaconHunter        | | LSASS Dump Detector    |                        |                   |
-|                               | | LSASS Dump Detector |                          |                        |                   |
+| Deactivated modules           | | LSASS Dump Detector | | LSASS Dump Detector    |                        |                   |
+|                               | | BeaconHunter        |                          |                        |                   |
 +-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
 
 WARNING: Intense preset uses the most system resources and can put the system under heavy load, 
