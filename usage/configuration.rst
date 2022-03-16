@@ -32,7 +32,7 @@ The configuration presets effect the following settings:
 | Deactivated sources           | | Registry            | | Registry               | | Registry             |                   |
 |                               | | Raw Disk Access     | | Raw Disk Access        | | Raw Disk Access      |                   |
 |                               | | Kernel Handles      | | Kernel Handles         | | Kernel Handles       |                   |
-|                               | | Create Remote Threat| | Create Remote Thread   | | Create Remote Thread |                   |
+|                               | | Create Remote Thread| | Create Remote Thread   | | Create Remote Thread |                   |
 |                               | | Process Access      | | Process Access         |                        |                   |
 |                               | | Image Loads         |                          |                        |                   |
 +-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
