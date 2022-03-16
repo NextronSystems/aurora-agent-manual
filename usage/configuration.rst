@@ -18,52 +18,36 @@ To facilitate the use of Aurora, four configuration files are part of the Aurora
 - Minimal (``agent-config-minimal.yml``)
 - Intense (``agent-config-intense.yml``)
 
-These profiles are explained below in some detail. If you need further information, you can also inspect the configuration files directly.
-
 An installation that uses the preset named "reduced" would look like this: 
 
 .. code:: winbatch
 
     aurora-agent.exe --install -c agent-config-reduced.yml
 
-Minimal 
-~~~~~~~
+The configuration presets effect the following settings:
 
-The ``minimal`` configuration file limits Aurora process priority and CPU usage to a low level. It deactivates the following ETW sources:
++-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
+| Affected Setting              | Minimal               | Reduced                  | Standard               | Intense           |
++===============================+=======================+==========================+========================+===================+
+| Deactivated sources           | | Registry            | | Registry               | | Registry             |                   |
+|                               | | Image Loads         | | Raw Disk Access        | | Raw Disk Access      |                   |
+|                               | | Raw Disk Access     | | Process Access         | | Kernel Handles       |                   |
+|                               | | Process Access      | | Kernel Handles         | | Create Remote Thread |                   |
+|                               | | Create Remote Thread| | Create Remote Thread   |                        |                   |
+|                               | | Kernel Handles      |                          |                        |                   |
++-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
+| CPU Limit                     | 20%                   | 70%                      | 70%                    | 100%              |
++-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
+| Process Priority              | Low                   | Normal                   | Normal                 | Normal            |
++-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
+| Minimum Reporting Level       | High                  | High                     | Medium                 | Low               |
++-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
+| Deactivated modules           | | BeaconHunter        | | LSASS Dump Detector    |                        |                   |
+|                               | | LSASS Dump Detector |                          |                        |                   |
++-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
 
-- Registry
-- Image Loads 
-- Raw Disk Access
-- Process Access
-- Create Remote Thread
-- Kernel Handles
-
-
-Reduced 
-~~~~~~~
-
-The ``reduced`` configuration file deactivates expensive ETW log sources and limits Aurora CPU usage. It deactivates the following ETW sources:
-
-- Registry
-- Raw Disk Access
-- Process Access
-- Kernel Handles
-
-Standard
-~~~~~~~~
-
-The ``standard`` configuration file deactivates very expensive ETW log sources and limits Aurora CPU usage. It deactivates the following ETW sources:
-
-- Registry
-- Raw Disk Access
-- Kernel Handles
-
-Intense 
-~~~~~~~
-
-All possible ETW log source are activated. 
-
-WARNING: This preset uses the most system resources and can put the system under heavy load, especially if a process accesses many registry keys in a short amount of time. 
+WARNING: Intense preset uses the most system resources and can put the system under heavy load, 
+especially if a process accesses many registry keys in a short amount of time.
 
 We recommend using this preset only on a very selective set of systems or in cases in which maximum detection is required. 
 
