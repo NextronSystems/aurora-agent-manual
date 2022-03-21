@@ -53,11 +53,7 @@ An installation that uses the preset named "reduced" would look like this:
 Custom Settings
 ---------------
 
-If you want to add your own Sigma rules, you can do this by using the ``--rules-path`` flag. If you're using this flag, don't forget to add the path of the built-in rules as well. 
-
-.. code:: winbatch
-
-    aurora-agent.exe --install --rules-path .\signatures\sigma-rules --rules-path .\my-rules
+Adding your own Sigma rules or IOCs is described in chapter :ref:`custom signatures <Custom Signatures>`. The preferred way is to add them to the ``custom-signatures`` folder before you install Aurora.
 
 All the flags that you use after ``--install`` get written to the configuration file named ``agent-config.yml`` in the ``C:\\Program Files\\Aurora Agent\\`` folder and will be used by the service.
 
@@ -65,7 +61,7 @@ A typical command to install Aurora would look like this
 
 .. code:: winbatch
 
-    aurora-agent.exe --install --rules-path .\signatures\sigma-rules --rules-path .\our-custom-rules --activate-responses
+    aurora-agent.exe --install --activate-responses
 
 Uninstall Aurora
 ----------------

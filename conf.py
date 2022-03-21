@@ -39,7 +39,11 @@ release = ''
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.autosectionlabel'
 ]
+
+suppress_warnings = ['autosectionlabel.*']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
