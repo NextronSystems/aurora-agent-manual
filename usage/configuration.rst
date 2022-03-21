@@ -93,8 +93,9 @@ A log file can be specified using ``--logfile``. By default, no log file is writ
 
 False positive filtering
 ------------------------
-When encountering false positives or known anomalies, besides reporting them, you can also exclude them using a false positive filter file and passing it to Aurora
-via the ``--false-positive-filter-file`` option.
+
+When encountering false positives or known anomalies, besides reporting them, you can also exclude them using a false positive filter file.
+By default, ``config/false-positives.cfg`` is used.
 
 The file passed should contain a regular expression per line; any log lines where any of these false positive regexps matches
 will not be logged.
