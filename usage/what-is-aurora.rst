@@ -18,6 +18,6 @@ Features and services that are not included in the Aurora Lite version:
 - No private Nextron Sigma rule feed 
 - No private Nextron IOC rule feed 
 - No encrypted Sigma rules (protect rules from spying eyes or the AV)
-- Only 2 rules with response actions allowed
+- Only 5 rules with response actions allowed
 
 For more details see the description on our web site. 

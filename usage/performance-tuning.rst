@@ -134,7 +134,7 @@ Process exclusions
 To exclude specific processes from analysis, you can configure Aurora to ignore all events from specific image paths.
 
 In order to do so, the excluded images must be specified (as regexps) in a file that is passed to ``--process-excludes``.
-By default, ``custom-signatures/process-excludes.txt`` is used. This file contains further examples on how to specify the
+By default, ``config/process-excludes.cfg` is used. This file contains further examples on how to specify the
 excludes.
 
 Please be aware that adding process exclusions can cause malware that uses process hollowing or similar techniques to

@@ -33,7 +33,9 @@ You can install the agent using the following command line from command line ter
 
 After the installation the agent, configuration files and rules reside in ``C:\\Program Files\\Aurora Agent\\``.
 
-It automatically copies all rule files located in a sub folder named ``./signatures/sigma-rules``. This folder contains the current open source rule set maintained in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__. 
+It automatically copies all rule files located the subfolders ``signatures/sigma-rules`` and ``custom-signatures``.
+The ``signatures/sigma-rules`` folder contains the current open source rule set maintained in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__.
+The ``custom-signatures`` folder can be used to add your own sigma rules.
 
 Aurora comes with with 4 configuration presets that we encourage you to explore and use: 
 
@@ -79,5 +81,5 @@ If the uninstaller fails due to unknown errors, you can uninstall Aurora manuall
     sc stop aurora-agent 
     sc delete aurora-agent
     rmdir /s /q "C:\Program Files\Aurora-Agent"
-    schtasks /Delete /F /TN aurora-agent-update
-    schtasks /Delete /F /TN aurora-agent-upgrade
+    schtasks /Delete /F /TN aurora-agent-program-update
+    schtasks /Delete /F /TN aurora-agent-signature-update
