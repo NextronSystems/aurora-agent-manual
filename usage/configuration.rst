@@ -100,5 +100,6 @@ By default, ``config/false-positives.cfg`` is used.
 The file passed should contain a regular expression per line; any log lines where any of these false positive regexps matches
 will not be logged.
 
-If you want to exclude all events from a specific process, process exclusions might be better than a false positive filter for that process since they also cancel any analysis on those events; see
+If you want to exclude all events from a specific process, process exclusions might be a better choice than a false positive filter
+since they also cancel any analysis on those events; see
 :ref:`Process Exclusions <Process Exclusions>` for more details.
