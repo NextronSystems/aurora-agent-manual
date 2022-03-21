@@ -50,111 +50,39 @@ This flag can be combined with the ``--json`` and ``--trace`` flags for JSON for
 
     C:\aurora>aurora-agent-64.exe --status
 
-    Aurora Agent
-    Version: 1.0.0
-    Sigma Revision: 0.20-1442-g80d2aee9
-    Uptime (in hours): 1
+Aurora Agent
+Version: 0.9.1
+Build Revision: 37fec81332531
+Signature Revision: 2022/03/21-101412
+Sigma Revision: 0.20-3331-gb4245c561
+Status: running
+Uptime (in hours): 0
 
-    Active Outputs:
-    Eventlog: enabled
-
-    Rule Statistics:
-    Loaded rules: 723
-    Number of rule reloads: 0
-
-    Event Statistics:
-    Events observed so far: 2004511
-    Events lost so far: 0
-    Sigma matches: 4
-
-This flag can be combined with the ``--json`` flag.
-
-.. code:: json
-
-    {
-        "Parameters": {
-            "SigmaFolders": [
-                "C:\\Program Files\\Aurora-Agent\\rules",
-                "C:\\Program Files\\Aurora-Agent\\myrules"
-            ],
-            "AutoReload": false,
-            "LogFile": "",
-            "LogSources": [
-                "C:\\Program Files\\Aurora-Agent\\default-log-sources.yml",
-                "C:\\Program Files\\Aurora-Agent\\etw-log-sources.yml"
-            ],
-            "Debug": false,
-            "Trace": false,
-            "EventLogging": true,
-            "ReportingLevel": "high",
-            "DumpFolder": "C:\\Program Files\\Aurora-Agent\\process-dumps",
-            "Json": false,
-            "LicensePath": "C:\\Program Files\\Aurora-Agent\\aurora",
-            "UdpTarget": "",
-            "Silent": false,
-            "CpuLimit": 100,
-            "ReportStats": false,
-            "LogRotateCount": 0,
-            "LogSize": 10485760,
-            "AgentName": "aurora-agent"
-        },
-        "Uptime": 3828388216900,
-        "Version": "1.0.0",
-        "SigmaRevision": "0.20-1442-g80d2aee9",
-        "LoadedRules": 723,
-        "ReloadCounter": 0,
-        "EventsProcessed": 2066052,
-        "EventsLost": 0,
-        "SigmaMatches": 4
-    }
-
-You can combine the ``--status`` flag with the ``--trace`` flag to get a more detailed version. 
-
-.. code:: 
-
-    Aurora Agent
-    Version: 0.1.4
-    Build Revision: d79fa653
-    Sigma Revision: 0.20-1706-g653950e4
-    Status: running
-    Uptime (in hours): 0
-
-    Active Outputs:
-    Eventlog: enabled
+Active Outputs:
+    Windows Application Eventlog: enabled
     Stdout: enabled
 
-    Rule Statistics:
-    Loaded rules: 1030
-    Number of rule reloads: 0
+Active Modules: LsassDumpDetector, BeaconHunter, EtwCanary, CommandLineMismatchDetector, ProcessTamperingDetector, TemporaryDriverLoadDetector, ApplyIOCs, Rescontrol, Sigma, ETWSource, ETWKernelSource, EventlogSource, PollHandles
 
-    Event Statistics:
-    Events observed so far: 85605
-            42177 events from WinEventLog:Microsoft-Windows-Kernel-Audit-API-Calls
-            20095 events from WinEventLog:Microsoft-Windows-Sysmon/Operational
-            19164 events from WinEventLog:Microsoft-Antimalware-Engine
-            2356 events from PollNamedPipes
-            857 events from WinEventLog:Microsoft-Windows-Kernel-Registry/CreateKey
-            527 events from WinEventLog:Microsoft-Windows-Kernel-Process/WINEVENT_KEYWORD_IMAGE
-            157 events from SystemLogger:Process
-            126 events from WinEventLog:Microsoft-Windows-Kernel-Process/WINEVENT_KEYWORD_PROCESS
-            31 events from WinEventLog:Microsoft-Windows-TaskScheduler/Operational
-            29 events from WinEventLog:Microsoft-Windows-DNS-Client
-            25 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_CREATE_NEW_FILE
-            25 events from WinEventLog:Microsoft-Windows-TCPIP/ut:ConnectPath
-            19 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_DELETE_PATH
-            12 events from WinEventLog:Security
-            4 events from WinEventLog:Microsoft-Windows-Kernel-Registry/DeleteKey
-            1 events from WinEventLog:Application
-    Events lost so far: 0
-    Sigma matches: 91
-            New TaskCache Entry: 18
-            Suspicious In-Memory Module Execution: 4
-            Credentials Dumping Tools Accessing LSASS Memory: 69
-    Suppressed Sigma matches of those: 74
-            New TaskCache Entry: 12
-            Credentials Dumping Tools Accessing LSASS Memory: 62
+Rule Statistics:
+    Rule paths: C:\aurora\signatures\sigma-rules, C:\aurora\custom-signatures
+    Loaded rules: 1285
+    Rule reloads: 0
+    Responses: 28
 
-    Response Actions: disabled
+False positive filters: 4
+Process excludes: 0
+
+Events missed so far: 0
+Sigma matches: 8
+Suppressed Sigma matches of those: 0
+
+Response Actions: disabled
+
+This flag can be combined with the ``--json`` or `--trace` flags:
+
+- JSON output is significantly more comprehensive, but is also more prone to changes (especially additions).
+- Trace output contains more details, for example full event statistics.
 
 Tracing Events
 --------------
