@@ -5,7 +5,9 @@ Responses are an extension to the Sigma standard used in Aurora agents.
 
 They can be used to perform certain actions on an event match and therefore immediately respond to a Sigma rule match. Responses can help you contain a threat or limit its damage, but they can also lead to serious problems when they're not handled with care.
 
-WARNING: Only use in cases in which you are absolutely sure that a rule doesn't create false positives and test your custom actions carefully. 
+.. warning::
+
+    Only use in cases in which you are absolutely sure that a rule doesn't create false positives and test your custom actions carefully. 
 
 Intended use cases:
    - Worm containment
