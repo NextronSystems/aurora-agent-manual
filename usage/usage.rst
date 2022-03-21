@@ -46,6 +46,8 @@ Note: Make sure to also set ``--agent-name`` if you've set a non-standard name.
 
 This flag can be combined with the ``--json`` and ``--trace`` flags for JSON formatted or more detailed output.
 
+.. code:: none
+
     C:\aurora>aurora-agent-64.exe --status
 
     Aurora Agent
