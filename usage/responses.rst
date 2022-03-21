@@ -39,7 +39,9 @@ A custom response must be a command line calling an executable available from ``
 You can use the values of fields in the corresponding log line encased with single percent signs (e.g. ``%ProcessId%``).
 Windows environment variables can be used encased with double percent signs (e.g. ``%%ProgramData%%``).
 
-Note: Be aware that the variable values correspond to the environment of the Aurora Agent process that runs as SYSTEM and not an observed user process. 
+.. note::
+
+    Be aware that the variable values correspond to the environment of the Aurora Agent process that runs as SYSTEM and not an observed user process. 
 
 Response flags
 --------------
