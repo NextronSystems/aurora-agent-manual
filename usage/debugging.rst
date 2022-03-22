@@ -173,9 +173,9 @@ Data for our support can be gather with curl commands on the command line:
 
 .. code:: winbatch 
 
-    curl http://localhost:8080/debug/pprof/profile?seconds=20 --output aurora-debug.pprof
-    curl http://localhost:8080/debug/pprof/heap --output aurora-heap.pprof
-    curl http://localhost:8080/debug/pprof/goroutine --output aurora-stack-traces.pprof
+    curl http://localhost:8080/debug/pprof/profile?seconds=20 -o aurora-debug.pprof
+    curl http://localhost:8080/debug/pprof/heap -o aurora-heap.pprof
+    curl http://localhost:8080/debug/pprof/goroutine -o aurora-stack-traces.pprof
 
 Crashes 
 -------
