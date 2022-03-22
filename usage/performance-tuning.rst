@@ -53,7 +53,7 @@ Aurora Agent supports the following event source prefixes:
 - ``SystemLogger:`` Events from the System Trace Provider
   (see https://docs.microsoft.com/en-us/windows/win32/etw/configuring-and-starting-a-systemtraceprovider-session for details).
 
-  The schema is: ``SystemLogger:SystemLoggerFlag`` and the supported flags are:
+  The schema is: ``SystemLogger:SystemLoggerFlag`` where the supported ``SystemLoggerFlag`` flags are:
 
   - FileIO
   - Process
