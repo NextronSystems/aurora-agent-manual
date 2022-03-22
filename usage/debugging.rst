@@ -14,7 +14,7 @@ Status Information
 
 The ``--status`` can give you information from a running Aurora service.
 
-.. code:: winbatch
+.. code:: none
 
     C:\aurora>aurora-agent-64.exe --status
     Aurora Agent
@@ -44,7 +44,7 @@ It displays the number of events that the agent was able to see and process, the
 
 Adding the flag ``--trace`` includes more information in the output, e.g. the number of processed events per ETW event channel.
 
-.. code:: winbatch
+.. code:: none
 
     C:\aurora\>aurora-agent-64.exe --status --trace
     Aurora Agent
@@ -85,7 +85,7 @@ Adding the flag ``--trace`` includes more information in the output, e.g. the nu
 
 The JSON output includes all the information plus the agent configuration settings. 
 
-.. code:: winbatch
+.. code:: none
 
     C:\aurora\>aurora-agent-64.exe --status --json
     {
@@ -182,11 +182,11 @@ Crashes
 
 In cases of unexpected crashes, the following command lines can help you identify the source of the problem. 
 
-.. code:: winbatch 
+.. code:: none 
 
     C:\Program Files\Aurora Agent\>aurora-agent.exe -c agent-config.yml > aurora-crash.log 2>&1
 
-.. code:: winbatch 
+.. code:: none 
 
     C:\Program Files\Aurora Agent\>aurora-agent.exe -c agent-config.yml --trace > aurora-crash-trace.log 2>&1
 
