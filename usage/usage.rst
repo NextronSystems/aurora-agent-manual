@@ -40,11 +40,12 @@ We ship Aurora with 4 presets that we recommend to use. See the chapter :doc:`co
 Status Information
 ------------------
 
-This flag can be used to query status information from the running service.
-
-Note: Make sure to also set ``--agent-name`` if you've set a non-standard name.
+The ``--status`` flag can be used to query status information from the running service.
 
 This flag can be combined with the ``--json`` and ``--trace`` flags for JSON formatted or more detailed output.
+
+.. note::
+    If you've set a non-standard name when starting Aurora (using ``--agent-name``), make sure to pass the same value here as well with ``--agent-name``.
 
 .. code:: none
 
