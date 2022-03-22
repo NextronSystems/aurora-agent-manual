@@ -82,7 +82,10 @@ Included in profiles: Intense
 IOC Matching
 ------------
 
-Note: the Aurora Lite version uses only a very limited set of IOCs. 
+.. note::
+   
+   The Aurora Lite version uses only a very limited set of IOCs. 
+
 
 Filenames
 ~~~~~~~~~
@@ -100,7 +103,9 @@ Cleanup:
 C2 
 ~~
 
-Warning: this could trigger an alert in your internal monitoring (old Sofacy C2)
+.. warning:: 
+
+    This could trigger an alert in your internal monitoring (old Sofacy C2)
 
 .. code:: winbatch 
 
@@ -132,4 +137,6 @@ Extract the package and then run:
 
     proc_ghost.exe %comspec% c1.exe
 
-Note: Only available in the full version (not Aurora Lite)
+.. note::
+
+    Only available in the full version (not Aurora Lite)
