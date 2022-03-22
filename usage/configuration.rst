@@ -91,6 +91,11 @@ Log file
 
 A log file can be specified using ``--logfile``. By default, no log file is written.
 
+The log file is automatically rotated by Aurora once more than ``--log-size`` bytes have been written to it (default is 10MB).
+``--log-rotate`` can be used to specify the number of log rotations that are retained (defaults to 7).
+
+Log rotation can be disabled by setting ``--log-size`` to 0.
+
 False positive filtering
 ------------------------
 
