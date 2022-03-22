@@ -80,7 +80,7 @@ Suppressed Sigma matches of those: 0
 
 Response Actions: disabled
 
-This flag can be combined with the ``--json`` or `--trace` flags:
+This flag can be combined with the ``--json`` or ``--trace`` flags:
 
 - JSON output is significantly more comprehensive, but is also more prone to changes (especially additions).
 - Trace output contains more details, for example full event statistics.
