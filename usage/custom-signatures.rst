@@ -18,7 +18,7 @@ Manual signature management
 ---------------------------
 
 Signatures can be specified when starting Aurora using the ``--rules-path`` and ``--ioc-path`` parameters. These parameters default to the built-in rules and IOCs at 
-``signatures/sigma-rules`` and ``signatures/iocs`` and the provided paths for custom signatures at ``custom-signatures/sigma-rules`` and ``custom-signatures/iocs`` respectively. 
+``signatures\sigma-rules`` and ``signatures\iocs`` and the provided paths for custom signatures at ``custom-signatures\sigma-rules`` and ``custom-signatures\iocs`` respectively. 
 Aurora traverses the directories that are specified with these parameters recursively and initializes all signature files it finds.
 
 In order to add new sigma rules or IOCs, you can either:
