@@ -119,12 +119,25 @@ TDB
 NamedPipe
 ~~~~~~~~~
 
-TBD
+Start a named pipe using the following PowerShell commands:
+
+.. code:: powershell
+
+    $npipeServer = New-Object System.IO.Pipes.NamedPipeServerStream('testPipe', [System.IO.Pipes.PipeDirection]::InOut)
+    $npipeServer.Close()
+
+Included in profiles: Intense
 
 Mutex
 ~~~~~
 
-TBD
+Create a mutex using the following PowerShell commands:
+
+.. code:: powershell
+
+    $mtx = New-Object System.Threading.Mutex($true, "agony")
+
+Matching might take some time (outside of the Intense profile) since mutexes are polled.
 
 CommandLineMismatchDetector
 ---------------------------
