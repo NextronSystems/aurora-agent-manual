@@ -122,7 +122,7 @@ Copy the executed image to a backup folder, then kill the target process:
 
    response:
       - type: custom
-        action: xcopy %Image% %%ProgramData%%\Aurora\Image-%ProcessID%.bin
+        action: cmd /c copy %Image% "%%ProgramData%%\Aurora\Image-%ProcessId%.bin"
       - type: predefined
         action: kill
 
