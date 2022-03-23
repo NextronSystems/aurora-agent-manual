@@ -46,7 +46,7 @@ Aurora Agent supports the following event source prefixes:
 
   The schema for these sources is: ``WinEventLog:Provider/Channel?Options``
 
-  Channels and options are optional and add further restrictions on events from the channels that are
+  Channels and options are optional and add further restrictions on events from the provider that is
   requested.
   A full list of Eventlog channels on a system can be found using the Event Viewer. A full list of ETW providers on a system
   can be found using e.g. https://github.com/zodiacon/EtwExplorer.
