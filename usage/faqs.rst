@@ -8,7 +8,7 @@ Aurora registers to different event channels that sometimes contain the same inf
 
 In these cases, the alerts should have different values set in the ``Provider_Name`` field, e.g. ``Provider_Name: Microsoft-Windows-Kernel-Process`` and ``Provider_Name: Microsoft-Windows-Sysmon``. 
 
-It is unclear which of the two alerts should be suppressed in order to avoid these duplicate notifications, as they do not include identical information and in some situations one is preferred over the other and vice versa.
+It is unclear which of the two alerts should be suppressed in order to avoid these duplicate notifications, as they do not include identical information and in some situations one is preferred over the other or vice versa.
 
 How do I view the suppressed Sigma matches?
 -------------------------------------------
@@ -26,7 +26,7 @@ In some messages, e.g. in the reported statistics (``--report-stats``) or the st
 
 Use the flag combination ``--status --trace`` to view which Sigma rule matches have been suppressed. 
 
-.. code:: winbatch 
+.. code:: none 
 
     C:\Program Files\Aurora Agent\>aurora-agent-64.exe --status --trace
     Aurora Agent
