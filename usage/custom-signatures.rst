@@ -52,7 +52,7 @@ Signature Application
 ---------------------
 
 Sigma rules
-~~~~~~~~~~~
+^^^^^^^^^^^
 Sigma rules must contain a ``logsource`` element which (indirectly) determines on which events the sigma rule is applied.
 
 Aurora utilizes a number of `log sources` which map between these ``logsource`` elements and the actual sources.
@@ -65,10 +65,10 @@ Log sources may also utilize:
  - ``rewrite`` to reference each other. ``rewrite`` is meant to be used in combination with the other elements: For example, Sysmon events are split into different categories using ``conditions`` and ``rewrite``.
 
 IOCs
-~~~~
+^^^^
 
 Hashes
-^^^^^^
+~~~~~~
 Hash IOCs are applied to:
 
  - Process creation events
@@ -76,7 +76,7 @@ Hash IOCs are applied to:
  - Driver load events
 
 Filenames
-^^^^^^^^^
+~~~~~~~~~
 Filename IOCs are applied to:
 
  - Process creation events
@@ -86,7 +86,7 @@ Filename IOCs are applied to:
  - Driver load events
 
 C2
-^^^
+~~~
 
 C2 IOCs are applied to:
 
@@ -94,11 +94,11 @@ C2 IOCs are applied to:
  - TCP connection events
 
 Named Pipe
-^^^^^^^^^^
+~~~~~~~~~~
 
 Named Pipe IOCs are applied to handle events that reference named pipes.
 
 Handle
-^^^^^^
+~~~~~~
 
 Handle IOCs (which include mutex and event IOCs) are applied to handle events.
