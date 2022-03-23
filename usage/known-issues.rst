@@ -12,8 +12,8 @@ Status
 Fixed in build ``4a34c345`` 
 
 
-Rule that use "Provider_Name" don't match
------------------------------------------
+Rules that use "Provider_Name" don't match
+------------------------------------------
 
 Sigma rules that use the field ``Provider_Name``, e.g. the rule ``Eventlog Cleared`` (UUID: ``d99b79d2-0a6f-4f46-ad8b-260b6e17f982``) that looks for EventID ``1102`` and a certain provider name couldn't match because Aurora uses ``Provider.Name`` internally. 
 
