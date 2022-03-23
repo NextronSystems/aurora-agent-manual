@@ -47,3 +47,58 @@ Encrypted signatures
 ^^^^^^^^^^^^^^^^^^^^
 Both IOCs and sigma rules can be encrypted using the ``encrypt`` function in Aurora Agent Util. Aurora will automatically decrypt encrypted signatures at startup. 
 This functionality is only available in the full version of Aurora.
+
+Signature Application
+---------------------
+
+Sigma rules
+~~~~~~~~~~~
+Sigma rules must contain a ``logsource`` element which (indirectly) determines on which events the sigma rule is applied.
+
+Aurora utilizes a number of `log sources` which map between these ``logsource`` elements and the actual sources.
+The log source definitions which can be found in the ``log-sources`` folder. Rules  are applied on every log source which has a matching ``logsource`` definition.
+
+Log sources may also utilize:
+ - ``conditions`` to filter events from the given sources
+ - ``fieldmappings`` to rename specific fields in the events that occur. This is useful to have all events with the same ``logsource`` appear to have the same
+   fields, even if the underlying sources and field names differ.
+ - ``rewrite`` to reference each other. ``rewrite`` is meant to be used in combination with the other elements: For example, Sysmon events are split into different categories using ``conditions`` and ``rewrite``.
+
+IOCs
+~~~~
+
+Hashes
+^^^^^^
+Hash IOCs are applied to:
+
+ - Process creation events
+ - Image load events
+ - Driver load events
+
+Filenames
+^^^^^^^^^
+Filename IOCs are applied to:
+
+ - Process creation events
+ - Image load events
+ - File creation events
+ - Handle events that reference files
+ - Driver load events
+
+C2
+^^^
+
+C2 IOCs are applied to:
+
+ - DNS query events
+ - TCP connection events
+
+Named Pipe
+^^^^^^^^^^
+
+Named Pipe IOCs are applied to handle events that reference named pipes.
+
+Handle
+^^^^^^
+
+Handle IOCs (which include mutex and event IOCs) are applied to handle events.
