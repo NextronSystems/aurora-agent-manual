@@ -9,6 +9,8 @@ Sigma Matching
 Process Creation
 ~~~~~~~~~~~~~~~~
 
+Included in profiles: Minimal, Reduced, Standard, Intense
+
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
 .. code:: winbatch
@@ -21,10 +23,10 @@ This should create a ``WARNING`` level message for a Sigma rule with level ``hig
 
     certutil.exe -urlcache http://test.com
 
-Included in profiles: Minimal, Reduced, Standard, Intense
-
 Network Communication
 ~~~~~~~~~~~~~~~~~~~~~
+
+Included in profiles: Minimal, Reduced, Standard, Intense
 
 This should create a ``ALERT`` level message for a Sigma rule with level ``critical``.
 
@@ -32,10 +34,10 @@ This should create a ``ALERT`` level message for a Sigma rule with level ``criti
 
     ping aaa.stage.123456.test.com
 
-Included in profiles: Minimal, Reduced, Standard, Intense
-
 File Creation
 ~~~~~~~~~~~~~
+
+Included in profiles: Minimal, Reduced, Standard, Intense
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
@@ -43,10 +45,10 @@ This should create a ``WARNING`` level message for a Sigma rule with level ``hig
 
     echo "test" > %temp%\lsass.dmp
 
-Included in profiles: Minimal, Reduced, Standard, Intense
-
 Process Access
 ~~~~~~~~~~~~~~
+
+Included in profiles: Standard, Intense
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
@@ -60,10 +62,10 @@ Cleanup:
     
     del /f %temp%\lsass.dmp
 
-Included in profiles: Standard, Intense
-
 Registry
 ~~~~~~~~
+
+Included in profiles: Intense
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
@@ -76,8 +78,6 @@ Cleanup:
 .. code:: winbatch
 
     reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AuroraTest" /F 
-
-Included in profiles: Intense
 
 IOC Matching
 ------------
