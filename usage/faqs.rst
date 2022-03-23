@@ -8,7 +8,7 @@ Aurora registers to different event channels that sometimes contain the same inf
 
 In these cases, the alerts should have different values set in the ``Provider_Name`` field, e.g. ``Provider_Name: Microsoft-Windows-Kernel-Process`` and ``Provider_Name: Microsoft-Windows-Sysmon``. 
 
-It is difficult to decide which of the two alerts should be suppressed in order to avoid these duplicate notifications.
+It is unclear which of the two alerts should be suppressed in order to avoid these duplicate notifications, as they do not include identical information and in some situations one is preferred over the other and vice versa.
 
 How do I view the suppressed Sigma matches?
 -------------------------------------------
@@ -83,7 +83,7 @@ Use the flag combination ``--status --trace`` to view which Sigma rule matches h
 
     Response Actions: disabled
 
-The match throttling can be configured with the flags ``--match-burst`` and ``--match-throttling``. We recommend keeping it in the default. It does not suppress  matches of a certain rule that you haven't already noticed in the defined time frame. It throttles numerous matches of a single rule; cases in which a single rule causes numerous matches in the defined time frame, which is typically the cause of a noisy / too sensitive rule. 
+The match throttling can be configured with the flags ``--match-burst`` and ``--match-throttling``. We recommend keeping the default. It does not suppress  matches of a rule that you haven't already noticed in the defined time frame (each rule triggers at least ``--match-burst`` number of times before being throttled). It only throttles numerous matches of a single rule; cases in which a single rule causes numerous matches in the defined time frame, which is typically the cause of a noisy / too sensitive rule.
 
 Why does the Event ID in the Windows Eventlog differ from the one in the Event Data?
 ------------------------------------------------------------------------------------
