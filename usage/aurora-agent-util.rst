@@ -21,7 +21,7 @@ to reload the updated files.
 
 Examples:
 
-..code::
+.. code::
 
    aurora-agent-util.exe update
    aurora-agent-util.exe upgrade --restart-service
@@ -40,7 +40,8 @@ Encrypted signatures can be passed to Aurora just like unencrypted ones: Via the
 by specifying them with ``--rules-path`` / ``--ioc-path``.
 
 Examples:
-..code
+
+.. code::
 
    aurora-agent-util.exe encrypt path/to/my/sigmarule.yml path/to/my/other/sigmarule.yml
 
@@ -53,6 +54,6 @@ processes.
 
 Examples:
 
-..code::
+.. code::
 
    aurora-agent-util.exe exclude
