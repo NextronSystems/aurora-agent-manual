@@ -20,7 +20,8 @@ Both commands only affect the directory that contains the executable unless ``--
 to reload the updated files.
 
 Examples:
-..code
+
+..code::
 
    aurora-agent-util.exe update
    aurora-agent-util.exe upgrade --restart-service
@@ -51,6 +52,7 @@ the processes that created the most events and will run a dialogue to comfortabl
 processes.
 
 Examples:
-..code
+
+..code::
 
    aurora-agent-util.exe exclude
