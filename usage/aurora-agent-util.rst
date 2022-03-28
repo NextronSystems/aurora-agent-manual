@@ -6,6 +6,7 @@ Aurora Agent Util provides utility functions that are not centered around the de
  - Updating Aurora and its signatures
  - Encrypting custom signatures
  - Excluding "noisy" processes
+ - Creating a diagnostics pack with debugging information
 
 Updating Aurora
 ---------------
@@ -57,3 +58,15 @@ Examples:
 .. code::
 
    aurora-agent-util.exe exclude
+
+Creating a diagnostics pack
+---------------------------
+
+The ``diagnostics`` command creates a ZIP file with several files that can be analyzed by us in case of issues.
+If you encounter an issue, the first step is usually sending us this diagnostics pack along with an issue description.
+
+Examples:
+
+.. code::
+
+   aurora-agent-util.exe diagnostics
