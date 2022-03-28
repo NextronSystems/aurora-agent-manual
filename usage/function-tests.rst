@@ -9,6 +9,8 @@ Sigma Matching
 Process Creation
 ~~~~~~~~~~~~~~~~
 
+Included in profiles: Minimal, Reduced, Standard, Intense
+
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
 .. code:: winbatch
@@ -21,10 +23,10 @@ This should create a ``WARNING`` level message for a Sigma rule with level ``hig
 
     certutil.exe -urlcache http://test.com
 
-Included in profiles: Minimal, Reduced, Standard, Intense
-
 Network Communication
 ~~~~~~~~~~~~~~~~~~~~~
+
+Included in profiles: Minimal, Reduced, Standard, Intense
 
 This should create a ``ALERT`` level message for a Sigma rule with level ``critical``.
 
@@ -32,10 +34,10 @@ This should create a ``ALERT`` level message for a Sigma rule with level ``criti
 
     ping aaa.stage.123456.test.com
 
-Included in profiles: Minimal, Reduced, Standard, Intense
-
 File Creation
 ~~~~~~~~~~~~~
+
+Included in profiles: Minimal, Reduced, Standard, Intense
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
@@ -43,10 +45,10 @@ This should create a ``WARNING`` level message for a Sigma rule with level ``hig
 
     echo "test" > %temp%\lsass.dmp
 
-Included in profiles: Minimal, Reduced, Standard, Intense
-
 Process Access
 ~~~~~~~~~~~~~~
+
+Included in profiles: Standard, Intense
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
@@ -60,10 +62,10 @@ Cleanup:
     
     del /f %temp%\lsass.dmp
 
-Included in profiles: Standard, Intense
-
 Registry
 ~~~~~~~~
+
+Included in profiles: Intense
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
@@ -77,12 +79,13 @@ Cleanup:
 
     reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AuroraTest" /F 
 
-Included in profiles: Intense
-
 IOC Matching
 ------------
 
-Note: the Aurora Lite version uses only a very limited set of IOCs. 
+.. note::
+   
+   The Aurora Lite version uses only a very limited set of IOCs. 
+
 
 Filenames
 ~~~~~~~~~
@@ -100,7 +103,9 @@ Cleanup:
 C2 
 ~~
 
-Warning: this could trigger an alert in your internal monitoring (old Sofacy C2)
+.. warning:: 
+
+    This could trigger an alert in your internal monitoring (old Sofacy C2)
 
 .. code:: winbatch 
 
@@ -114,12 +119,25 @@ TDB
 NamedPipe
 ~~~~~~~~~
 
-TBD
+Start a named pipe using the following PowerShell commands:
+
+.. code:: powershell
+
+    $npipeServer = New-Object System.IO.Pipes.NamedPipeServerStream('testPipe', [System.IO.Pipes.PipeDirection]::InOut)
+    $npipeServer.Close()
+
+Included in profiles: Intense
 
 Mutex
 ~~~~~
 
-TBD
+Create a mutex using the following PowerShell commands:
+
+.. code:: powershell
+
+    $mtx = New-Object System.Threading.Mutex($true, "agony")
+
+Matching might take some time (outside of the Intense profile) since mutexes are polled.
 
 CommandLineMismatchDetector
 ---------------------------
@@ -132,4 +150,6 @@ Extract the package and then run:
 
     proc_ghost.exe %comspec% c1.exe
 
-Note: Only available in the full version (not Aurora Lite)
+.. note::
+
+    Only available in the full version (not Aurora Lite)

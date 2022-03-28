@@ -18,13 +18,23 @@ Manual signature management
 ---------------------------
 
 Signatures can be specified when starting Aurora using the ``--rules-path`` and ``--ioc-path`` parameters. These parameters default to the built-in rules and IOCs at 
-``signatures/sigma-rules`` and ``signatures/iocs`` and the provided paths for custom signatures at ``custom-signatures/sigma-rules`` and ``custom-signatures/iocs`` respectively. 
+``signatures\sigma-rules`` and ``signatures\iocs`` and the provided paths for custom signatures at ``custom-signatures\sigma-rules`` and ``custom-signatures\iocs`` respectively. 
 Aurora traverses the directories that are specified with these parameters recursively and initializes all signature files it finds.
 
 In order to add new sigma rules or IOCs, you can either:
 
  - Add them to the corresponding subfolder in `custom-signatures`
  - Specify the folder where they are located using ``--rules-path`` or ``--ioc-path``
+
+.. warning::
+   If you specifiy ``--rules-path`` or ``--ioc-path``, if you want to use the Aurora built-in rules and IOCs,
+   you need to add them manually as well. E.g.:
+
+    .. code:: winbatch
+
+        aurora-agent.exe --install --rules-path .\signatures\sigma-rules --rules-path .\my-rules
+
+    If paths are configured, only the configured paths are used.
 
 Signature format
 ^^^^^^^^^^^^^^^^
@@ -37,3 +47,58 @@ Encrypted signatures
 ^^^^^^^^^^^^^^^^^^^^
 Both IOCs and sigma rules can be encrypted using the ``encrypt`` function in Aurora Agent Util. Aurora will automatically decrypt encrypted signatures at startup. 
 This functionality is only available in the full version of Aurora.
+
+Signature Application
+---------------------
+
+Sigma rules
+^^^^^^^^^^^
+Sigma rules must contain a ``logsource`` element which (indirectly) determines on which events the sigma rule is applied.
+
+Aurora utilizes a number of `log sources` which map between these ``logsource`` elements and the actual sources.
+The log source definitions which can be found in the ``log-sources`` folder. Rules  are applied on every log source which has a matching ``logsource`` definition.
+
+Log sources may also utilize:
+ - ``conditions`` to filter events from the given sources
+ - ``fieldmappings`` to rename specific fields in the events that occur. This is useful to have all events with the same ``logsource`` appear to have the same
+   fields, even if the underlying sources and field names differ.
+ - ``rewrite`` to reference each other. ``rewrite`` is meant to be used in combination with the other elements: For example, Sysmon events are split into different categories using ``conditions`` and ``rewrite``.
+
+IOCs
+^^^^
+
+Hashes
+~~~~~~
+Hash IOCs are applied to:
+
+ - Process creation events
+ - Image load events
+ - Driver load events
+
+Filenames
+~~~~~~~~~
+Filename IOCs are applied to:
+
+ - Process creation events
+ - Image load events
+ - File creation events
+ - Handle events that reference files
+ - Driver load events
+
+C2
+~~~
+
+C2 IOCs are applied to:
+
+ - DNS query events
+ - TCP connection events
+
+Named Pipe
+~~~~~~~~~~
+
+Named Pipe IOCs are applied to handle events that reference named pipes.
+
+Handle
+~~~~~~
+
+Handle IOCs (which include mutex and event IOCs) are applied to handle events.

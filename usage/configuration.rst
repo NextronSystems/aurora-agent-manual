@@ -18,54 +18,39 @@ To facilitate the use of Aurora, four configuration files are part of the Aurora
 - Minimal (``agent-config-minimal.yml``)
 - Intense (``agent-config-intense.yml``)
 
-These profiles are explained below in some detail. If you need further information, you can also inspect the configuration files directly.
-
 An installation that uses the preset named "reduced" would look like this: 
 
 .. code:: winbatch
 
     aurora-agent.exe --install -c agent-config-reduced.yml
 
-Minimal 
-~~~~~~~
+The configuration presets effect the following settings:
 
-The ``minimal`` configuration file limits Aurora process priority and CPU usage to a low level. It deactivates the following ETW sources:
++-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
+| Affected Setting              | Minimal               | Reduced                  | Standard               | Intense           |
++===============================+=======================+==========================+========================+===================+
+| Deactivated sources           | | Registry            | | Registry               | | Registry             |                   |
+|                               | | Raw Disk Access     | | Raw Disk Access        | | Raw Disk Access      |                   |
+|                               | | Kernel Handles      | | Kernel Handles         | | Kernel Handles       |                   |
+|                               | | Create Remote Thread| | Create Remote Thread   | | Create Remote Thread |                   |
+|                               | | Process Access      | | Process Access         |                        |                   |
+|                               | | Image Loads         |                          |                        |                   |
++-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
+| CPU Limit                     | 20%                   | 30%                      | 35%                    | 100%              |
++-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
+| Process Priority              | Low                   | Normal                   | Normal                 | Normal            |
++-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
+| Minimum Reporting Level       | High                  | High                     | Medium                 | Low               |
++-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
+| Deactivated modules           | | LSASS Dump Detector | | LSASS Dump Detector    |                        |                   |
+|                               | | BeaconHunter        |                          |                        |                   |
++-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
 
-- Registry
-- Image Loads 
-- Raw Disk Access
-- Process Access
-- Create Remote Thread
-- Kernel Handles
+.. warning::
+    Intense preset uses the most system resources and can put the system under heavy load,
+    especially if a process accesses many registry keys in a short amount of time.
 
-
-Reduced 
-~~~~~~~
-
-The ``reduced`` configuration file deactivates expensive ETW log sources and limits Aurora CPU usage. It deactivates the following ETW sources:
-
-- Registry
-- Raw Disk Access
-- Process Access
-- Kernel Handles
-
-Standard
-~~~~~~~~
-
-The ``standard`` configuration file deactivates very expensive ETW log sources and limits Aurora CPU usage. It deactivates the following ETW sources:
-
-- Registry
-- Raw Disk Access
-- Kernel Handles
-
-Intense 
-~~~~~~~
-
-All possible ETW log source are activated. 
-
-WARNING: This preset uses the most system resources and can put the system under heavy load, especially if a process accesses many registry keys in a short amount of time. 
-
-We recommend using this preset only on a very selective set of systems or in cases in which maximum detection is required. 
+    We recommend using this preset only on a very selective set of systems or in cases in which maximum detection is required.
 
 Custom Profiles
 ~~~~~~~~~~~~~~~
@@ -106,10 +91,20 @@ Log file
 
 A log file can be specified using ``--logfile``. By default, no log file is written.
 
+The log file is automatically rotated by Aurora once more than ``--log-size`` bytes have been written to it (default is 10MB).
+``--log-rotate`` can be used to specify the number of log rotations that are retained (defaults to 7).
+
+Log rotation can be disabled by setting ``--log-size`` to 0.
+
 False positive filtering
 ------------------------
-When encountering false positives or known anomalies, besides reporting them, you can also exclude them using a false positive filter file and passing it to Aurora
-via the ``--false-positive-filter-file`` option.
+
+When encountering false positives or known anomalies, besides reporting them, you can also exclude them using a false positive filter file.
+By default, ``config\false-positives.cfg`` is used.
 
 The file passed should contain a regular expression per line; any log lines where any of these false positive regexps matches
 will not be logged.
+
+If you want to exclude all events from a specific process, process exclusions might be a better choice than a false positive filter
+since they also cancel any analysis on those events; see
+:ref:`Process Exclusions <Process Exclusions>` for more details.

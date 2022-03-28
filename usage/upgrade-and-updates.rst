@@ -14,7 +14,9 @@ The installer creates two scheduled tasks during the installation of the service
 
 One task is scheduled to update the signatures on a daily basis and after each login. The other task is scheduled to update the Aurora agent itself on a weekly basis. Both tasks can be disabled separately. 
 
-Note: The Aurora agent update also updates the signatures. (``upgrade`` command includes a signature update)
+.. Note::
+
+    The Aurora agent update also updates the signatures. (``upgrade`` command includes a signature update)
 
 
 Manual Upgrades and Updates
