@@ -142,3 +142,10 @@ If you don't need all IOCs and Sigma rules, it can be helpful to use ``--deactiv
 
 - ``--deactivate-module ApplyIOCs --rules-path my-custom-rule.yml`` deactivates IOCs completely and only loads the specified sigma rule.
 - ``--deactivate-module Sigma --ioc-path my-custom-filename-ioc.txt`` deactivates Sigma rules completely and only loads the specified filename IOC file.
+
+Why doesn't Aurora report Registry matches?
+-------------------------------------------
+
+The reason is that ETW provides only insufficient data in the respective event channels. Aurora has to perform some resource intensive check whenever processes access the Windows registry. We have therefore activated these checks only in the "intense" preset.
+
+See chapter :doc:`installation </usage/detection-gaps>` for more details. 
