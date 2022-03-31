@@ -22,7 +22,6 @@ Aurora Agent User Manual
    usage/custom-signatures
    usage/aurora-agent-util
    usage/debugging
-   usage/performance-tuning
    usage/known-issues
    usage/detection-gaps
    usage/faqs
