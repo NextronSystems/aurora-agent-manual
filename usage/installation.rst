@@ -33,8 +33,8 @@ You can install the agent using the following command line from command line ter
 
 After the installation the agent, configuration files and rules reside in ``C:\\Program Files\\Aurora Agent\\``.
 
-It automatically copies all rule files located the subfolders ``signatures/sigma-rules`` and ``custom-signatures``.
-The ``signatures/sigma-rules`` folder contains the current open source rule set maintained in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__.
+It automatically copies all rule files located the subfolders ``signatures\sigma-rules`` and ``custom-signatures``.
+The ``signatures\sigma-rules`` folder contains the current open source rule set maintained in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__.
 The ``custom-signatures`` folder can be used to add your own sigma rules.
 
 Aurora comes with with 4 configuration presets that we encourage you to explore and use: 
@@ -55,7 +55,7 @@ An installation that uses the preset named "reduced" would look like this:
 Custom Settings
 ---------------
 
-Adding your own Sigma rules or IOCs is described in chapter :ref:`custom signatures <Custom Signatures>`. The preferred way is to add them to the ``custom-signatures`` folder before you install Aurora.
+Adding your own Sigma rules or IOCs is described in chapter :ref:`custom signatures <Custom Signatures and IOCs>`. The preferred way is to add them to the ``custom-signatures`` folder before you install Aurora.
 
 All the flags that you use after ``--install`` get written to the configuration file named ``agent-config.yml`` in the ``C:\\Program Files\\Aurora Agent\\`` folder and will be used by the service.
 
