@@ -186,6 +186,8 @@ If Aurora has been started with ``--pprof``, information can also be gathered ma
     curl.exe http://localhost:8080/debug/pprof/heap --output aurora-heap.pprof
     curl.exe http://localhost:8080/debug/pprof/goroutine --output aurora-stack-traces.pprof
 
+This is the same information that is included in the diagnostic pack.
+
 Crashes 
 -------
 
