@@ -42,8 +42,11 @@ Quick Start
     aurora-agent.exe --status 
     aurora-agent.exe --status --trace
 
+Manual installation
+-------------------
+
 Install Aurora
---------------
+~~~~~~~~~~~~~~
 
 You can install the agent using the following command line from command line terminal that has been started "As Administrator".
 
@@ -73,7 +76,7 @@ An installation that uses the preset named "reduced" would look like this:
     aurora-agent.exe --install -c agent-config-reduced.yml
  
 Custom Settings
----------------
+~~~~~~~~~~~~~~~
 
 Adding your own Sigma rules or IOCs is described in chapter :ref:`custom signatures <Custom Signatures and IOCs>`. The preferred way is to add them to the ``custom-signatures`` folder before you install Aurora.
 
@@ -86,7 +89,7 @@ A typical command to install Aurora would look like this
     aurora-agent.exe --install --activate-responses
 
 Uninstall Aurora
-----------------
+~~~~~~~~~~~~~~~~
 
 To uninstall the agent simply run the following command:
 
@@ -103,3 +106,8 @@ If the uninstaller fails due to unknown errors, you can uninstall Aurora manuall
     rmdir /s /q "C:\Program Files\Aurora-Agent"
     schtasks /Delete /F /TN aurora-agent-program-update
     schtasks /Delete /F /TN aurora-agent-signature-update
+
+Installation using ASGARD
+-------------------------
+
+When using ASGARD Management Center, Aurora can be installed using the `Service Control` tab; see the `relevant chapter in the ASGARD manual <https://asgard-manual.nextron-systems.com/en/latest/usage/administration.html#aurora>`_ for details.
