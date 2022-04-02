@@ -81,12 +81,12 @@ By default Aurora writes its event into the Windows event log "Application". To 
    :target: ../images/windows-eventlog-details.png
    :alt: Aurora Events in Windows Eventlog
 
-UDP / TCP targets
+UDP / TCP Targets
 ~~~~~~~~~~~~~~~~~
 
 UDP or TCP log targets can be specified via the ``--udp-target`` and ``--tcp-target`` options. These options take an argument in the form ``host:port``, e.g. ``myloggingsystem.internal:8443``.
 
-Log file
+Log File
 ~~~~~~~~
 
 A log file can be specified using ``--logfile``. By default, no log file is written.
@@ -96,7 +96,7 @@ The log file is automatically rotated by Aurora once more than ``--log-size`` by
 
 Log rotation can be disabled by setting ``--log-size`` to 0.
 
-False positive filtering
+False Positive Filtering
 ------------------------
 
 When encountering false positives or known anomalies, besides reporting them, you can also exclude them using a false positive filter file.

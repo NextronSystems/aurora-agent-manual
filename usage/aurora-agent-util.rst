@@ -46,7 +46,7 @@ Examples:
 
    aurora-agent-util.exe encrypt path/to/my/sigmarule.yml path/to/my/other/sigmarule.yml
 
-Excluding processes
+Excluding Processes
 -------------------
 
 The ``exclude`` command requires a running Aurora Agent. It will connect to that Agent for status information about
@@ -59,14 +59,15 @@ Examples:
 
    aurora-agent-util.exe exclude
 
-Creating a diagnostics pack
+Creating a Diagnostics Pack
 ---------------------------
 
-The ``diagnostics`` command creates a ZIP file with several files that can be analyzed by us in case of issues.
-If you encounter an issue, the first step is usually sending us this diagnostics pack along with an issue description.
+The ``diagnostics`` command creates a ZIP file with several files that can be analyzed by us in case of issues. If you encounter an issue, the first step is usually sending us this diagnostics pack along with a description of the issues.
 
 Examples:
 
 .. code::
 
    aurora-agent-util.exe diagnostics
+
+The diagnostics pack includes the status output, service startup logs (if available) and memory profiles that can be analyzed with the help of `pprof <https://jvns.ca/blog/2017/09/24/profiling-go-with-pprof/>`_.

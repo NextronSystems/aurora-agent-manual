@@ -279,7 +279,7 @@ Aurora Agent supports the following event source prefixes:
   - Handle
 - ``PollHandles``: This event source is handled by a provider in Aurora that regularly creates an event for each handle that exists on a system.
 
-Example: Disabling a noisy log source
+Example: Disabling a Noisy Log Source
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this example, say that ``aurora-agent.exe --status --trace`` results in this event overview:
@@ -343,7 +343,7 @@ and performance carefully.
 
 .. _Process Exclusions:
 
-Process exclusions
+Process Exclusions
 ^^^^^^^^^^^^^^^^^^
 
 To exclude specific processes from analysis, you can configure Aurora to ignore all events from specific image paths.
