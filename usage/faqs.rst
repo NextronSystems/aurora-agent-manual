@@ -1,6 +1,21 @@
 Frequently Asked Questions
 ==========================
 
+Why does Aurora use a lot of memory? 
+------------------------------------
+
+The short answer is: because it can. 
+
+The long answer is related to the way the go runtime manages the memory. There are many articles that describe the way `how the garbage collector works <https://medium.com/safetycultureengineering/an-overview-of-memory-management-in-go-9a72ec7c76a8>`_ but only a few that describe situations in which a program `used a unexpectedly high amount of memory <https://blog.detectify.com/2019/09/05/how-we-tracked-down-a-memory-leak-in-one-of-our-go-microservices/>`_. 
+
+   It turns out that there was a change in Go 1.12 regarding how the runtime signals the operating system that it can take unused memory. Before Go 1.12, the runtime sends a MADV_DONTNEED signal on unused memory and the operating system immediately reclaims the unused memory pages. Starting with Go 1.12, the signal was changed to MADV_FREE, which tells the operating system that it can reclaim some unused memory pages if it needs to, meaning it doesn't always do that unless the system is under memory pressure from different processes.
+
+So, yes, it is possible that the Aurora agent uses much more memory than the usual 200-300 MB, but only in cases in which there is a lot of free available memory. The operating system should be able to claim that excessive memory whenever needed. 
+
+If you notice that this is not the case, please provide a diagnostics pack, which also includes a complete memory profile of a running Aurora agent. 
+
+See the section :ref:`Creating a Diagnostics Pack <Creating a Diagnostics Pack>` of the Aurora Agent Util chapter for details.
+
 Why does Aurora generate two alerts for a single event? 
 -------------------------------------------------------
 
@@ -30,93 +45,109 @@ Use the flag combination ``--status --trace`` to view which Sigma rule matches h
 
     C:\Program Files\Aurora Agent\>aurora-agent-64.exe --status --trace
     Aurora Agent
-    Version: 0.8.3
-    Build Revision: 0ebc3322ef722
-    Signature Revision: 2022/03/18-071411
-    Sigma Revision: 0.20-3305-g41fce11b7
+    Version: 0.9.9
+    Build Revision: 9280d44aef722
+    Signature Revision: 2022/03/25-161029
+    Sigma Revision: 0.20-3393-g952f14d8
     Status: running
-    Uptime (in hours): 3
+    Uptime (in hours): 0
 
     Active Outputs:
     Windows Application Eventlog: enabled
 
+    Resource Usage:
+    CPU Cores: 2
+    Total Memory: 4.00GB
+    Used Memory: 2.65GB
+    Used by Aurora: 346.47MB
+
+    Log Messages:
     Errors: 0
     Alerts: 0
-    Warnings: 3
-    Notices: 3
+    Warnings: 6
+    Notices: 13
 
-    Active Modules:
-    LsassDumpDetector
-    BeaconHunter
-    EtwCanary
-    CommandLineMismatchDetector
-    ProcessTamperingDetector
-    TemporaryDriverLoadDetector
-    ApplyIOCs
-    Rescontrol
-    Sigma
-    ETW-Provider
-    ETW-Kernel-Provider
-    Eventlog-Provider
-    Handle-Polling
+    Active Modules: LsassDumpDetector, BeaconHunter, EtwCanary, CommandLineMismatchDetector, ProcessTamperingDetector, TemporaryDriverLoadDetector, ApplyIOCs, Rescontrol, Sigma, ETWSource, ETWKernelSource, EventlogSource, PollHandles
 
     Rule Statistics:
     Rule paths: C:\Program Files\Aurora-Agent\signatures\sigma-rules, C:\Program Files\Aurora-Agent\custom-signatures
-    Loaded rules: 1278
-    Number of rule reloads: 0
+    Loaded rules: 1299
+            custom: 2
+            private: 18
+            public: 1279
+    Rule reloads: 0
+    Responses: 0
+    Process dump path: C:\Program Files\Aurora-Agent\process-dumps
+
+    Loaded IOCs:
+    Domain IOCs: 8425
+            internal: 8425
+    Filename IOCs: 6894
+            internal: 6894
+    Handle IOCs: 581
+            internal: 581
+    Hash IOCs: 8448
+            custom: 1
+            internal: 8447
+    Namedpipe IOCs: 100
+            internal: 100
 
     Event Statistics:
-    Events observed so far: 14910173
-            By source:
-                    11576611 events from PollHandles
-                    1243583 events from WinEventLog:Microsoft-Windows-Sysmon/Operational
-                    798200 events from WinEventLog:Microsoft-Windows-Kernel-Audit-API-Calls
-                    612929 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_CREATE
-                    596308 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_FILEIO?eventids=14
-                    49120 events from WinEventLog:Microsoft-Windows-Kernel-Process/WINEVENT_KEYWORD_THREAD
-                    23104 events from WinEventLog:Microsoft-Windows-Kernel-Process/WINEVENT_KEYWORD_IMAGE
-                    3087 events from WinEventLog:Microsoft-Windows-DNS-Client
-                    1604 events from WinEventLog:Microsoft-Windows-TCPIP/ut:ConnectPath
-                    1370 events from WinEventLog:{fbb4fbaa-2ae9-5b86-6d76-09930a11a03d}?fromownpid=1
-                    1028 events from SystemLogger:Process
-                    760 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_DELETE_PATH
-                    637 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_CREATE_NEW_FILE
-                    589 events from WinEventLog:Microsoft-Windows-WinINet/WININET_KEYWORD_HANDLES
-                    508 events from WinEventLog:Microsoft-Windows-Kernel-Process/WINEVENT_KEYWORD_PROCESS
-                    376 events from WinEventLog:Microsoft-Windows-TaskScheduler/Operational
-                    165 events from WinEventLog:Security
-                    142 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_RENAME_SETLINK_PATH
-                    27 events from WinEventLog:Microsoft-Windows-WMI-Activity/Operational
-                    9 events from WinEventLog:System
-                    8 events from WinEventLog:Microsoft-Windows-Windows Defender/Operational
-                    8 events from WinEventLog:Application
-            By process:
-                    4753497 events from C:\Windows\System32\svchost.exe
-                    1635086 events from C:\Users\neo\Downloads\ProcessExplorer\procexp64.exe
-                    1462611 events from C:\Windows\Sysmon64.exe
-                    783397 events from C:\Windows\System32\mmc.exe
-                    751224 events from C:\Users\neo\AppData\Local\Programs\Microsoft VS Code\Code.exe
-                    708535 events from C:\Windows\System32\RuntimeBroker.exe
-                    657888 events from C:\Windows\explorer.exe
-                    476060 events from C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
-                    334371 events from C:\Windows\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy\SearchApp.exe
-                    288844 events from C:\Windows\System32\SearchIndexer.exe
-                    190653 events from C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe
-                    189455 events from C:\Program Files\WindowsApps\Microsoft.YourPhone_1.22012.167.0_x64__8wekyb3d8bbwe\YourPhone.exe
-                    179109 events from C:\Windows\System32\dwm.exe
-                    166455 events from C:\Windows\ImmersiveControlPanel\SystemSettings.exe
-                    161133 events from C:\Program Files\WindowsApps\Microsoft.549981C3F5F10_3.2202.10603.0_x64__8wekyb3d8bbwe\Cortana.exe
-                    156229 events from C:\Program Files\WindowsApps\Microsoft.Windows.Photos_2021.21090.10008.0_x64__8wekyb3d8bbwe\Microsoft.Photos.exe
-                    ...
+    Events observed so far: 4003363
+    By source:
+            1432318 events from PollHandles
+            1108254 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_CREATE
+            872554 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_FILEIO?eventids=14
+            353165 events from WinEventLog:Microsoft-Windows-Sysmon/Operational
+            162140 events from WinEventLog:Microsoft-Windows-Kernel-Audit-API-Calls
+            30112 events from WinEventLog:Microsoft-Windows-Kernel-Process/WINEVENT_KEYWORD_IMAGE
+            15275 events from WinEventLog:Microsoft-Windows-Kernel-Process/WINEVENT_KEYWORD_THREAD
+            8113 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_DELETE_PATH
+            4738 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_CREATE_NEW_FILE
+            4717 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_RENAME_SETLINK_PATH
+            3826 events from WinEventLog:Microsoft-Windows-DNS-Client
+            3558 events from WinEventLog:Microsoft-Windows-TCPIP/ut:ConnectPath
+            1302 events from SystemLogger:Process
+            1236 events from WinEventLog:Security
+            756 events from WinEventLog:Microsoft-Windows-TaskScheduler/Operational
+            639 events from WinEventLog:Microsoft-Windows-Kernel-Process/WINEVENT_KEYWORD_PROCESS
+            257 events from WinEventLog:Microsoft-Windows-WinINet/WININET_KEYWORD_HANDLES
+            127 events from WinEventLog:{fbb4fbaa-2ae9-5b86-6d76-09930a11a03d}?fromownpid=1
+            120 events from WinEventLog:System
+            57 events from WinEventLog:Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
+            27 events from WinEventLog:Microsoft-Windows-WMI-Activity/Operational
+            25 events from WinEventLog:Microsoft-Windows-PowerShell
+            23 events from WinEventLog:Application
+            8 events from WinEventLog:Windows PowerShell
+            6 events from WinEventLog:Microsoft-Windows-Kernel-PnP/DriverLoad
+            5 events from WinEventLog:Microsoft-Windows-Windows Defender/Operational
+            4 events from WinEventLog:Microsoft-Windows-Kernel-PnP/DriverUnload
+            1 events from WinEventLog:Microsoft-Windows-SmbClient/Security
+    By process:
+            1146976 events from C:\Windows\System32\svchost.exe
+            875516 events from C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2202.4-0\MsMpEng.exe
+            519059 events from C:\Windows\Sysmon64.exe
+            142271 events from C:\Windows\System32\RuntimeBroker.exe
+            110926 events from C:\Windows\explorer.exe
+            108878 events from System
+            99896 events from C:\Users\neo\Downloads\ProcessExplorer\procexp64.exe
+            77899 events from C:\Users\neo\AppData\Local\Programs\Microsoft VS Code\Code.exe
+            64256 events from C:\aurora-beta\aurora-agent-util.exe
+            ...
 
     False positive filters: 0
     Process excludes: 0
 
     Events missed so far: 0
-    Sigma matches: 6
-            Run Whoami Showing Privileges: 3
-            Whoami Execution: 3
-    Suppressed Sigma matches of those: 0
+    Sigma matches: 28
+    Whoami Execution: 12
+    Run Whoami Showing Privileges: 9
+    Suspicious WSMAN Provider Image Loads: 4
+    New TaskCache Entry: 2
+    Run Once Task Configuration in Registry: 1
+    Suppressed Sigma matches of those: 9
+    Whoami Execution: 6
+    Run Whoami Showing Privileges: 3
 
     Response Actions: disabled
 
@@ -165,17 +196,3 @@ Aurora has some detection logic to detect and report such processes in separate 
    :target: ../images/aurora-id-107.png
    :alt: Aurora Event ID 107 reporting an extreme event producer
 
-Why does Aurora use a lot of memory? 
-------------------------------------
-
-The short answer is: because it can. 
-
-The long answer is related to the way the go runtime manages the memory. There are many articles that describe the way `how the garbage collector works <https://medium.com/safetycultureengineering/an-overview-of-memory-management-in-go-9a72ec7c76a8>`_ but only a few that describe situations in which a program `used a unexpectedly high amount of memory <https://blog.detectify.com/2019/09/05/how-we-tracked-down-a-memory-leak-in-one-of-our-go-microservices/>`_. 
-
-   It turns out that there was a change in Go 1.12 regarding how the runtime signals the operating system that it can take unused memory. Before Go 1.12, the runtime sends a MADV_DONTNEED signal on unused memory and the operating system immediately reclaims the unused memory pages. Starting with Go 1.12, the signal was changed to MADV_FREE, which tells the operating system that it can reclaim some unused memory pages if it needs to, meaning it doesn't always do that unless the system is under memory pressure from different processes.
-
-So, yes, it is possible that the Aurora agent uses much more memory than the usual 200-300 MB, but only in cases in which there is a lot of free available memory. The operating system should be able to claim that excessive memory whenever needed. 
-
-If you notice that this is not the case, please provide a diagnostics pack, which also includes a complete memory profile of a running Aurora agent. 
-
-See the section :ref:`Creating a Diagnostics Pack <Creating a Diagnostics Pack>` of the Aurora Agent Util chapter for details.
