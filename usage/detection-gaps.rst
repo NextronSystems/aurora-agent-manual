@@ -56,7 +56,7 @@ To close this detection gap:
 * use Aurora with the "Intense" configuration preset (could cause high CPU load on systems with a lot of registry access events)
 * additionally install and use Sysmon with `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
 
-We have been in contact with Microsoft to get these registry related ETW events fixed and extended in future Windows versions. However, Microsoft responded that it is hard to determine the real demand for a solution to these issues.
+We have been in contact with Microsoft to get the registry related ETW events fixed and extended in future Windows versions. However, Microsoft responded that it is hard to determine the real demand for a solution to these issues.
 
 ETW disabling
 -------------
