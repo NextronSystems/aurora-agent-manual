@@ -20,4 +20,4 @@ Features and services that are not included in the Aurora Lite version:
 - No encrypted Sigma rules (protect rules from spying eyes or the AV)
 - Only 5 rules with response actions allowed
 
-For more details see the description on our web site. 
+For more details see the description on `our web site <https://www.nextron-systems.com/aurora/>`_. 
