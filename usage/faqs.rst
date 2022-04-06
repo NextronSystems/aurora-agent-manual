@@ -16,6 +16,34 @@ If you notice that this is not the case, please provide a diagnostics pack, whic
 
 See the section :ref:`Creating a Diagnostics Pack <Creating a Diagnostics Pack>` of the Aurora Agent Util chapter for details.
 
+What's the impact of Sigma rule matching on the agent's performance? 
+--------------------------------------------------------------------
+
+Users are often interested in the matching process and ask questions like: "What's the performance impact with such a design? How scalable it is, let's say with 100 / 1000 / 10,000 sigma rules?" 
+
+The answer is that the impact isn't proportionate and thus much lower than expected. We use a matching logic that is very similar to the one used in i.e. YARA and therefore adding 1,000 rules to existing 1,000 rules would only slow down the agent by around 1-3%.
+
+The most CPU cycles are spent on reading and parsing the events from the different ETW event channels. This means that a process that produces a disproportionately high number events in these channels causes much more impact than adding 1,000 or 10,000 sigma rules. 
+
+Aurora has some detection logic to detect and report such processes in separate log messages with ID 107. In the release version Aurora reports all processes that are responsible for more than 50% of the total number of events. 
+
+.. figure:: ../images/aurora-id-107.png
+   :target: ../images/aurora-id-107.png
+   :alt: Aurora Event ID 107 reporting an extreme event producer
+
+Why does Aurora Lite use the newest rules while Aurora doesn't?
+---------------------------------------------------------------
+
+The rules used by our commercial product go through an intensive internal testing process before we release them to our customers. The rule set used by Aurora includes the `Github repository <https://github.com/SigmaHQ/sigma/tree/master/rules>`_ maintained by the Sigma community and Nextron's own private Sigma rules. 
+
+The Aurora Lite version always uses the current ``master`` of the `Github repository <https://github.com/SigmaHQ/sigma/tree/master/rules>`_ maintained by the Sigma community. This set goes through some rudimentary testing against exported EVTX files but isn't tested on live systems. 
+
+If you want to use the most current and untested rule set, you can add the ``--sigdev`` flag to the command line flags used by the update tasks. Please be aware that support cases caused by the use of that untested rule set may not be covered by the existing maintenance or support contract.  
+
+.. figure:: ../images/aurora_sigdev_signatures.png
+   :target: ../images/aurora_sigdev_signatures.png
+   :alt: Aurora update set to use SigDev rules
+
 Why does Aurora generate two alerts for a single event? 
 -------------------------------------------------------
 
@@ -180,19 +208,4 @@ Why doesn't Aurora report Registry matches?
 The reason is that ETW provides only insufficient data in the respective event channels. Aurora has to perform some resource intensive check whenever processes access the Windows registry. We have therefore activated these checks only in the "intense" preset.
 
 See chapter :doc:`installation </usage/detection-gaps>` for more details.
-
-What's the impact of Sigma rule matching on the agent's performance? 
---------------------------------------------------------------------
-
-Users are often interested in the matching process and ask questions like: "What's the performance impact with such a design? How scalable it is, let's say with 100 / 1000 / 10,000 sigma rules?" 
-
-The answer is that the impact isn't proportionate and thus much lower than expected. We use a matching logic that is very similar to the one used in i.e. YARA and therefore adding 1,000 rules to existing 1,000 rules would only slow down the agent by around 1-3%.
-
-The most CPU cycles are spent on reading and parsing the events from the different ETW event channels. This means that a process that produces a disproportionately high number events in these channels causes much more impact than adding 1,000 or 10,000 sigma rules. 
-
-Aurora has some detection logic to detect and report such processes in separate log messages with ID 107. In the release version Aurora reports all processes that are responsible for more than 50% of the total number of events. 
-
-.. figure:: ../images/aurora-id-107.png
-   :target: ../images/aurora-id-107.png
-   :alt: Aurora Event ID 107 reporting an extreme event producer
 
