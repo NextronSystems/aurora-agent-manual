@@ -34,11 +34,17 @@ Aurora has some detection logic to detect and report such processes in separate 
 Why does Aurora Lite use the newest rules while Aurora doesn't?
 ---------------------------------------------------------------
 
-The rules used by our commercial product go through an intensive internal testing process before we release them to our customers. The rule set used by Aurora includes the `Github repository <https://github.com/SigmaHQ/sigma/tree/master/rules>`_ maintained by the Sigma community and Nextron's own private Sigma rules. 
+The rules used by our commercial product go through an intensive internal testing process before we release them to our customers. The rule set used by Aurora includes the `Github repository <https://github.com/SigmaHQ/sigma/tree/master/rules>`_ maintained by the Sigma community and Nextron's own private Sigma rules.
+
+The tests include: 
+
+- Sigma tests against EVTX files exported from 30+ different test systems
+- Live tests on 4+ Windows machines with simulated user activity 
+- 24h live endurance tests on 30+ different test systems 
 
 The Aurora Lite version always uses the current ``master`` of the `Github repository <https://github.com/SigmaHQ/sigma/tree/master/rules>`_ maintained by the Sigma community. This set goes through some rudimentary testing against exported EVTX files but isn't tested on live systems. 
 
-If you want to use the most current and untested rule set, you can add the ``--sigdev`` flag to the command line flags used by the update tasks. Please be aware that support cases caused by the use of that untested rule set may not be covered by the existing maintenance or support contract.  
+If you want to use the most current and untested rule set, you can add the ``--sigdev`` flag to the command line flags used by the update tasks (add it right after the ``update`` or ``upgrade`` command). Please be aware that support cases caused by the use of that untested rule set may not be covered by the existing maintenance or support contract.  
 
 .. figure:: ../images/aurora_sigdev_signatures.png
    :target: ../images/aurora_sigdev_signatures.png
