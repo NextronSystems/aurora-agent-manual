@@ -61,3 +61,13 @@ If you haven't set ``--auto-reload`` during installation, use the ``--restart-se
 .. code:: winbatch
 
    aurora-agent-util.exe update --restart-service 
+
+Update Servers
+--------------
+
+Aurora connects to the following Servers to download updates:
+
+- https://update-aurora.nextron-systems.com/
+- https://update-lite.nextron-systems.com/
+
+Please ensure that these servers can be reached.
