@@ -21,6 +21,7 @@ Aurora Agent User Manual
    usage/function-tests
    usage/custom-signatures
    usage/aurora-agent-util
+   usage/event-id-list
    usage/debugging
    usage/known-issues
    usage/detection-gaps
