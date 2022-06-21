@@ -21,10 +21,33 @@ Supported
 - Windows Server 2019
 - Windows Server 2022
 
+Define an Antivirus / EDR Exclusion
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is recommended to exclude Aurora from your Antivirus / EDR solution.
+
+Depending on your architecture and whether Aurora was installed or started interactively
+from a temporary directory, the exclusion paths are:
+
+1. For an installed Aurora
+
+.. code:: none
+
+   C:\Program Files\Aurora-Agent\aurora-agent-64.exe
+   C:\Program Files\Aurora-Agent\aurora-agent.exe
+
+2. For a interactively started Aurora the path you have used for extraction. For example:
+
+.. code:: none
+
+   C:\Temp\Aurora\aurora-agent-64.exe
+   C:\Temp\Aurora\aurora-agent.exe
+
+
 Quick Start
 -----------
 
-1. Extract the program package into a temporary folder (e.g. C:\aurora-agent)
+1. Extract the program package into a temporary folder (e.g. C:\\aurora-agent)
 2. Make sure to place the \*.lic file into the extracted folder
 3. Start a cmd.exe as administrator
 4. Navigate to the extracted folder
@@ -56,7 +79,7 @@ You can install the agent using the following command line from command line ter
 
 After the installation the agent, configuration files and rules reside in ``C:\\Program Files\\Aurora Agent\\``.
 
-It automatically copies all rule files located the subfolders ``signatures\sigma-rules`` and ``custom-signatures``.
+It automatically copies all rule files located in the subfolders ``signatures\sigma-rules`` and ``custom-signatures``.
 The ``signatures\sigma-rules`` folder contains the current open source rule set maintained in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__.
 The ``custom-signatures`` folder can be used to add your own sigma rules.
 
