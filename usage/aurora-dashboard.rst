@@ -31,7 +31,7 @@ There are also some shortcuts that will open the dashboard such as:
 
 Configuring the Notifications
 ------------------------------
-The event filters can be configured either in the tray icon in the ``Options`` sub menu or in the dashboard in the ``Settings``-section
+The filter for which events will produce notifications can be configured either in the tray icon in the ``Options`` sub menu or in the dashboard in the ``Settings``-section
 
 Settings
 _________________
@@ -41,9 +41,6 @@ The settings can be accessed in the ``Settings`` Section in the dashboard.
    :target: ../images/aurora-dashboard-settings.png
    :alt: Dashboard settings example
 
-Configuring the Notifications
-------------------------------
-The event filters can be configured either in the tray icon in the ``Options`` sub menu or in the dashboard in the ``Settings``-section
 
 General Settings 
 ------------------------------
