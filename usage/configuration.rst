@@ -67,6 +67,8 @@ The following output options are available
 - UDP target
 - TCP target
 
+Output is usually formatted in a human readable way (with ``KEY: value`` pairs). For machine ingestion, using ``--json`` is recommended, which changes the format to JSON structs.
+
 ASGARD Analysis Cockpit
 ~~~~~~~~~~~~~~~~~~~~~~~
 
