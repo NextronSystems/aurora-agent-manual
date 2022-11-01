@@ -120,7 +120,7 @@ To uninstall the agent simply run the following command:
 
     aurora-agent.exe --uninstall
 
-If the uninstaller fails due to unknown errors, you can uninstall Aurora manually with these commands 
+If the uninstaller fails due to unknown errors, you can uninstall Aurora manually with these commands (Run from an administrative shell)
 
 .. code:: winbatch
 

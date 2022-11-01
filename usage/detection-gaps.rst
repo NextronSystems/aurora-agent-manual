@@ -16,8 +16,8 @@ Solution
 
 To close this detection gap:
 
-* use Aurora with the "Intense" configuration preset (could cause high CPU load on systems)
-* additionally install and use Sysmon with `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
+* Use Aurora with the "Intense" configuration preset (could cause high CPU load on systems)
+* Additionally install and use Sysmon with `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
 
 Registry Events
 ---------------
@@ -53,8 +53,8 @@ Solution
 
 To close this detection gap:
 
-* use Aurora with the "Intense" configuration preset (could cause high CPU load on systems with a lot of registry access events)
-* additionally install and use Sysmon with `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
+* Use Aurora with the "Intense" configuration preset (could cause high CPU load on systems with a lot of registry access events)
+* Additionally install and use Sysmon with `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
 
 We have been in contact with Microsoft to get the registry related ETW events fixed and extended in future Windows versions. However, Microsoft responded that it is hard to determine the real demand for a solution to these issues.
 
@@ -83,5 +83,5 @@ meaning they won't be listed by the ``Handle-Polling`` module.
 Solution
 ~~~~~~~~
 
-* use Aurora with the "Intense" configuration preset (could cause high CPU load on systems)
-* additionally install and use Sysmon with `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_ to at least guarantee events about named pipes
+* Use Aurora with the "Intense" configuration preset (could cause high CPU load on systems)
+* Additionally install and use Sysmon with `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_ to at least guarantee events about named pipes

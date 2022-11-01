@@ -51,34 +51,34 @@ This flag can be combined with the ``--json`` and ``--trace`` flags for JSON for
 
     C:\aurora>aurora-agent-64.exe --status
 
-Aurora Agent
-Version: 0.9.1
-Build Revision: 37fec81332531
-Signature Revision: 2022/03/21-101412
-Sigma Revision: 0.20-3331-gb4245c561
-Status: running
-Uptime (in hours): 0
+    Aurora Agent
+    Version: 0.9.1
+    Build Revision: 37fec81332531
+    Signature Revision: 2022/03/21-101412
+    Sigma Revision: 0.20-3331-gb4245c561
+    Status: running
+    Uptime (in hours): 0
 
-Active Outputs:
-    Windows Application Eventlog: enabled
-    Stdout: enabled
+    Active Outputs:
+        Windows Application Eventlog: enabled
+        Stdout: enabled
 
-Active Modules: LsassDumpDetector, BeaconHunter, EtwCanary, CommandLineMismatchDetector, ProcessTamperingDetector, TemporaryDriverLoadDetector, ApplyIOCs, Rescontrol, Sigma, ETWSource, ETWKernelSource, EventlogSource, PollHandles
+    Active Modules: LsassDumpDetector, BeaconHunter, EtwCanary, CommandLineMismatchDetector, ProcessTamperingDetector, TemporaryDriverLoadDetector, ApplyIOCs, Rescontrol, Sigma, ETWSource, ETWKernelSource, EventlogSource, PollHandles
 
-Rule Statistics:
-    Rule paths: C:\aurora\signatures\sigma-rules, C:\aurora\custom-signatures
-    Loaded rules: 1285
-    Rule reloads: 0
-    Responses: 28
+    Rule Statistics:
+        Rule paths: C:\aurora\signatures\sigma-rules, C:\aurora\custom-signatures
+        Loaded rules: 1285
+        Rule reloads: 0
+        Responses: 28
 
-False positive filters: 4
-Process excludes: 0
+    False positive filters: 4
+    Process excludes: 0
 
-Events missed so far: 0
-Sigma matches: 8
-Suppressed Sigma matches of those: 0
+    Events missed so far: 0
+    Sigma matches: 8
+    Suppressed Sigma matches of those: 0
 
-Response Actions: disabled
+    Response Actions: disabled
 
 This flag can be combined with the ``--json`` or ``--trace`` flags:
 
