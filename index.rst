@@ -13,6 +13,7 @@ Aurora Agent User Manual
 
    usage/what-is-aurora
    usage/installation
+   usage/aurora-dashboard
    usage/usage
    usage/configuration
    usage/upgrade-and-updates

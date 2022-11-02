@@ -10,20 +10,20 @@ Aurora Agent Dashboard provides a way to review Aurora events as well as get not
 Running Dashboard
 __________________
 
-Aurora can be run or installed with the dashboard feature using the --dashboard flag:
+Aurora can be run or installed with the dashboard feature using the ``--dashboard`` flag:
 
 Examples:
 
-.. code::
+.. code:: doscon
 
-   aurora-agent-64.exe --install --dashboard
-   aurora-agent-64.exe --dashboard
+   C:\aurora>aurora-agent-64.exe --install --dashboard
+   C:\aurora>aurora-agent-64.exe --dashboard
 
 Opening Dashboard UI
 _____________________
 
 The Dashboard can be accessed with your favorite browser using the following URL:
-`http://localhost:17494/ui/dashboard/overview <http://localhost:17494/ui/dashboard/overview>`_
+:samp:`http://localhost:17494/ui/dashboard/overview`
 
 There are also some shortcuts that will open the dashboard such as:
   - Click on a notification message
