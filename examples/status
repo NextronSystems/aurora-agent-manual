@@ -1,0 +1,23 @@
+C:\Program Files\Aurora Agent>aurora-agent-64.exe --status
+Aurora Agent
+Version: 0.1.6
+Build Revision: 5fef68a1
+Sigma Revision: 0.20-1884-ga4a26540
+Status: running
+Uptime (in hours): 0
+
+Active Outputs:
+Eventlog: enabled
+Stdout: enabled
+
+Rule Statistics:
+Loaded rules: 734
+Number of rule reloads: 0
+
+Event Statistics:
+Events observed so far: 89419
+Events lost so far: 0
+Sigma matches: 4
+Suppressed Sigma matches of those: 0
+
+Response Actions: disabled

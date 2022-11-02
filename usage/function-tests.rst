@@ -13,15 +13,15 @@ Included in profiles: Minimal, Reduced, Standard, Intense
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
-.. code:: winbatch
+.. code:: doscon
 
-    whoami /priv
+    C:\Users\nextron>whoami /priv
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
-.. code:: winbatch
+.. code:: doscon
 
-    certutil.exe -urlcache http://test.com
+    C:\Users\nextron>certutil.exe -urlcache http://test.com
 
 Network Communication
 ~~~~~~~~~~~~~~~~~~~~~
@@ -30,9 +30,9 @@ Included in profiles: Minimal, Reduced, Standard, Intense
 
 This should create a ``ALERT`` level message for a Sigma rule with level ``critical``.
 
-.. code:: winbatch 
+.. code:: doscon 
 
-    ping aaa.stage.123456.test.com
+    C:\Users\nextron>ping aaa.stage.123456.test.com
 
 File Creation
 ~~~~~~~~~~~~~
@@ -41,9 +41,9 @@ Included in profiles: Minimal, Reduced, Standard, Intense
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
-.. code:: winbatch 
+.. code:: doscon 
 
-    echo "test" > %temp%\lsass.dmp
+    C:\Users\nextron>echo "test" > %temp%\lsass.dmp
 
 Process Access
 ~~~~~~~~~~~~~~
@@ -52,15 +52,15 @@ Included in profiles: Standard, Intense
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
-.. code:: powershell 
+.. code:: ps1con 
 
-    $id = Get-Process lsass; rundll32.exe C:\Windows\System32\comsvcs.dll , MiniDump $id.Id $env:temp\lsass.dmp full
+    PS C:\Users\nextron>$id = Get-Process lsass; rundll32.exe C:\Windows\System32\comsvcs.dll , MiniDump $id.Id $env:temp\lsass.dmp full
 
 Cleanup:
 
-.. code:: winbatch
+.. code:: doscon
     
-    del /f %temp%\lsass.dmp
+    C:\Users\nextron>del /f %temp%\lsass.dmp
 
 Registry
 ~~~~~~~~
@@ -69,15 +69,15 @@ Included in profiles: Intense
 
 This should create a ``WARNING`` level message for a Sigma rule with level ``high``.
 
-.. code:: winbatch 
+.. code:: doscon 
 
-    reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AuroraTest" /V "AuroraTest" /t REG_SZ /F /D "vbscript"
+    C:\Users\nextron>reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AuroraTest" /V "AuroraTest" /t REG_SZ /F /D "vbscript"
 
 Cleanup:
 
-.. code:: winbatch
+.. code:: doscon
 
-    reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AuroraTest" /F 
+    C:\Users\nextron>reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AuroraTest" /F 
 
 IOC Matching
 ------------
@@ -90,15 +90,15 @@ IOC Matching
 Filenames
 ~~~~~~~~~
 
-.. code:: winbatch
+.. code:: doscon
 
-    echo "test" > %temp%\loader.ps1
+    C:\Users\nextron>echo "test" > %temp%\loader.ps1
 
 Cleanup: 
 
-.. code:: winbatch 
+.. code:: doscon 
 
-    del %temp%\loader.ps1
+    C:\Users\nextron>del %temp%\loader.ps1
 
 C2 
 ~~
@@ -107,9 +107,9 @@ C2
 
     This could trigger an alert in your internal monitoring (old Sofacy C2)
 
-.. code:: winbatch 
+.. code:: doscon 
 
-    ping drivres-update.info
+    C:\Users\nextron>ping drivres-update.info
 
 Hash 
 ~~~~
@@ -121,10 +121,10 @@ NamedPipe
 
 Start a named pipe using the following PowerShell commands:
 
-.. code:: powershell
+.. code:: ps1con
 
-    $npipeServer = New-Object System.IO.Pipes.NamedPipeServerStream('testPipe', [System.IO.Pipes.PipeDirection]::InOut)
-    $npipeServer.Close()
+    PS C:\Users\nextron>$npipeServer = New-Object System.IO.Pipes.NamedPipeServerStream('testPipe', [System.IO.Pipes.PipeDirection]::InOut)
+    PS C:\Users\nextron>$npipeServer.Close()
 
 Included in profiles: Intense
 
@@ -133,9 +133,9 @@ Mutex
 
 Create a mutex using the following PowerShell commands:
 
-.. code:: powershell
+.. code:: ps1con
 
-    $mtx = New-Object System.Threading.Mutex($true, "agony")
+    PS C:\Users\nextron>$mtx = New-Object System.Threading.Mutex($true, "agony")
 
 Matching might take some time (outside of the Intense profile) since mutexes are polled.
 
@@ -146,9 +146,9 @@ Download Process Ghosting PoC `release package <https://github.com/hasherezade/p
 
 Extract the package and then run:
 
-.. code:: winbatch 
+.. code:: doscon 
 
-    proc_ghost.exe %comspec% c1.exe
+    C:\Users\nextron>proc_ghost.exe %comspec% c1.exe
 
 .. note::
 

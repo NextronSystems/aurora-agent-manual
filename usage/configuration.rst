@@ -20,31 +20,72 @@ To facilitate the use of Aurora, four configuration files are part of the Aurora
 
 An installation that uses the preset named "reduced" would look like this: 
 
-.. code:: winbatch
+.. code:: doscon
 
-    aurora-agent.exe --install -c agent-config-reduced.yml
+    C:\aurora>aurora-agent.exe --install -c agent-config-reduced.yml
 
 The configuration presets effect the following settings:
 
-+-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
-| Affected Setting              | Minimal               | Reduced                  | Standard               | Intense           |
-+===============================+=======================+==========================+========================+===================+
-| Deactivated sources           | | Registry            | | Registry               | | Registry             |                   |
-|                               | | Raw Disk Access     | | Raw Disk Access        | | Raw Disk Access      |                   |
-|                               | | Kernel Handles      | | Kernel Handles         | | Kernel Handles       |                   |
-|                               | | Create Remote Thread| | Create Remote Thread   | | Create Remote Thread |                   |
-|                               | | Process Access      | | Process Access         |                        |                   |
-|                               | | Image Loads         |                          |                        |                   |
-+-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
-| CPU Limit                     | 20%                   | 30%                      | 35%                    | 100%              |
-+-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
-| Process Priority              | Low                   | Normal                   | Normal                 | Normal            |
-+-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
-| Minimum Reporting Level       | High                  | High                     | Medium                 | Low               |
-+-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
-| Deactivated modules           | | LSASS Dump Detector | | LSASS Dump Detector    |                        |                   |
-|                               | | BeaconHunter        |                          |                        |                   |
-+-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
+.. list-table::
+   :header-rows: 1
+   :widths: 25, 20, 20, 20, 15
+
+   * - Affected Setting
+     - Minimal
+     - Reduced
+     - Standard
+     - Intense
+   * - Deactivated Sources
+     - Registry,
+
+       Raw Disk Access,
+
+       Kernel Handles,
+
+       Create Remote Thread,
+
+       Process Access,
+
+       Image Loads
+     - Registry,
+     
+       Raw Disk Access,
+
+       Kernel Handles,
+
+       Create Remote Thread,
+       
+       Process Access
+     - Registry,
+       
+       Raw Disk Access,
+       
+       Kernel Handles,
+       
+       Create Remote Thread
+     -
+   * - CPU Limit
+     - 20 %
+     - 30 %
+     - 35 %
+     - 100 %
+   * - Process Priority
+     - Low
+     - Normal
+     - Normal
+     - Normal
+   * - Minimum Reporting Level
+     - High
+     - High
+     - Medium
+     - Low
+   * - Deactivated Modules
+     - LSASS Dump Detector,
+
+       BeaconHunter
+     - LSASS Dump Detector
+     -
+     -
 
 .. warning::
     Intense preset uses the most system resources and can put the system under heavy load,

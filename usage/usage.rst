@@ -8,21 +8,21 @@ Run Aurora
 
 If you simply run Aurora in your terminal, it'll use the default values for each flag and no dedicated config file:
 
-.. code:: winbatch
+.. code:: doscon
     
-    aurora-agent-64.exe
+    C:\aurora>aurora-agent-64.exe
 
 You can select one of the default config presets with the respective flag:
 
-.. code:: winbatch
+.. code:: doscon
     
-    aurora-agent-64.exe -c agent-config-reduced.yml
+    C:\aurora>aurora-agent-64.exe -c agent-config-reduced.yml
 
 A typical command line that runs Aurora and prints messages and matches to the command line and the Windows ``Application`` eventlog looks like this:
 
-.. code:: winbatch 
+.. code:: doscon 
 
-    aurora-agent-64.exe --minimum-level low
+    C:\aurora>aurora-agent-64.exe --minimum-level low
 
 Run Aurora as Service
 ---------------------
@@ -31,9 +31,9 @@ To install Aurora as a service, use the ``--install`` flag and see the chapter :
 
 A typical installation on systems that have limited hardware resources could look like this. 
 
-.. code:: winbatch
+.. code:: doscon
     
-    aurora-agent-64.exe --install -c agent-config-reduced.yml
+    C:\aurora>aurora-agent-64.exe --install -c agent-config-reduced.yml
 
 We ship Aurora with 4 presets that we recommend to use. See the chapter :doc:`configuration </usage/configuration>` for more information.
 
@@ -47,38 +47,9 @@ This flag can be combined with the ``--json`` and ``--trace`` flags for JSON for
 .. note::
     If you've set a non-standard name when starting Aurora (using ``--agent-name``), make sure to pass the same value here as well with ``--agent-name``.
 
-.. code:: none
-
-    C:\aurora>aurora-agent-64.exe --status
-
-    Aurora Agent
-    Version: 0.9.1
-    Build Revision: 37fec81332531
-    Signature Revision: 2022/03/21-101412
-    Sigma Revision: 0.20-3331-gb4245c561
-    Status: running
-    Uptime (in hours): 0
-
-    Active Outputs:
-        Windows Application Eventlog: enabled
-        Stdout: enabled
-
-    Active Modules: LsassDumpDetector, BeaconHunter, EtwCanary, CommandLineMismatchDetector, ProcessTamperingDetector, TemporaryDriverLoadDetector, ApplyIOCs, Rescontrol, Sigma, ETWSource, ETWKernelSource, EventlogSource, PollHandles
-
-    Rule Statistics:
-        Rule paths: C:\aurora\signatures\sigma-rules, C:\aurora\custom-signatures
-        Loaded rules: 1285
-        Rule reloads: 0
-        Responses: 28
-
-    False positive filters: 4
-    Process excludes: 0
-
-    Events missed so far: 0
-    Sigma matches: 8
-    Suppressed Sigma matches of those: 0
-
-    Response Actions: disabled
+.. literalinclude:: ../examples/usage
+   :language: doscon
+   :linenos:
 
 This flag can be combined with the ``--json`` or ``--trace`` flags:
 
@@ -92,6 +63,6 @@ Using the ``--trace`` flag you can view all the events Aurora observes in the di
 
 It's a good idea to write the output to a file in order to search in it later. 
 
-.. code:: winbatch
+.. code:: doscon
 
-    aurora-agent-64.exe --trace > d:\aurora-trace.log
+    C:\aurora>aurora-agent-64.exe --trace > d:\aurora-trace.log

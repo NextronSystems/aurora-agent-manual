@@ -27,9 +27,9 @@ Aurora Agent Program Updates
 
 Aurora can be upgraded using the Aurora Agent Util binary that is distributed as part of the Aurora Agent package. To upgrade Aurora to the latest version, use:
 
-.. code:: winbatch
+.. code:: doscon
 
-   aurora-agent-util.exe upgrade --restart-service
+   C:\Program Files\Aurora-Agent>aurora-agent-util.exe upgrade --restart-service
 
 When upgrading Aurora while it is installed, make sure to:
 
@@ -44,23 +44,23 @@ When Aurora Agent is installed, it adds a scheduled task that checks daily for s
 
 To manually update Aurora's built-in signatures, use the Aurora Agent Util binary that is distributed as part of the Aurora Agent package:
 
-.. code:: winbatch
+.. code:: doscon
 
-   aurora-agent-util.exe update
+   C:\Program Files\Aurora-Agent>aurora-agent-util.exe update
 
 You can specify ``--auto-reload`` when starting or installing Aurora to automatically reload built-in or custom signatures after you have manually updated them (see the :doc:`configuration </usage/configuration>` chapter for more details).
 
-.. code::
+.. code:: doscon
 
-   aurora-agent-64.exe --install --auto-reload
+   C:\aurora>aurora-agent-64.exe --install --auto-reload
 
 If you do not use ``--auto-reload``, make sure to restart Aurora for the new signatures to take effect.
 
 If you haven't set ``--auto-reload`` during installation, use the ``--restart-service`` flag to stop and start the service. 
 
-.. code:: winbatch
+.. code:: doscon
 
-   aurora-agent-util.exe update --restart-service 
+   C:\Program Files\Aurora-Agent>aurora-agent-util.exe update --restart-service 
 
 Update Servers
 --------------

@@ -1,0 +1,9 @@
+Event ID;Description
+100;A license file was found.
+101;Status message (from ``--report-stats``)
+102;Aurora Agent started.
+103;Aurora Agent is terminating.
+104;The current license expired.
+105;No valid license file was found.
+107;A process created a large amount of events.
+108;An internal panic occurred.

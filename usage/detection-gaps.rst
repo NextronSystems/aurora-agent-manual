@@ -31,7 +31,7 @@ The events for setting values here also are apparently broken; while the manifes
 To query the new value of the registry key, it is necessary to read the registry after receiving the event (which is less reliable since the
 value might have been changed again).
 
-.. code::
+.. code:: none
 
    EventID:2 Provider_Name:Microsoft-Windows-Kernel-Registry
    BaseName: BaseObject:0xFFFFB700E2344C40 Disposition:0 KeyObject:0xFFFFB700E23442C0
