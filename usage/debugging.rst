@@ -7,7 +7,9 @@ The best way to debug Aurora is to run it directly in the command line and don't
 
     C:\Program Files\Aurora Agent\>aurora-agent-64.exe --rules-path .\my-rules --debug
 
-The verbosity can even be increased by using the ``--trace`` flag. 
+The verbosity can even be increased by using the ``--trace`` flag. With ``--trace``, a log entry will be generated for every incoming event.
+
+``--debug`` and ``--trace`` apply to all outputs (log file, UDP / TCP, command line) except for the Windows Eventlog,
 
 Status Information
 ------------------
