@@ -27,7 +27,7 @@ A typical command line that runs Aurora and prints messages and matches to the c
 Run Aurora as Service
 ---------------------
 
-To install Aurora as a service, use the ``--install`` flag and see the chapter :doc:`installation </usage/installation>` for more details.
+To install Aurora as a service, use the ``--install`` flag and see the chapter :ref:`usage/installation:installation` for more details.
 
 A typical installation on systems that have limited hardware resources could look like this. 
 
@@ -35,17 +35,18 @@ A typical installation on systems that have limited hardware resources could loo
     
     C:\aurora>aurora-agent-64.exe --install -c agent-config-reduced.yml
 
-We ship Aurora with 4 presets that we recommend to use. See the chapter :doc:`configuration </usage/configuration>` for more information.
+We ship Aurora with 4 presets that we recommend to use. See the chapter :ref:`usage/configuration:configuration` for more information.
 
-Status Information
-------------------
+Aurora Service Status Information
+---------------------------------
 
 The ``--status`` flag can be used to query status information from the running service.
 
 This flag can be combined with the ``--json`` and ``--trace`` flags for JSON formatted or more detailed output.
 
 .. note::
-    If you've set a non-standard name when starting Aurora (using ``--agent-name``), make sure to pass the same value here as well with ``--agent-name``.
+    If you've set a non-standard name when starting Aurora (using ``--agent-name``),
+    make sure to pass the same value here as well with ``--agent-name``.
 
 .. literalinclude:: ../examples/usage
    :language: doscon

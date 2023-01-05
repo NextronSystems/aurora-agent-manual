@@ -83,8 +83,8 @@ Process ID field
 
 It is ``ProcessId`` by default and is supported for the predefined responses.
 
-Examples
---------
+Response Examples
+-----------------
 
 .. code:: yaml
  

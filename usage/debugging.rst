@@ -3,7 +3,7 @@ Debugging
 
 The best way to debug Aurora is to run it directly in the command line and don't use it as service. 
 
-.. code:: doscon
+.. code-block:: doscon
 
     C:\Program Files\Aurora Agent\>aurora-agent-64.exe --rules-path .\my-rules --debug
 
@@ -44,7 +44,7 @@ You can create a diagnostic pack to detect and debug performance problems.
 
 Simply run:
 
-.. code:: doscon 
+.. code-block:: doscon 
 
     C:\Program Files\Aurora Agent>aurora-agent-util.exe diagnostics
 
@@ -56,7 +56,7 @@ Profiling server
 
 If Aurora has been started with ``--pprof``, information can also be gathered manually via a web interface: 
 
-.. code:: batch 
+.. code-block:: batch 
 
     curl.exe http://localhost:8080/debug/pprof/profile?seconds=20 --output aurora-debug.pprof
     curl.exe http://localhost:8080/debug/pprof/heap --output aurora-heap.pprof
@@ -69,20 +69,21 @@ Crashes
 
 In cases of unexpected crashes, the following command lines can help you identify the source of the problem. 
 
-.. code:: doscon 
+.. code-block:: doscon 
 
     C:\Program Files\Aurora Agent>aurora-agent.exe -c agent-config.yml > aurora-crash.log 2>&1
 
-.. code:: doscon 
+.. code-block:: doscon 
 
     C:\Program Files\Aurora Agent>aurora-agent.exe -c agent-config.yml --trace > aurora-crash-trace.log 2>&1
 
 Error Messages
 --------------
 
-Check the configured log outputs for error messages. A faulty rule would e.g. lead to error messages like this one in the ``Application`` eventlog with EventID 
+Check the configured log outputs for error messages. A faulty rule would e.g.
+lead to error messages like this one in the ``Application`` eventlog with EventID 
 
-.. code:: none
+.. code-block:: none
 
     Could not reload sigma rules 
     Module: Aurora-Agent 
@@ -160,7 +161,7 @@ Example: Disabling a Noisy Log Source
 
 In this example, say that ``aurora-agent.exe --status --trace`` results in this event overview:
 
-.. code:: none
+.. code-block:: none
 
    Events observed so far: 50657
         36783 events from WinEventLog:Microsoft-Windows-Kernel-Audit-API-Calls
@@ -187,7 +188,7 @@ it.
 
 ``aurora-agent.exe --module-info --trace`` shows these modules which use this event source:
 
-.. code:: none
+.. code-block:: none
 
    Aurora Agent Modules:
         LsassDumpCheck
@@ -202,7 +203,7 @@ it.
 
 Searching in ``etw-log-sources.yml``, we find that there is also a Sigma log source definition which uses this event source: 
 
-.. code:: yaml
+.. code-block:: yaml
 
    windows-api-call-auditing:
       product: windows
@@ -215,9 +216,6 @@ and remove the log source definition from the sigma configuration.
 
 Obviously, this will also impact Aurora's detection capabilities to some degree. Choose your trade-off between detection
 and performance carefully.
-
-
-.. _Process Exclusions:
 
 Process Exclusions
 ^^^^^^^^^^^^^^^^^^
@@ -236,7 +234,7 @@ mask themselves as an excluded process to go unreported.
 Examples
 ~~~~~~~~
 
-.. code::
+.. code-block::
 
    # Exclude a specific process
    ^C:\\Program Files\\My Antivirus\\antivirus\.exe$

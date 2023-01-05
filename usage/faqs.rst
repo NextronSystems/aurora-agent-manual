@@ -14,7 +14,7 @@ So, yes, it is possible that the Aurora agent uses much more memory than the usu
 
 If you notice that this is not the case, please provide a diagnostics pack, which also includes a complete memory profile of a running Aurora agent. 
 
-See the section :ref:`Creating a Diagnostics Pack <Creating a Diagnostics Pack>` of the Aurora Agent Util chapter for details.
+See the section :ref:`usage/aurora-agent-util:creating a diagnostics pack` of the Aurora Agent Util chapter for details.
 
 What's the impact of Sigma rule matching on the agent's performance? 
 --------------------------------------------------------------------
@@ -107,5 +107,5 @@ Why doesn't Aurora report Registry matches?
 
 The reason is that ETW provides only insufficient data in the respective event channels. Aurora has to perform some resource intensive check whenever processes access the Windows registry. We have therefore activated these checks only in the "intense" preset.
 
-See chapter :doc:`installation </usage/detection-gaps>` for more details.
+See chapter :ref:`usage/detection-gaps:detection gaps` for more details.
 

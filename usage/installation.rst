@@ -31,18 +31,17 @@ from a temporary directory, the exclusion paths are:
 
 1. For an installed Aurora
 
-.. code:: batch
+.. code:: doscon
 
    C:\Program Files\Aurora-Agent\aurora-agent-64.exe
    C:\Program Files\Aurora-Agent\aurora-agent.exe
 
 2. For a interactively started Aurora the path you have used for extraction. For example:
 
-.. code:: batch
+.. code:: doscon
 
    C:\aurora\aurora-agent-64.exe
    C:\aurora\aurora-agent.exe
-
 
 Quick Start
 -----------
@@ -80,7 +79,8 @@ You can install the agent using the following command line from command line ter
 After the installation the agent, configuration files and rules reside in ``C:\Program Files\Aurora Agent\``.
 
 It automatically copies all rule files located in the subfolders ``signatures\sigma-rules`` and ``custom-signatures``.
-The ``signatures\sigma-rules`` folder contains the current open source rule set maintained in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__.
+The ``signatures\sigma-rules`` folder contains the current open source rule set maintained
+in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__.
 The ``custom-signatures`` folder can be used to add your own sigma rules.
 
 Aurora comes with with 4 configuration presets that we encourage you to explore and use: 
@@ -90,7 +90,7 @@ Aurora comes with with 4 configuration presets that we encourage you to explore 
 - Minimal (``agent-config-minimal.yml``)
 - Intense (``agent-config-intense.yml``)
 
-The different presets are explained in more detail in the chapter :doc:`configuration </usage/configuration>`.
+The different presets are explained in more detail in the chapter :ref:`usage/configuration:configuration`.
 
 An installation that uses the preset named "reduced" would look like this: 
 
@@ -101,9 +101,11 @@ An installation that uses the preset named "reduced" would look like this:
 Custom Settings
 ~~~~~~~~~~~~~~~
 
-Adding your own Sigma rules or IOCs is described in chapter :ref:`custom signatures <Custom Signatures and IOCs>`. The preferred way is to add them to the ``custom-signatures`` folder before you install Aurora.
+Adding your own Sigma rules or IOCs is described in chapter :ref:`usage/custom-signatures:Custom Signatures and IOCs`.
+The preferred way is to add them to the ``custom-signatures`` folder before you install Aurora.
 
-All the flags that you use after ``--install`` get written to the configuration file named ``agent-config.yml`` in the ``C:\Program Files\Aurora Agent\`` folder and will be used by the service.
+All the flags that you use after ``--install`` get written to the configuration file
+named ``agent-config.yml`` in the ``C:\Program Files\Aurora Agent\`` folder and will be used by the service.
 
 A typical command to install Aurora would look like this
 
@@ -133,4 +135,5 @@ If the uninstaller fails due to unknown errors, you can uninstall Aurora manuall
 Installation using ASGARD
 -------------------------
 
-When using ASGARD Management Center, Aurora can be installed using the `Service Control` tab; see the `relevant chapter in the ASGARD manual <https://asgard-manual.nextron-systems.com/en/latest/usage/administration.html#aurora>`_ for details.
+When using ASGARD Management Center, Aurora can be installed using the ``Service Control`` tab;
+see the `relevant chapter in the ASGARD manual <https://asgard-manual.nextron-systems.com/en/latest/usage/administration.html#aurora>`_ for details.

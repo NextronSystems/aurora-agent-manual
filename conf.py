@@ -43,7 +43,7 @@ extensions = [
     'sphinx.ext.autosectionlabel'
 ]
 
-suppress_warnings = ['autosectionlabel.*']
+#suppress_warnings = ['autosectionlabel.*']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -187,3 +187,6 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 
 # Enable -- to -
 smartquotes = False
+
+autosectionlabel_prefix_document = True
+autosectionlabel_maxdepth = 4
