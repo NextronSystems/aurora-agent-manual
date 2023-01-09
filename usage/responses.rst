@@ -3,11 +3,14 @@ Responses
 
 Responses are an extension to the Sigma standard used in Aurora agents. 
 
-They can be used to perform certain actions on an event match and therefore immediately respond to a Sigma rule match. Responses can help you contain a threat or limit its damage, but they can also lead to serious problems when they're not handled with care.
+They can be used to perform certain actions on an event match and therefore
+immediately respond to a Sigma rule match. Responses can help you contain a
+threat or limit its damage, but they can also lead to serious problems when they're not handled with care.
 
 .. warning::
 
-    Only use in cases in which you are absolutely sure that a rule doesn't create false positives and test your custom actions carefully. 
+    Only use in cases in which you are absolutely sure that a rule doesn't
+    create false positives and test your custom actions carefully. 
 
 Intended use cases:
    - Worm containment
@@ -41,17 +44,21 @@ Windows environment variables can be used encased with double percent signs (e.g
 
 .. note::
 
-    Be aware that the variable values correspond to the environment of the Aurora Agent process that runs as SYSTEM and not an observed user process. 
+    Be aware that the variable values correspond to the environment of the
+    Aurora Agent process that runs as SYSTEM and not an observed user process. 
 
 Response flags
 --------------
 
-Responses can be modified by a set of flags that are specified within the YAML as key/value structures. The following response flags exist:
+Responses can be modified by a set of flags that are specified within the
+YAML as key/value structures. The following response flags exist:
 
 Simulate
 ~~~~~~~~
 
-``simulate`` specifies that a response will not be triggered on a match. Instead, a log entry will be created that notes which response would be triggered. This is the same behaviour as when ``--activate-responses`` is not set.
+``simulate`` specifies that a response will not be triggered on a match.
+Instead, a log entry will be created that notes which response would be
+triggered. This is the same behavior as when ``--activate-responses`` is not set.
 
 ``simulate`` is supported for all responses.
 
@@ -65,20 +72,27 @@ It is supported for the predefined responses and is ``true`` by default.
 Low privilege only
 ~~~~~~~~~~~~~~~~~~
 
-``lowprivonly`` specifies that the response will only be triggered if the target process does not run as ``LOCAL SYSTEM`` or is similarly elevated.
+``lowprivonly`` specifies that the response will only be triggered if the
+target process does not run as ``LOCAL SYSTEM`` or is similarly elevated.
 
 It is supported for the predefined responses and is ``true`` by default.
 
 Ancestor
 ~~~~~~~~
-``ancestors`` specifies that a response will affect a process's ancestor instead of the process itself. ``ancestors: 1`` causes the response to affect the process's parent instead, ``ancestors: 2`` causes it to affect the process's grandparent, and so on.
 
-As a special case, ``ancestors: all`` can be used to affect all ancestors up to the first invalid ancestor (see the ``lowprivonly`` flag).
+``ancestors`` specifies that a response will affect a process's ancestor
+instead of the process itself. ``ancestors: 1`` causes the response to
+affect the process's parent instead, ``ancestors: 2`` causes it to affect
+the process's grandparent, and so on.
+
+As a special case, ``ancestors: all`` can be used to affect all ancestors
+up to the first invalid ancestor (see the ``lowprivonly`` flag).
 
 ``ancestors`` is supported for the predefined responses. It is 0 by default.
 
 Process ID field
 ~~~~~~~~~~~~~~~~
+
 ``processidfield`` specifies the field that contains the process ID that shall be affected. 
 
 It is ``ProcessId`` by default and is supported for the predefined responses.
@@ -147,7 +161,8 @@ A response can be declared inline in the sigma rule.
 
 This is useful for testing and provides response and sigma rule in a single file. 
 
-However, it is also inflexible since all targets where the sigma rules are deployed will have the same responses active. Also, there is no easy way to list all active responses.
+However, it is also inflexible since all targets where the sigma rules are deployed
+will have the same responses active. Also, there is no easy way to list all active responses.
 
 .. code:: yaml
 
@@ -166,11 +181,15 @@ However, it is also inflexible since all targets where the sigma rules are deplo
 Response sets
 ~~~~~~~~~~~~~
 
-Responses can be declared in a separate `response set` file. This file contains a response in combination with a list of rule IDs that identify the rules where the response should be applied.
+Responses can be declared in a separate `response set` file. This file contains
+a response in combination with a list of rule IDs that identify
+the rules where the response should be applied.
 
-Response set files can be passed at startup using the ``--response-set`` option. Multiple response set files can be passed.
+Response set files can be passed at startup using the ``--response-set``
+option. Multiple response set files can be passed.
 
-If a response is defined in multiple ways for the same rule (e.g. inline and in multiple response sets), the response from the response set that was specified last is used.
+If a response is defined in multiple ways for the same rule (e.g. inline
+and in multiple response sets), the response from the response set that was specified last is used.
 
 .. code:: yaml
 
@@ -187,6 +206,8 @@ If a response is defined in multiple ways for the same rule (e.g. inline and in 
 Action Results
 --------------
 
-The results of the actions are logged as part of a log message that lists the executed action and the rule that triggered it. This log message is written into the respective output channels. 
+The results of the actions are logged as part of a log message that lists
+the executed action and the rule that triggered it. This log message is
+written into the respective output channels. 
 
 

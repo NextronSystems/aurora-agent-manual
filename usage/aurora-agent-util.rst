@@ -62,7 +62,9 @@ Examples:
 Creating a Diagnostics Pack
 ---------------------------
 
-The ``diagnostics`` command creates a ZIP file with several files that can be analyzed by us in case of issues. If you encounter an issue, the first step is usually sending us this diagnostics pack along with a description of the issues.
+The ``diagnostics`` command creates a ZIP file with several files that can be analyzed
+by us in case of issues. If you encounter an issue, the first step is usually sending
+us this diagnostics pack along with a description of the issues.
 
 Examples:
 
@@ -70,4 +72,5 @@ Examples:
 
    C:\Program Files\Aurora-Agent>aurora-agent-util.exe diagnostics
 
-The diagnostics pack includes the status output, service startup logs (if available) and memory profiles that can be analyzed with the help of `pprof <https://jvns.ca/blog/2017/09/24/profiling-go-with-pprof/>`_.
+The diagnostics pack includes the status output, service startup logs (if available)
+and memory profiles that can be analyzed with the help of `pprof <https://jvns.ca/blog/2017/09/24/profiling-go-with-pprof/>`_.

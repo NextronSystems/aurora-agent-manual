@@ -31,7 +31,8 @@ There are also some shortcuts that will open the dashboard such as:
 
 Configuring the Notifications
 ------------------------------
-The filter for which events will produce notifications can be configured either in the tray icon in the ``Options`` sub menu or in the dashboard in the ``Settings``-section
+The filter for which events will produce notifications can be configured either in
+the tray icon in the ``Options`` sub menu or in the dashboard in the ``Settings``-section
 
 Settings
 _________________
@@ -52,4 +53,6 @@ General Settings
 
 Favorite Fields
 ~~~~~~~~~~~~~~~
-You can set favorite fields in the ``Settings`` section. These fields are shown in the configured order in every event you expand. You can change the order by dragging and dropping the fields in the ``Favorite Fields`` list. 
+You can set favorite fields in the ``Settings`` section. These fields are
+shown in the configured order in every event you expand. You can change
+the order by dragging and dropping the fields in the ``Favorite Fields`` list. 

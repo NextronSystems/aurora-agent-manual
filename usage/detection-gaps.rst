@@ -25,7 +25,8 @@ Named Pipes - Solution
 To close this detection gap:
 
 * Use Aurora with the "Intense" configuration preset (could cause high CPU load on systems)
-* Additionally install and use Sysmon with `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
+* Additionally install and use Sysmon with
+* `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
 
 Registry Events
 ---------------
@@ -78,7 +79,8 @@ To close this detection gap:
 
 * Use Aurora with the "Intense" configuration preset (could
   cause high CPU load on systems with a lot of registry access events)
-* Additionally install and use Sysmon with `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
+* Additionally install and use Sysmon with
+* `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_.
 
 We have been in contact with Microsoft to get the registry
 related ETW events fixed and extended in future Windows versions.
@@ -126,4 +128,6 @@ Handles - Solution
 ~~~~~~~~~~~~~~~~~~
 
 * Use Aurora with the "Intense" configuration preset (could cause high CPU load on systems)
-* Additionally install and use Sysmon with `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_ to at least guarantee events about named pipes
+* Additionally install and use Sysmon with
+* `this configuration <https://github.com/NextronSystems/aurora-helpers/blob/master/sysmon-config/aurora-sysmon-config.xml>`_
+* to at least guarantee events about named pipes

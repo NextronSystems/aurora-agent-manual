@@ -78,7 +78,7 @@ You can install the agent using the following command line from command line ter
 
 After the installation the agent, configuration files and rules reside in ``C:\Program Files\Aurora Agent\``.
 
-It automatically copies all rule files located in the subfolders ``signatures\sigma-rules`` and ``custom-signatures``.
+It automatically copies all rule files located in the sub-folders ``signatures\sigma-rules`` and ``custom-signatures``.
 The ``signatures\sigma-rules`` folder contains the current open source rule set maintained
 in the `Sigma repository <https://github.com/SigmaHQ/sigma>`__.
 The ``custom-signatures`` folder can be used to add your own sigma rules.
@@ -136,4 +136,5 @@ Installation using ASGARD
 -------------------------
 
 When using ASGARD Management Center, Aurora can be installed using the ``Service Control`` tab;
-see the `relevant chapter in the ASGARD manual <https://asgard-manual.nextron-systems.com/en/latest/usage/administration.html#aurora>`_ for details.
+see the `relevant chapter in the ASGARD manual <https://asgard-manual.nextron-systems.com/en/latest/usage/administration.html#aurora>`_
+for details.

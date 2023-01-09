@@ -18,7 +18,8 @@ You can select one of the default config presets with the respective flag:
     
     C:\aurora>aurora-agent-64.exe -c agent-config-reduced.yml
 
-A typical command line that runs Aurora and prints messages and matches to the command line and the Windows ``Application`` eventlog looks like this:
+A typical command line that runs Aurora and prints messages and matches to the command
+line and the Windows ``Application`` eventlog looks like this:
 
 .. code:: doscon 
 
@@ -27,7 +28,8 @@ A typical command line that runs Aurora and prints messages and matches to the c
 Run Aurora as Service
 ---------------------
 
-To install Aurora as a service, use the ``--install`` flag and see the chapter :ref:`usage/installation:installation` for more details.
+To install Aurora as a service, use the ``--install`` flag and see the
+chapter :ref:`usage/installation:installation` for more details.
 
 A typical installation on systems that have limited hardware resources could look like this. 
 
