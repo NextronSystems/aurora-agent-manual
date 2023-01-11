@@ -10,7 +10,7 @@ It is everything that other EDRs aren’t.
 * It works completely on-premises, no data leaves your network
 * It can be configured to use only a limited amount of resources
 
-We offer an enterprise and a “Lite” version, which is free of charge. The free version uses only the open source rule set, lacks comfort features and a central management.
+We offer an enterprise and a "Lite" version, which is free of charge. The free version uses only the open source rule set, lacks comfort features and a central management.
 
 ## Getting Started
 
