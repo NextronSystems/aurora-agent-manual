@@ -59,6 +59,8 @@ Examples:
 
    C:\Program Files\Aurora-Agent>aurora-agent-util.exe exclude
 
+This function is just a more comfortable alternative to adding the exclusions manually in the respective :ref:`usage/configuration:Process Exclusions` file.
+
 Creating a Diagnostics Pack
 ---------------------------
 

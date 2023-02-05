@@ -150,6 +150,20 @@ The log file is automatically rotated by Aurora once more than ``--log-size`` by
 
 Log rotation can be disabled by setting ``--log-size`` to 0.
 
+Process Exclusions
+------------------
+
+To exclude specific processes from analysis, you can configure Aurora to ignore all events from specific image paths.
+
+In order to do so, the excluded images must be specified (as regexps) in a file that is passed to ``--process-excludes``.
+By default, ``config\process-excludes.cfg`` is used. This file contains further examples on how to specify the
+excludes.
+
+The process exclusion file is loaded at startup. If you change the file, you'll need to restart Aurora to apply those changes.
+
+Please be aware that adding process exclusions can cause malware that uses process hollowing or similar techniques to
+mask themselves as an excluded process to go unreported.
+
 False Positive Filtering
 ------------------------
 

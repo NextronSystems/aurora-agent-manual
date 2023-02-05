@@ -1,17 +1,28 @@
 Known Issues
 ============
 
-AUR#001: x86 Version doesn't start
-----------------------------------
+AUR#005: Missing ``exclude`` Feature in Aurora Util Lite
+--------------------------------------------------------
 
-The ``EtwCanary`` module is broken and doesn't work on x86 systems. You won't
-get an appropriate error message. The agent just crashes silently on Windows x86 systems. 
+The process exclusion feature that allows to add a process automatically to the ``conf/process-exclusions.cfg`` automatically is missing in Aurora Lite Util and only available in the full version. This is an error. 
 
-AUR#001:Status
-~~~~~~~~~~~~~~
+AUR#005: Status
+~~~~~~~~~~~~~~~
 
-Fixed in build ``4a34c345`` 
+05.02.2023 - Work in progress. Will be part of the next release. 
 
+AUR#004: Missing Self-Defense
+-----------------------------
+
+- Folder permission checks
+- ETW manipulations (the ETW canary module in the full Aurora version already covers some of them)
+- Warning events on configuration changes
+
+AUR#003: Rule: "Rundll32 Internet Connection" Misses CommandLine Field 
+----------------------------------------------------------------------
+
+Matches with the rule "Rundll32 Internet Connection" currently miss a ``CommandLine``
+field. Adding that field to the rule is already on our list of features. 
 
 AUR#002: Rules that use "Provider_Name" don't match
 ---------------------------------------------------
@@ -25,15 +36,13 @@ AUR#002: Status
 
 Fixed in build ``06b7d44d`` (07.01.2022)
 
-AUR#003: Rule: "Rundll32 Internet Connection" Misses CommandLine Field 
-----------------------------------------------------------------------
+AUR#001: x86 Version doesn't start
+----------------------------------
 
-Matches with the rule "Rundll32 Internet Connection" currently miss a ``CommandLine``
-field. Adding that field to the rule is already on our list of features. 
+The ``EtwCanary`` module is broken and doesn't work on x86 systems. You won't
+get an appropriate error message. The agent just crashes silently on Windows x86 systems. 
 
-AUR#004: Missing Self-Defense
------------------------------
+AUR#001:Status
+~~~~~~~~~~~~~~
 
-- Folder permission checks
-- ETW manipulations (the ETW canary module already covers some of them)
-- Warning events on configuration changes
+Fixed in build ``4a34c345`` 
