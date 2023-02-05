@@ -43,26 +43,27 @@ from a temporary directory, the exclusion paths are:
    C:\aurora\aurora-agent-64.exe
    C:\aurora\aurora-agent.exe
 
-Quick Start
------------
+Quick Installation
+------------------
 
 1. Extract the program package into a temporary folder (e.g. ``C:\aurora``)
-2. Make sure to place the ``*.lic`` file into the extracted folder
-3. Start a cmd.exe as administrator
-4. Navigate to the extracted folder
-5. Run the following command 
+2. Make sure to place the license file (``*.lic``) into the extracted folder
+3. Start a ``cmd.exe`` as administrator
+4. Change directory to the extracted folder (``cd C:\aurora``)
+5. Run one of the following commands (with/without GUI)
 
 .. code:: doscon
 
-    C:\aurora>aurora-agent.exe --install
+    aurora-agent.exe --install
+    aurora-agent.exe --install --dashboard
 
 6. Verify that new events arrived in the local "Application" event log (Event Viewer)
 7. Run the following commands to get details on the current status of the agent 
 
 .. code:: doscon
 
-    C:\aurora>aurora-agent.exe --status 
-    C:\aurora>aurora-agent.exe --status --trace
+    aurora-agent.exe --status 
+    aurora-agent.exe --status --trace
 
 Manual installation
 -------------------
