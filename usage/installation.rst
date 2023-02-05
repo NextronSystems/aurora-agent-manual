@@ -57,13 +57,15 @@ Quick Installation
     aurora-agent.exe --install
     aurora-agent.exe --install --dashboard
 
-6. Verify that new events arrived in the local "Application" event log (Event Viewer)
+6. Verify new events in the local "Application" event log (Event Viewer) or the Aurora Dashboard
 7. Run the following commands to get details on the current status of the agent 
 
 .. code:: doscon
 
     aurora-agent.exe --status 
     aurora-agent.exe --status --trace
+
+See the :ref:`usage/function-tests:Function Tests` section for ideas on how to test Aurora is working as expected.
 
 Manual installation
 -------------------
