@@ -213,4 +213,4 @@ will not be logged.
 If you want to exclude all events from a specific process,
 process exclusions might be a better choice than a false positive filter
 since they also cancel any analysis on those events; see
-:ref:`usage/debugging:process exclusions` for more details.
+:ref:`usage/configuration:process exclusions` for more details.
