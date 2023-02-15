@@ -80,6 +80,11 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #
 html_theme = 'sphinx_rtd_theme'
 
+html_theme_options = {
+    'prev_next_buttons_location': 'both',
+    'style_external_links': True
+}
+
 html_logo = "images/html/aurora-logo.png"
 html_favicon = "images/html/favicon.ico"
 
@@ -115,57 +120,6 @@ html_css_files = [
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'Aurora Agent User Manual'
-
-
-# -- Options for LaTeX output ------------------------------------------------
-
-latex_elements = {
-    # The paper size ('letterpaper' or 'a4paper').
-    #
-    # 'papersize': 'letterpaper',
-
-    # The font size ('10pt', '11pt' or '12pt').
-    #
-    # 'pointsize': '10pt',
-
-    # Additional stuff for the LaTeX preamble.
-    #
-    # 'preamble': '',
-
-    # Latex figure (float) alignment
-    #
-    # 'figure_align': 'htbp',
-}
-
-# Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title,
-#  author, documentclass [howto, manual, or own class]).
-latex_documents = [
-    (master_doc, 'THORUtilManual.tex', 'THOR Util Manual Documentation',
-     'Nextron Systems GmbH', 'manual'),
-]
-
-
-# -- Options for manual page output ------------------------------------------
-
-# One entry per manual page. List of tuples
-# (source start file, name, description, authors, manual section).
-man_pages = [
-    (master_doc, 'thorutilmanual', 'THOR Util Manual Documentation',
-     [author], 1)
-]
-
-
-# -- Options for Texinfo output ----------------------------------------------
-
-# Grouping the document tree into Texinfo files. List of tuples
-# (source start file, target name, title, author,
-#  dir menu entry, description, category)
-texinfo_documents = [
-    (master_doc, 'AuroraAgentManual', 'Aurora Agent Documentation',
-     author, 'AuroraAgentManual', 'Aurora Agent User Manual',
-     'Miscellaneous'),
-]
 
 
 # -- Options for Epub output -------------------------------------------------
