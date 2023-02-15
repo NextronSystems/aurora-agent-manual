@@ -21,6 +21,20 @@ Supported
 - Windows Server 2019
 - Windows Server 2022
 
+Update Servers
+~~~~~~~~~~~~~~
+
+To download the newest updates for Aurora and our signatures, you need an
+active internet connection. The endpoint performing the update needs to
+reach our update servers to do this.
+
+For a detailed and up to date list of our update and licensing
+servers, please visit https://www.nextron-systems.com/hosts/.
+
+.. hint::
+  You do not need an active internet connection to run Aurora on an endpoint.
+  This is only needed if you want to update to the latest Aurora or signature versions.
+
 Define an Antivirus / EDR Exclusion
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
