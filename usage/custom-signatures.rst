@@ -36,12 +36,12 @@ In order to add new sigma rules or IOCs, you can either:
 .. warning::
    If you specify ``--rules-path`` or ``--ioc-path``, if you want to use the Aurora built-in rules and IOCs,
    you need to add them manually as well. E.g.:
-
-    .. code:: doscon
+   
+   .. code-block:: doscon
 
         C:\Program Files\Aurora-Agent>aurora-agent.exe --install --rules-path .\signatures\sigma-rules --rules-path .\my-rules
 
-    If paths are configured, only the configured paths are used.
+   If paths are configured, only the configured paths are used.
 
 Signature format
 ^^^^^^^^^^^^^^^^

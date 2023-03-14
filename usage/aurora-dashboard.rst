@@ -15,8 +15,8 @@ Examples:
 
 .. code:: doscon
 
-   aurora-agent-64.exe --install --dashboard
-   aurora-agent-64.exe --dashboard
+   C:\aurora>aurora-agent-64.exe --install --dashboard
+   C:\aurora>aurora-agent-64.exe --dashboard
 
 Dashboard UI Access
 -------------------
@@ -45,10 +45,13 @@ The settings can be accessed in the ``Settings`` Section in the dashboard.
 General Settings 
 ~~~~~~~~~~~~~~~~
 
-- Maximum Status Entries
-   - Sets the Maximum Status Entries that will be saved in Memory
-- Maximum Messages
-   - Sets the Maximum Count of Aurora Event Messages that will be saved in Memory
+* Maximum Status Entries   
+  
+  - Sets the Maximum Status Entries that will be saved in Memory
+
+* Maximum Messages
+
+  - Sets the Maximum Count of Aurora Event Messages that will be saved in Memory
 
 Favorite Fields
 ~~~~~~~~~~~~~~~

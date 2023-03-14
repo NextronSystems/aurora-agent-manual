@@ -12,6 +12,7 @@ There are many articles that describe the way
 but only a few that describe situations in which a program
 `used a unexpectedly high amount of memory <https://blog.detectify.com/2019/09/05/how-we-tracked-down-a-memory-leak-in-one-of-our-go-microservices/>`_. 
 
+.. note::
    It turns out that there was a change in Go 1.12 regarding how the runtime
    signals the operating system that it can take unused memory. Before Go 1.12,
    the runtime sends a ``MADV_DONTNEED`` signal on unused memory and the operating
