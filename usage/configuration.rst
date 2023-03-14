@@ -131,7 +131,6 @@ To review the events use the Windows "EventViewer". Make sure to check the
 "Details" tab to see all fields and values.
 
 .. figure:: ../images/windows-eventlog-details.png
-   :target: ../images/windows-eventlog-details.png
    :alt: Aurora Events in Windows Eventlog
 
 UDP / TCP Targets

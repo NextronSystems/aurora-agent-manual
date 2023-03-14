@@ -52,7 +52,6 @@ separate log messages with ID 107. In the release version Aurora reports
 all processes that are responsible for more than 50% of the total number of events. 
 
 .. figure:: ../images/aurora-id-107.png
-   :target: ../images/aurora-id-107.png
    :alt: Aurora Event ID 107 reporting an extreme event producer
 
 Why does Aurora Lite use the newest rules while Aurora doesn't?
@@ -81,7 +80,6 @@ support cases caused by the use of that untested rule set may not be covered
 by the existing maintenance or support contract.  
 
 .. figure:: ../images/aurora_sigdev_signatures.png
-   :target: ../images/aurora_sigdev_signatures.png
    :alt: Aurora update set to use SigDev rules
 
 Why does Aurora generate two alerts for a single event? 
@@ -138,7 +136,6 @@ channel that Aurora subscribes to. The Event ID used to write these events into
 the local Windows Eventlog differ from these Event IDs and are controlled by Aurora.  
 
 .. figure:: ../images/event-id-difference.png
-   :target: ../images/event-id-difference.png
    :alt: Difference in EventIDs
 
 Why does Aurora take so long to start?

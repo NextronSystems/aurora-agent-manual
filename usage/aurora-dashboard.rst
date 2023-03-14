@@ -4,7 +4,6 @@ Aurora Agent Dashboard
 Aurora Agent Dashboard provides a way to review Aurora events and get notifications for them:
 
 .. figure:: ../images/aurora-dashboard-overview.png
-   :target: ../images/aurora-dashboard-overview.png
    :alt: Overview image of dashboard and notification
 
 Dashboard Activation
@@ -41,7 +40,6 @@ Settings
 The settings can be accessed in the ``Settings`` Section in the dashboard.
 
 .. figure:: ../images/aurora-dashboard-settings.png
-   :target: ../images/aurora-dashboard-settings.png
    :alt: Dashboard settings example
 
 General Settings 

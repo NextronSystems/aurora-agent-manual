@@ -12,7 +12,6 @@ or deny the changes. It also provides ways to filter false positives right at th
 Signature updates and Aurora upgrades can be executed for all end points from the Management Center.
 
 .. figure:: ../images/asgard-rule-management.png
-   :target: ../images/asgard-rule-management.png
    :alt: Asgard Rule Management
 
 The rule management is described in more detail in
