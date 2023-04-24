@@ -40,8 +40,7 @@ release = ''
 # ones.
 extensions = [
     'sphinx.ext.autosectionlabel',
-    'sphinx_rtd_theme',
-    'sphinx_search.extension'
+    'sphinx_rtd_theme'
 ]
 
 #suppress_warnings = ['autosectionlabel.*']
