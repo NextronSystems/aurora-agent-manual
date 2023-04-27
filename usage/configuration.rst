@@ -158,6 +158,9 @@ In order to do so, the excluded images must be specified (as regular expressions
 By default, ``config\process-excludes.cfg`` is used. This file contains further examples on how to specify the
 excludes.
 
+The Process Exclusions are typically the values in your ``PARENTIMAGE`` field (Process Creation Event) or ``IMAGE`` (for all
+other Events - File Creation, etc.).
+
 Adding the expressions in the file results in
 
 1. Lower CPU load caused by the exclusion of the process 
@@ -165,8 +168,9 @@ Adding the expressions in the file results in
 
 The process exclusion file is loaded at startup. If you change the file, you'll need to restart Aurora to apply those changes.
 
-Please be aware that adding process exclusions can cause malware that uses process hollowing or similar techniques to
-mask themselves as an excluded process to go unreported.
+.. hint::
+  Please be aware that adding process exclusions can cause malware that uses process hollowing or similar techniques to
+  mask themselves as an excluded process to go unreported.
 
 Exclusion Examples 
 ~~~~~~~~~~~~~~~~~~
