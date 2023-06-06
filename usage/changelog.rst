@@ -53,7 +53,7 @@ Aurora Agent Version 1.1.2
       - Description
     * - Bugfix
       - Fixed an issue where Aurora could leak process handles when analyzing stack traces, possibly leading to high memory load when running for a long time
-    * - Change
+    * - Feature
       - Added functionality to the ResControl module to terminate Aurora if a handle leak is detected
 
 Aurora Agent Version 1.1.0
@@ -65,15 +65,15 @@ Aurora Agent Version 1.1.0
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added a field for process creation events that indicates whether process parent spoofing took place
-    * - Change
+    * - Feature
       - Added support for call traces from ETW events. Extended call traces (with full symbols) are also possible.
-    * - Change
+    * - Feature
       - Added CallTrace (and, in intense configuration, CallTraceExtended) fields to OpenProcess events
-    * - Change
+    * - Feature
       - Added new flags to set output format specifically for some outputs
-    * - Change
+    * - Feature
       - Added a '--dashboard' option that starts an interactive notifier for checking recent Aurora events
     * - Bugfix
       - Fixed an issue where rules with multiple wildcards could cause extremely high memory usage
@@ -92,7 +92,7 @@ Aurora Agent Version 1.0.7
       - Description
     * - Bugfix
       - Fixed an issue in go-sigma that can lead to high memory usage during initialization
-    * - Change
+    * - Feature
       - Added default exclusion for Windows Defender
 
 Aurora Agent Version 1.0.6
@@ -104,11 +104,11 @@ Aurora Agent Version 1.0.6
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Improved performance of Sigma rule matching
-    * - Change
+    * - Feature
       - Added a new log source for 'NtSetInformationKey' calls
-    * - Change
+    * - Feature
       - Added a timeout for receiving the agent status
 
 Aurora Agent Version 1.0.5
@@ -158,9 +158,9 @@ Aurora Agent Version 1.0.2
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Made additional flags available from ASGARD
-    * - Change
+    * - Feature
       - Added a warning when using keyword IOCs
 
 Aurora Agent Version 1.0.1
@@ -186,7 +186,7 @@ Aurora Agent Version 1.0.0
       - Description
     * - Bugfix
       - Fixed a bug where diagnostics pack creation could hang
-    * - Change
+    * - Feature
       - Added specific 'registry_*' categories in log source mappings
 
 Aurora Agent 0.9
@@ -201,9 +201,9 @@ Aurora Agent Version 0.9.9
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Extended 'diagnostics' information to cover broken configurations better
-    * - Change
+    * - Feature
       - Incorrect flags used in configuration file now cause Aurora startup to fail
 
 Aurora Agent Version 0.9.8
@@ -217,7 +217,7 @@ Aurora Agent Version 0.9.8
       - Description
     * - Change
       - Upgraded to Golang 1.17
-    * - Change
+    * - Feature
       - Added a new 'diagnostics' command to Aurora Util that extracts information useful for debugging
 
 Aurora Agent Version 0.9.7
@@ -259,7 +259,7 @@ Aurora Agent Version 0.9.5
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added explicit information about enabled modules to '--module-info'
 
 Aurora Agent Version 0.9.4
@@ -277,7 +277,7 @@ Aurora Agent Version 0.9.4
       - Fixed a bug where events that indirectly originated from Aurora (e.g. via Sysmon) were processed
     * - Bugfix
       - Fixed a bug where some response events had an incorrect log ID
-    * - Change
+    * - Feature
       - Added IOC counts to status
     * - Bugfix
       - Fixed a bug where explorer.exe could be terminated even if 'lowprivonly' was set
@@ -313,7 +313,7 @@ Aurora Agent Version 0.9.2
       - Description
     * - Change
       - TCP log target now tries to reconnect if the connection is interrupted
-    * - Change
+    * - Feature
       - Aurora Agent Util's 'upgrade' now also upgrades the installed agent when run with '--restart-service'
 
 Aurora Agent Version 0.9.1
@@ -341,7 +341,7 @@ Aurora Agent Version 0.9.0
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Improved performance for many matching operations
 
 Aurora Agent 0.8
@@ -384,13 +384,13 @@ Aurora Agent Version 0.8.1
       - Description
     * - Change
       - Renamed the 'FileAge' field to 'ImageAge' for many events
-    * - Change
+    * - Feature
       - Improved debug logging
-    * - Change
+    * - Feature
       - Added 'ParentCommandLine' field to some file events
-    * - Change
+    * - Feature
       - Added information about grandparent process to process creation events
-    * - Change
+    * - Feature
       - Added 'ProcessTree' field to process creation events
 
 Aurora Agent Version 0.8.0
@@ -406,7 +406,7 @@ Aurora Agent Version 0.8.0
       - The default locations for process exclude and false positive exclusion files have been moved to the new 'config/' directory
     * - Change
       - The number of process excludes and false positive exclusions is now part of the agent status
-    * - Change
+    * - Feature
       - Added 'exclude' command to Aurora Agent Util for a dialogue to exclude processes causing many events
 
 Aurora Agent 0.7
@@ -421,13 +421,13 @@ Aurora Agent Version 0.7.0
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added '--process-exclude' parameter that can be used to filter out events from specific processes early
     * - Bugfix
       - Fixed a bug that could potentially lead to deadlocks
-    * - Change
+    * - Feature
       - Added ResControl module to terminate Aurora if memory usage is too excessive
-    * - Change
+    * - Feature
       - Added information about events received per process to '--status --trace' output
 
 Aurora Agent 0.6
@@ -468,9 +468,9 @@ Aurora Agent Version 0.6.2
       - Description
     * - Change
       - Deprecated 'killparent' which was replaced by 'processidfield'
-    * - Change
+    * - Feature
       - Added lookup of parent process using cached data for responses
-    * - Change
+    * - Feature
       - Added 'emp' response action
 
 Aurora Agent Version 0.6.1
@@ -482,11 +482,11 @@ Aurora Agent Version 0.6.1
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added 'processidfield' flag for responses using 'kill', 'suspend' or 'dump'
     * - Change
       - Change '--deactivate-all-modules' to '--deactivate-all-consumers'
-    * - Change
+    * - Feature
       - Added support for 'response: none' to explicitly overwrite a response with one that does nothing
 
 Aurora Agent Version 0.6.0
@@ -498,11 +498,11 @@ Aurora Agent Version 0.6.0
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added '--response-set' flag for external definitions of responses for sigma rules
     * - Bugfix
       - Fixed a bug where some events did not contain the process ID as expected by responses
-    * - Change
+    * - Feature
       - Added 'all' as a valid value for the 'ancestors' flag
 
 Aurora Agent 0.5
@@ -529,7 +529,7 @@ Aurora Agent Version 0.5.7
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added additional information for ASGARD's parameter representation
     * - Change
       - Unified module list for Windows and Linux builds
@@ -559,9 +559,9 @@ Aurora Agent Version 0.5.5
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added '--quiet' flag for ASGARD
-    * - Change
+    * - Feature
       - Added more log IDs for identification
     * - Bugfix
       - Fixed a bug where '--restart-service' would fail if the Aurora service was stopped
@@ -599,9 +599,9 @@ Aurora Agent Version 0.5.2
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added exclusions to intrusive tampering detectors
-    * - Change
+    * - Feature
       - '--json' now also applies to eventlog output
     * - Bugfix
       - Fixed a bug where Aurora Agent Util downloaded upgrades / updates even when not necessary
@@ -615,7 +615,7 @@ Aurora Agent Version 0.5.1
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added log source for 'WinEventLog:Microsoft-Windows-Windows Firewall With Advanced Security/Firewall'
     * - Change
       - Removed unnecessary completion command in Aurora Agent Util
@@ -629,7 +629,7 @@ Aurora Agent Version 0.5.0
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added detection for 'EtwEventWrite' patches to process tampering detector
     * - Bugfix
       - Fixed a bug where hash order was not constant
@@ -648,7 +648,7 @@ Aurora Agent Version 0.4.4
       - Description
     * - Change
       - Changed the scheduled task names to be better understandable
-    * - Change
+    * - Feature
       - Added an additional log source for virtual disk mounts
     * - Change
       - Administrator tokens now count as low privileged for 'lowprivonly' (only LOCAL SYSTEM and similar tokens are protected)
@@ -664,7 +664,7 @@ Aurora Agent Version 0.4.3
       - Description
     * - Bugfix
       - Fixed a bug where installation paniced in certain race conditions
-    * - Change
+    * - Feature
       - Added better support for file names in events from 'Microsoft-Windows-Kernel-File'
 
 Aurora Agent Version 0.4.2
@@ -676,7 +676,7 @@ Aurora Agent Version 0.4.2
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added 'Alert' and 'Notice' log levels to better distinguish internal error / info messages and matches
     * - Bugfix
       - Fixed a bug where a handle was not correctly closed
@@ -716,7 +716,7 @@ Aurora Agent Version 0.4.0
       - Startup errors when running as a service are now written to 'service-startup.log' next to the executable
     * - Change
       - There are now two scheduled tasks: one for upgrades, one for updates
-    * - Change
+    * - Feature
       - Added '--report-stats-verbose' flag for more information in '--report-stats' output
     * - Bugfix
       - Fixed a bug where signatures where updated even when this was unnecessary
@@ -745,11 +745,11 @@ Aurora Agent Version 0.3.0
       - Updated description for many flags in '--help'
     * - Change
       - Process dumps are now written to the 'process-dumps' folder by default instead of the working directory
-    * - Change
+    * - Feature
       - Added banner display for interactive runs
-    * - Change
+    * - Feature
       - Added a default file for '--false-positive-filter' that includes a usage example
-    * - Change
+    * - Feature
       - Added rule paths to '--status' output
     * - Change
       - Specifying positional arguments (which were ignored before) now causes an error
@@ -766,11 +766,11 @@ Aurora Agent Version 0.2.4
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added support for DestinationIsIpv6 in Microsoft-Windows-TCPIP events
     * - Change
       - Improved installation procedure to account for user interrupts
-    * - Change
+    * - Feature
       - Added custom-signatures folder that is on the search list by default
     * - Change
       - Improved handling of panics and runtime faults
@@ -784,9 +784,9 @@ Aurora Agent Version 0.2.3
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Active and Inactive modules are listed at startup
-    * - Change
+    * - Feature
       - Added more verbose output to installation success
 
 Aurora Agent Version 0.2.2
@@ -798,7 +798,7 @@ Aurora Agent Version 0.2.2
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Signature revision is now included in status and initial message
     * - Change
       - Events from the named pipe poller now include the process that has a handle to the named pipe
@@ -838,15 +838,15 @@ Aurora Agent Version 0.2.0
       - Fixed a bug where the prodcess tampering detector caused panics on Windows 7
     * - Change
       - Errors in single sigma rules no longer cause the Aurora Agent startup to fail
-    * - Change
+    * - Feature
       - Added '--false-positive-filter-file' for custom exclusions
     * - Change
       - Aurora now installs all files to C:\Program Files\Aurora Agent and none to C:\ProgramData
-    * - Change
+    * - Feature
       - Added '--force' flag to Aurora Agent Util for forced upgrades
-    * - Change
+    * - Feature
       - Aurora Agent Util is now installed and can be used to update the installed version directly
-    * - Change
+    * - Feature
       - Aurora Agent now adds a daily update scheduled tasks on installation
 
 Aurora Agent 0.1
@@ -865,15 +865,15 @@ Aurora Agent Version 0.1.12
       - Fixed a bug in Sigma matching that could cause false negatives
     * - Change
       - Unified startup log lines into a single message
-    * - Change
+    * - Feature
       - Added module for process tampering detection
-    * - Change
+    * - Feature
       - Added module for temporary driver detection
-    * - Change
+    * - Feature
       - Added '--deactivate-all-modules' for easier debugging
-    * - Change
+    * - Feature
       - Added '--sigdev' option for Aurora Agent Util
-    * - Change
+    * - Feature
       - Added module for IOC (filenames, domains, hashes, ... ) application
     * - Change
       - Renamed '--no-content-info' to '--no-content-enrichment'
@@ -887,15 +887,15 @@ Aurora Agent Version 0.1.11
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added an ETW Canary module that checks whether ETW events are received
-    * - Change
+    * - Feature
       - Added content information via correlation to many events
     * - Change
       - Restricted number of active responses to 2 for Aurora Agent Lite
-    * - Change
+    * - Feature
       - Added FileAge field for content information
-    * - Change
+    * - Feature
       - Added Aurora Signature pack, Aurora Signatures can be updated with Aurora Util
 
 Aurora Agent Version 0.1.10
@@ -907,11 +907,11 @@ Aurora Agent Version 0.1.10
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added a whitelist as beaconhunter excludes
     * - Bugfix
       - Fixed a bug where the UDP socket permanently broke down
-    * - Change
+    * - Feature
       - Added more context information to beaconhunter messages
     * - Change
       - Sigma can now be deactivated with '--deactivate-module Sigma'
@@ -929,11 +929,11 @@ Aurora Agent Version 0.1.9
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added log id for status messages
     * - Bugfix
       - Fixed a FP in LSASS dump check
-    * - Change
+    * - Feature
       - Added more information for TCP connections
 
 Aurora Agent Version 0.1.8
@@ -949,7 +949,7 @@ Aurora Agent Version 0.1.8
       - Moved log source mappings to a separate file that is shared for all configurations
     * - Bugfix
       - Fixed a bug where process information could be misinterpreted when a process ID was reused
-    * - Change
+    * - Feature
       - Added more content information for PE files (version resource information)
 
 Aurora Agent Version 0.1.7
@@ -961,7 +961,7 @@ Aurora Agent Version 0.1.7
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added registry kernel logger as default source, values and paths are now parsed correctly
     * - Bugfix
       - Fixed a bug where process information was discarded too early
@@ -977,7 +977,7 @@ Aurora Agent Version 0.1.6
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added '--print-event-id' option
     * - Bugfix
       - Fixed a bug where errors in other ETW sessions could affect Aurora
@@ -991,7 +991,7 @@ Aurora Agent Version 0.1.5
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added '--no-hashes' option
     * - Bugfix
       - Fixed a race condition where log sources were not updated properly on sigma log source change
@@ -999,7 +999,7 @@ Aurora Agent Version 0.1.5
       - Fixed a bug where hash calculation didn't close its file mapping properly
     * - Change
       - Log sources are now in a separate folder
-    * - Change
+    * - Feature
       - Added four agent configurations (minimal, reduced, standard, intense) for common use cases
     * - Change
       - Renamed 'sigma-config' to '--log-source'
@@ -1017,11 +1017,11 @@ Aurora Agent Version 0.1.4
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added MD5, SHA1, SHA256 hashes as well as imphashes to process creation, image load, and driver load events
-    * - Change
+    * - Feature
       - Added Aurora Util for Aurora upgrades and rule encryption
-    * - Change
+    * - Feature
       - Added example for proper named pipe detection using SystemLogger:Handle
     * - Change
       - Expanded Log IDs, defined different Log ID ranges for the different modules
@@ -1039,13 +1039,13 @@ Aurora Agent Version 0.1.3
       - Renamed '--event-throttling' to '--output-throttling', it now drops events instead of slowing Aurora
     * - Bugfix
       - Fixed a bug where the log file wasn't written after installation
-    * - Change
+    * - Feature
       - Added '--low-prio' for reduced process priority, changed default priority to normal
     * - Change
       - Added '--sigma-match-throttling' and '--sigma-match-burst' for limiting sigma matches on a per-rule basis
     * - Change
       - aurora-agent now calls aurora-agent-64 when called on a 64 bit platform
-    * - Change
+    * - Feature
       - Added missing log source rewrite for systemlogger-process
     * - Change
       - Grouped "source not found" messages
@@ -1067,25 +1067,25 @@ Aurora Agent Version 0.1.2
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added '--event-throttling' option for slowed output
-    * - Change
+    * - Feature
       - Added '--no-stdout' option for no logging to stdout
-    * - Change
+    * - Feature
       - Added '--module-info' option to enumerate existing modules
     * - Bugfix
       - Fixed a bug where some parameters weren't written to the installed config
     * - Change
       - Expanded '--status' output
-    * - Change
+    * - Feature
       - Added support for response options: recursive, ancestors, and simulate
-    * - Change
+    * - Feature
       - Added output for simulated responses
     * - Bugfix
       - Fixed a bug where Aurora could match events that it wrote itself
     * - Bugfix
       - Fixed a bug where fields available for sigma matching and responses were inconsistent
-    * - Change
+    * - Feature
       - Added Aurora Agent Icon
 
 Aurora Agent Version 0.1.1
@@ -1097,11 +1097,11 @@ Aurora Agent Version 0.1.1
 
     * - Type
       - Description
-    * - Change
+    * - Feature
       - Added support for activating and deactivating single consumers
     * - Change
       - Allowed query syntax with ETW channels to request only specific event IDs
-    * - Change
+    * - Feature
       - Added build revision support
 
 Aurora Agent Version 0.1.0
