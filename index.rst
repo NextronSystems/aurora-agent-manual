@@ -27,6 +27,7 @@ Aurora Agent User Manual
    usage/known-issues
    usage/detection-gaps
    usage/faqs
+   usage/changelog
 
 
 Indices and tables
