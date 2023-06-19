@@ -14,6 +14,6 @@ We offer an enterprise and a "Lite" version, which is free of charge. The free v
 
 ## Getting Started
 
-To sart using `Aurora`, simply viste the official website [here](https://www.nextron-systems.com/aurora/#get-aurora) and request your copy.
+To sart using `Aurora`, simply visit the official website [here](https://www.nextron-systems.com/aurora/#get-aurora) and request your copy.
 
 Documentation with instruction on how to install and use the agent can be found [here](https://aurora-agent-manual.nextron-systems.com/).
