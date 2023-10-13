@@ -5,7 +5,7 @@ The best way to debug Aurora is to run it directly in the command line and don't
 
 .. code:: winbatch
 
-    aurora-agent-64.exe --rules-path .\my-rules --debug
+    aurora-agent-64.exe --debug
 
 The verbosity can even be increased by using the ``--trace`` flag. 
 
