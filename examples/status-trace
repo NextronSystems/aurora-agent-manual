@@ -1,0 +1,36 @@
+C:\Program Files\Aurora Agent>aurora-agent-64.exe --status --trace
+Aurora Agent
+Version: 0.1.6
+Build Revision: 5fef68a1
+Sigma Revision: 0.20-1884-ga4a26540
+Status: running
+Uptime (in hours): 0
+
+Active Outputs:
+Eventlog: enabled
+Stdout: enabled
+
+Rule Statistics:
+Loaded rules: 734
+Number of rule reloads: 0
+
+Event Statistics:
+Events observed so far: 111138
+        88650 events from WinEventLog:Microsoft-Windows-Kernel-Audit-API-Calls
+        20094 events from WinEventLog:Microsoft-Antimalware-Engine
+        1265 events from PollNamedPipes
+        400 events from WinEventLog:Microsoft-Windows-Kernel-Process/WINEVENT_KEYWORD_IMAGE
+        306 events from WinEventLog:Microsoft-Windows-Kernel-Process/WINEVENT_KEYWORD_PROCESS
+        174 events from WinEventLog:Microsoft-Windows-Kernel-Registry/CreateKey
+        164 events from SystemLogger:Process
+        46 events from WinEventLog:Microsoft-Windows-DNS-Client
+        19 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_CREATE_NEW_FILE
+        11 events from WinEventLog:Microsoft-Windows-Kernel-File/KERNEL_FILE_KEYWORD_DELETE_PATH
+        9 events from WinEventLog:Microsoft-Windows-TCPIP/ut:ConnectPath
+Events lost so far: 0
+Sigma matches: 4
+        Run Whoami Showing Privileges: 2
+        Suspicious Certutil Command: 2
+Suppressed Sigma matches of those: 0
+
+Response Actions: disabled

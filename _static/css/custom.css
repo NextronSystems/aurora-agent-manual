@@ -1,9 +1,13 @@
 .wy-side-nav-search {
-    background-color: #31e3e8;
+    background-color: #343131;
 }
 
 .wy-menu-vertical header, .wy-menu-vertical p.caption {
     color: #1f8b8e;
+}
+
+.wy-table-responsive table td, .wy-table-responsive table th {
+    white-space: normal;
 }
 
 .rst-versions a {

@@ -1,0 +1,13 @@
+Event ID;Module
+200;BeaconHunter
+300;Lsass Dump Detector
+400;ETW Canary
+500;Process Tampering Detector
+600;Temporary Driver Load Detector
+700;Command Line Mismatch Detector
+800;Event Distributor
+900;ETW Provider
+1000;Eventlog Provider
+1100;Handle Polling Provider
+1200;Resource Control
+1301;Filename IOC Match Found

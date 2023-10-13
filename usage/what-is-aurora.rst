@@ -7,9 +7,11 @@ What is Aurora?
 - It writes its own events to various outputs: the Windows Eventlog, a log file and remote UDP/TCP targets
 
 What is Aurora Lite? 
---------------------
+====================
 
-Aurora Lite is our free version of Aurora which is free for private and commercial use. The only limitation defined in the TOS is that it cannot be sold or used as part of a paid service. We offer special licensing options for managed detection service providers.
+Aurora Lite is our free version of Aurora which is free for private and commercial
+use. The only limitation defined in the TOS is that it cannot be sold or used as
+part of a paid service. We offer special licensing options for managed detection service providers.
 
 Features and services that are not included in the Aurora Lite version:
 
@@ -20,4 +22,4 @@ Features and services that are not included in the Aurora Lite version:
 - No encrypted Sigma rules (protect rules from spying eyes or the AV)
 - Only 5 rules with response actions allowed
 
-For more details see the description on `our web site <https://www.nextron-systems.com/aurora/>`_. 
+For more details see the description on https://www.nextron-systems.com/aurora

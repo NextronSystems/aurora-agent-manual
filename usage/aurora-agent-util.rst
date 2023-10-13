@@ -22,10 +22,10 @@ to reload the updated files.
 
 Examples:
 
-.. code::
+.. code:: doscon
 
-   aurora-agent-util.exe update
-   aurora-agent-util.exe upgrade --restart-service
+   C:\Program Files\Aurora-Agent>aurora-agent-util.exe update
+   C:\Program Files\Aurora-Agent>aurora-agent-util.exe upgrade --restart-service
 
 Encrypting Signatures
 ---------------------
@@ -42,9 +42,9 @@ by specifying them with ``--rules-path`` / ``--ioc-path``.
 
 Examples:
 
-.. code::
+.. code:: doscon
 
-   aurora-agent-util.exe encrypt path/to/my/sigmarule.yml path/to/my/other/sigmarule.yml
+   C:\Program Files\Aurora-Agent>aurora-agent-util.exe encrypt path/to/my/sigmarule.yml path/to/my/other/sigmarule.yml
 
 Excluding Processes
 -------------------
@@ -55,19 +55,24 @@ processes.
 
 Examples:
 
-.. code::
+.. code:: doscon
 
-   aurora-agent-util.exe exclude
+   C:\Program Files\Aurora-Agent>aurora-agent-util.exe exclude
+
+This function is just a more comfortable alternative to adding the exclusions manually in the respective :ref:`usage/configuration:Process Exclusions` file.
 
 Creating a Diagnostics Pack
 ---------------------------
 
-The ``diagnostics`` command creates a ZIP file with several files that can be analyzed by us in case of issues. If you encounter an issue, the first step is usually sending us this diagnostics pack along with a description of the issues.
+The ``diagnostics`` command creates a ZIP file with several files that can be analyzed
+by us in case of issues. If you encounter an issue, the first step is usually sending
+us this diagnostics pack along with a description of the issues.
 
 Examples:
 
-.. code::
+.. code:: doscon
 
-   aurora-agent-util.exe diagnostics
+   C:\Program Files\Aurora-Agent>aurora-agent-util.exe diagnostics
 
-The diagnostics pack includes the status output, service startup logs (if available) and memory profiles that can be analyzed with the help of `pprof <https://jvns.ca/blog/2017/09/24/profiling-go-with-pprof/>`_.
+The diagnostics pack includes the status output, service startup logs (if available)
+and memory profiles that can be analyzed with the help of `pprof <https://jvns.ca/blog/2017/09/24/profiling-go-with-pprof/>`_.

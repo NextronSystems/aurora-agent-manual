@@ -1,12 +1,15 @@
 Configuration
 =============
 
-Aurora uses the YAML format for its configuration file. All values set in the config file can also be used as command line flags. 
+Aurora uses the YAML format for its configuration file. All values set in the config
+file can also be used as command line flags. 
 
 There are two modes of operation:
 
-1. Aurora started directly from the command line, optionally using a config passed with the ``--config`` / ``-c`` flag
-2. Aurora started as a service (see chapter :doc:`installation </usage/installation>` for more details) with a config file located in ``C:\Program Files\Aurora-Agent\agent-config.yml``
+1. Aurora started directly from the command line, optionally
+   using a config passed with the ``--config`` / ``-c`` flag
+2. Aurora started as a service (see chapter :ref:`usage/installation:installation`)
+   for more details) with a config file located in ``C:\Program Files\Aurora-Agent\agent-config.yml``
 
 Configuration Presets
 ---------------------
@@ -20,42 +23,85 @@ To facilitate the use of Aurora, four configuration files are part of the Aurora
 
 An installation that uses the preset named "reduced" would look like this: 
 
-.. code:: winbatch
+.. code:: doscon
 
-    aurora-agent.exe --install -c agent-config-reduced.yml
+    C:\aurora>aurora-agent.exe --install -c agent-config-reduced.yml
 
 The configuration presets effect the following settings:
 
-+-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
-| Affected Setting              | Minimal               | Reduced                  | Standard               | Intense           |
-+===============================+=======================+==========================+========================+===================+
-| Deactivated sources           | | Registry            | | Registry               | | Registry             |                   |
-|                               | | Raw Disk Access     | | Raw Disk Access        | | Raw Disk Access      |                   |
-|                               | | Kernel Handles      | | Kernel Handles         | | Kernel Handles       |                   |
-|                               | | Create Remote Thread| | Create Remote Thread   | | Create Remote Thread |                   |
-|                               | | Process Access      | | Process Access         |                        |                   |
-|                               | | Image Loads         |                          |                        |                   |
-+-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
-| CPU Limit                     | 20%                   | 30%                      | 35%                    | 100%              |
-+-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
-| Process Priority              | Low                   | Normal                   | Normal                 | Normal            |
-+-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
-| Minimum Reporting Level       | High                  | High                     | Medium                 | Low               |
-+-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
-| Deactivated modules           | | LSASS Dump Detector | | LSASS Dump Detector    |                        |                   |
-|                               | | BeaconHunter        |                          |                        |                   |
-+-------------------------------+-----------------------+--------------------------+------------------------+-------------------+
+.. list-table::
+   :header-rows: 1
+   :widths: 25, 20, 20, 20, 15
+
+   * - Affected Setting
+     - Minimal
+     - Reduced
+     - Standard
+     - Intense
+   * - Deactivated Sources
+     - Registry,
+
+       Raw Disk Access,
+
+       Kernel Handles,
+
+       Create Remote Thread,
+
+       Process Access,
+
+       Image Loads
+     - Registry,
+     
+       Raw Disk Access,
+
+       Kernel Handles,
+
+       Create Remote Thread,
+       
+       Process Access
+     - Registry,
+       
+       Raw Disk Access,
+       
+       Kernel Handles,
+       
+       Create Remote Thread
+     -
+   * - CPU Limit
+     - 20 %
+     - 30 %
+     - 35 %
+     - 100 %
+   * - Process Priority
+     - Low
+     - Normal
+     - Normal
+     - Normal
+   * - Minimum Reporting Level
+     - High
+     - High
+     - Medium
+     - Low
+   * - Deactivated Modules
+     - LSASS Dump Detector,
+
+       BeaconHunter
+     - LSASS Dump Detector
+     -
+     -
 
 .. warning::
     Intense preset uses the most system resources and can put the system under heavy load,
     especially if a process accesses many registry keys in a short amount of time.
 
-    We recommend using this preset only on a very selective set of systems or in cases in which maximum detection is required.
+    We recommend using this preset only on a very selective set of systems or
+    in cases in which maximum detection is required.
 
 Custom Profiles
 ~~~~~~~~~~~~~~~
 
-If you need a more specialized configuration than these predefined ones, you can also create your own configuration for maximal adaptability.
+If you need a more specialized configuration than these predefined ones, you can
+also create your own configuration for maximal adaptability.
 
 Output Options
 --------------
@@ -67,26 +113,31 @@ The following output options are available
 - UDP target
 - TCP target
 
-Output is usually formatted in a human readable way (with ``KEY: value`` pairs). For machine ingestion, using ``--json`` is recommended, which changes the format to JSON structs.
+Output is usually formatted in a human readable way (with ``KEY: value`` pairs).
+For machine ingestion, using ``--json`` is recommended, which changes the format to JSON structs.
 
 ASGARD Analysis Cockpit
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Whenever you install an ASGARD Agent, the controlled Aurora Agent Services gets its configuration automatically. In a default setup, all logs generated by an Aurora Agent will be relayed via an ASGARD to an Analysis Cockpit system.
+Whenever you install an ASGARD Agent, the controlled Aurora Agent Services gets its
+configuration automatically. In a default setup, all logs generated by an Aurora Agent
+will be relayed via an ASGARD to an Analysis Cockpit system.
 
 Windows Eventlog
 ~~~~~~~~~~~~~~~~
 
-By default Aurora writes its event into the Windows event log "Application". To review the events use the Windows "EventViewer". Make sure to check the "Details" tab to see all fields and values.
+By default Aurora writes its event into the Windows event log "Application".
+To review the events use the Windows "EventViewer". Make sure to check the
+"Details" tab to see all fields and values.
 
 .. figure:: ../images/windows-eventlog-details.png
-   :target: ../images/windows-eventlog-details.png
    :alt: Aurora Events in Windows Eventlog
 
 UDP / TCP Targets
 ~~~~~~~~~~~~~~~~~
 
-UDP or TCP log targets can be specified via the ``--udp-target`` and ``--tcp-target`` options. These options take an argument in the form ``host:port``, e.g. ``myloggingsystem.internal:8443``.
+UDP or TCP log targets can be specified via the ``--udp-target`` and ``--tcp-target``
+options. These options take an argument in the form ``host:port``, e.g. ``myloggingsystem.internal:8443``.
 
 Log File
 ~~~~~~~~
@@ -98,15 +149,71 @@ The log file is automatically rotated by Aurora once more than ``--log-size`` by
 
 Log rotation can be disabled by setting ``--log-size`` to 0.
 
+Process Exclusions
+------------------
+
+To exclude specific processes from analysis, you can configure Aurora to ignore all events from specific image paths.
+
+In order to do so, the excluded images must be specified (as regular expressions) in a file that is passed to ``--process-excludes``.
+By default, ``config\process-excludes.cfg`` is used. This file contains further examples on how to specify the
+excludes.
+
+The Process Exclusions are typically the values in your ``PARENTIMAGE`` field (Process Creation Event) or ``IMAGE`` (for all
+other Events - File Creation, etc.).
+
+Adding the expressions in the file results in
+
+1. Lower CPU load caused by the exclusion of the process 
+2. No more matches on events generated by the excluded process 
+
+The process exclusion file is loaded at startup. If you change the file, you'll need to restart Aurora to apply those changes.
+
+.. hint::
+  Please be aware that adding process exclusions can cause malware that uses process hollowing or similar techniques to
+  mask themselves as an excluded process to go unreported.
+
+Exclusion Examples 
+~~~~~~~~~~~~~~~~~~
+
+To get get a full list of high volume event sources, use the following command: 
+
+.. code:: doscon
+
+    aurora-agent-64.exe --status --trace
+
+    ...
+    By process:
+        866420 events from C:\Program Files (x86)\NoisyService\serv.exe
+        66420 events from C:\Windows\System32\svchost.exe
+        11369 events from C:\Program Files\Microsoft VS Code\Code.exe
+
+You identify the first entry in the list as the top speaker that you'd like to exclude from the observation. Accordingly, the exclusion should look like this: 
+
+.. code::
+
+    C:\\Program Files \(x86\)\\NoisyService\\serv\.exe
+
+The expressions are applied:
+
+* as **contains**, so there is no need to add ``.*`` at the beginning or the end of it 
+* case-sensitive
+
+Make sure that escape every character that has a meaning in regular expressions. 
+
+This CyberChef `recipe <https://gchq.github.io/CyberChef/#recipe=Find_/_Replace(%7B'option':'Regex','string':'(%5B.%5C%5C%5C%5C%2B*%5C%5C?%5C%5C%5B%5C%5C%5E%5C%5C%5D%5C%5C$%5C%5C(%5C%5C)%7B%7D%7C-%5D)'%7D,'%5C%5C%5C%5C$1',true,false,true,false)&input=Yzpcd2luZG93c1xleHBsb3Jlci5leGU>`_ can be used for the regular expression escaping. 
+
+
 False Positive Filtering
 ------------------------
 
-When encountering false positives or known anomalies, besides reporting them, you can also exclude them using a false positive filter file.
+When encountering false positives or known anomalies, besides reporting them,
+you can also exclude them using a false positive filter file.
 By default, ``config\false-positives.cfg`` is used.
 
 The file passed should contain a regular expression per line; any log lines where any of these false positive regexps matches
 will not be logged.
 
-If you want to exclude all events from a specific process, process exclusions might be a better choice than a false positive filter
+If you want to exclude all events from a specific process,
+process exclusions might be a better choice than a false positive filter
 since they also cancel any analysis on those events; see
-:ref:`Process Exclusions <Process Exclusions>` for more details.
+:ref:`usage/configuration:process exclusions` for more details.

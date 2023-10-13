@@ -13,6 +13,7 @@ Aurora Agent User Manual
 
    usage/what-is-aurora
    usage/installation
+   usage/aurora-dashboard
    usage/usage
    usage/configuration
    usage/upgrade-and-updates
@@ -26,6 +27,7 @@ Aurora Agent User Manual
    usage/known-issues
    usage/detection-gaps
    usage/faqs
+   usage/changelog
 
 
 Indices and tables
