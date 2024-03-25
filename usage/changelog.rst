@@ -3,6 +3,43 @@ Changelog
 
 This chapter contains all new changes of Aurora.
 
+Aurora Agent 1.2
+################
+
+Aurora Agent Version 1.2.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Bugfix
+      - Fixed an issue where NT paths starting with ``\Windows\`` were not correctly converted to DOS paths
+
+Aurora Agent Version 1.2.0
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Feature
+      - Added temporary excludes for process / provider / event ID combinations with very high event rates
+    * - Feature
+      - Improved speed of sigma rule matching
+    * - Feature
+      - Added support for polling log files
+    * - Feature
+      - Removed support for custom actions
+    * - Bugfix
+      - Fixed an issue where Aurora could crash if too many handles were open
+    * - Feature
+      - Added Trace Event Tab in Dashboard
+
 Aurora Agent 1.1
 ################
 
