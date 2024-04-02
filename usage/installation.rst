@@ -29,7 +29,7 @@ active internet connection. The endpoint performing the update needs to
 reach our update servers to do this.
 
 For a detailed and up to date list of our update and licensing
-servers, please visit https://www.nextron-systems.com/hosts/.
+servers, please visit https://www.nextron-systems.com/resources/hosts/.
 
 .. hint::
   You do not need an active internet connection to run Aurora on an endpoint.
@@ -153,5 +153,5 @@ Installation using ASGARD
 -------------------------
 
 When using ASGARD Management Center, Aurora can be installed using the ``Service Control`` tab;
-see the `relevant chapter in the ASGARD manual <https://asgard-manual.nextron-systems.com/en/latest/usage/administration.html#aurora>`_
+see the `relevant chapter in the ASGARD manual <https://asgard-manual.nextron-systems.com/en/latest/administration/aurora.html>`_
 for details.

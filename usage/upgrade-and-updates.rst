@@ -7,7 +7,7 @@ Management Aurora using ASGARD
 When using ASGARD Management Center, you can update Aurora Agent and its
 signatures for all end systems from the Management Center. 
 Doing so is described in more detail in
-`this <https://asgard-manual.nextron-systems.com/en/latest/usage/administration.html#service-control>`_
+`this <https://asgard-manual.nextron-systems.com/en/latest/administration/service-control.html>`_
 section of the ASGARD Management Center manual.
 
 Automatic Updates via Scheduled Tasks 

@@ -198,10 +198,7 @@ The expressions are applied:
 * as **contains**, so there is no need to add ``.*`` at the beginning or the end of it 
 * case-sensitive
 
-Make sure that escape every character that has a meaning in regular expressions. 
-
-This CyberChef `recipe <https://gchq.github.io/CyberChef/#recipe=Find_/_Replace(%7B'option':'Regex','string':'(%5B.%5C%5C%5C%5C%2B*%5C%5C?%5C%5C%5B%5C%5C%5E%5C%5C%5D%5C%5C$%5C%5C(%5C%5C)%7B%7D%7C-%5D)'%7D,'%5C%5C%5C%5C$1',true,false,true,false)&input=Yzpcd2luZG93c1xleHBsb3Jlci5leGU>`_ can be used for the regular expression escaping. 
-
+Make sure that escape every character that has a meaning in regular expressions.
 
 False Positive Filtering
 ------------------------

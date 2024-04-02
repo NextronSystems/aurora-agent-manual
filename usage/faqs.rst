@@ -10,7 +10,7 @@ The long answer is related to the way the go runtime manages the memory.
 There are many articles that describe the way
 `how the garbage collector works <https://medium.com/safetycultureengineering/an-overview-of-memory-management-in-go-9a72ec7c76a8>`_
 but only a few that describe situations in which a program
-`used a unexpectedly high amount of memory <https://blog.detectify.com/2019/09/05/how-we-tracked-down-a-memory-leak-in-one-of-our-go-microservices/>`_. 
+`used a unexpectedly high amount of memory <https://blog.detectify.com/industry-insights/how-we-tracked-down-a-memory-leak-in-one-of-our-go-microservices/>`_. 
 
 .. note::
    It turns out that there was a change in Go 1.12 regarding how the runtime

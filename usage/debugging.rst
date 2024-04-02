@@ -152,7 +152,7 @@ Aurora Agent supports the following event source prefixes:
   A full list of Eventlog channels on a system can be found using the Event Viewer. A full list of ETW providers on a system
   can be found using e.g. https://github.com/zodiacon/EtwExplorer.
 - ``SystemLogger:`` Events from the System Trace Provider
-  (see https://docs.microsoft.com/en-us/windows/win32/etw/configuring-and-starting-a-systemtraceprovider-session for details).
+  (see https://learn.microsoft.com/en-us/windows/win32/etw/configuring-and-starting-a-systemtraceprovider-session for details).
 
   The schema is: ``SystemLogger:SystemLoggerFlag`` where the supported ``SystemLoggerFlag`` flags are:
 

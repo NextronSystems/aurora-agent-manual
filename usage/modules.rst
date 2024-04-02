@@ -22,7 +22,7 @@ ETW Kernel Source
 ~~~~~~~~~~~~~~~~~
 
 Starts a SystemTraceProvider ETW session (see
-`Microsoft's Documentation <https://docs.microsoft.com/en-us/windows/win32/etw/configuring-and-starting-a-systemtraceprovider-session>`_)
+`Microsoft's Documentation <https://learn.microsoft.com/en-us/windows/win32/etw/configuring-and-starting-a-systemtraceprovider-session>`_)
 and registers for System Providers to receive events from them.
 
 Eventlog Source
