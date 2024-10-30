@@ -26,7 +26,7 @@ if os.environ.get("READTHEDOCS", "") == "True":
     if "html_context" not in globals():
         html_context = {}
     html_context["READTHEDOCS"] = True
-
+html_show_sourcelink = False
 epub_title = project
 epub_exclude_files = ['search.html']
 intersphinx_mapping = {'https://docs.python.org/': None}
