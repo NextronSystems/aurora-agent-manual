@@ -6,6 +6,22 @@ This chapter contains all new changes of Aurora.
 Aurora Agent 1.2
 ################
 
+Aurora Agent Version 1.2.2
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Bugfix
+      - Fixed an issue where too many filename IOCs could cause initialization to fail
+    * - Update
+      - YARA to v4.5.1
+    * - Update
+      - Golang to 1.20.13
+
 Aurora Agent Version 1.2.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -111,7 +127,7 @@ Aurora Agent Version 1.1.0
     * - Feature
       - Added new flags to set output format specifically for some outputs
     * - Feature
-      - Added a '--dashboard' option that starts an interactive notifier for checking recent Aurora events
+      - Added a ``--dashboard`` option that starts an interactive notifier for checking recent Aurora events
     * - Bugfix
       - Fixed an issue where rules with multiple wildcards could cause extremely high memory usage
 
