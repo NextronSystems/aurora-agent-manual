@@ -1,44 +1,48 @@
 .wy-side-nav-search {
-    background-color: #343131;
+  background-color: #343131;
 }
 
-.wy-menu-vertical header, .wy-menu-vertical p.caption {
-    color: #1f8b8e;
+.wy-menu-vertical header,
+.wy-menu-vertical p.caption {
+  color: #6cbf92;
 }
 
-.wy-table-responsive table td, .wy-table-responsive table th {
-    white-space: normal;
+.wy-table-responsive table td,
+.wy-table-responsive table th {
+  white-space: normal;
 }
 
 .rst-versions a {
-    color: #1f8b8e;
+  color: #6cbf92;
 }
 
 a {
-    color: #1f8b8e;
+  color: #6cbf92;
 }
 
 a:hover {
-    color: #1f8b8e;
+  color: #6cbf92;
 }
 
 .rst-content .section a:visited {
-    color: #1f8b8e;
+  color: #6cbf92;
 }
 
 .wy-breadcrumbs li a {
-    color: #1f8b8e;
+  color: #6cbf92;
 }
 
-.rst-content table.docutils thead th, .rst-content table.field-list thead th, .wy-table thead th {
-    background-color: #31e3e8;
-    color: #fff;
+.rst-content table.docutils thead th,
+.rst-content table.field-list thead th,
+.wy-table thead th {
+  background-color: #6cbf92;
+  color: #fff;
 }
 
 .rst-versions .rst-current-version {
-    color: #1f8b8e;
+  color: #6cbf92;
 }
 
 code {
-    width: 400px;
+  width: 400px;
 }
