@@ -4,7 +4,7 @@
 
 .wy-menu-vertical header,
 .wy-menu-vertical p.caption {
-  color: #6cbf92;
+  color: #4d8b69;
 }
 
 .wy-table-responsive table td,
@@ -13,34 +13,34 @@
 }
 
 .rst-versions a {
-  color: #6cbf92;
+  color: #4d8b69;
 }
 
 a {
-  color: #6cbf92;
+  color: #4d8b69;
 }
 
 a:hover {
-  color: #6cbf92;
+  color: #1c5335;
 }
 
 .rst-content .section a:visited {
-  color: #6cbf92;
+  color: #4d8b69;
 }
 
 .wy-breadcrumbs li a {
-  color: #6cbf92;
+  color: #4d8b69;
 }
 
 .rst-content table.docutils thead th,
 .rst-content table.field-list thead th,
 .wy-table thead th {
-  background-color: #6cbf92;
+  background-color: #4d8b69;
   color: #fff;
 }
 
 .rst-versions .rst-current-version {
-  color: #6cbf92;
+  color: #4d8b69;
 }
 
 code {
