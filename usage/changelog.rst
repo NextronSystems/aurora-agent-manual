@@ -6,6 +6,18 @@ This chapter contains all new changes of Aurora.
 Aurora Agent 1.2
 ################
 
+Aurora Agent Version 1.2.3
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Bugfix
+      - Fixed a bug where remote thread creation events were not recognized correctly
+
 Aurora Agent Version 1.2.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
