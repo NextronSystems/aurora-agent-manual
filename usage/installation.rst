@@ -8,6 +8,8 @@ Aurora runs on Windows 7 or newer and requires administrative privileges.
 
 Other OS (Linux or macOS) are not supported.
 
+The AURORA Agent is a lightweight service. Memory usage of the agent is around 200 MB, which makes it very unobtrusive. The agent will use up to 50 MB of hard disk. There are no requirements pertaining to the CPU.
+
 Supported
 ~~~~~~~~~
 - Windows 7 x86 / x64
