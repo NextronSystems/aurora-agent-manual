@@ -4,24 +4,16 @@ Installation
 Requirements
 ------------
 
-Aurora runs on Windows 7 or newer and requires administrative privileges.
+The AURORA Agent is a lightweight service. Memory usage of the agent is around 200 MB,
+which makes it very unobtrusive. The agent will use up to 50 MB of hard disk. There are
+no requirements pertaining to the CPU.
 
-Other OS (Linux or macOS) are not supported.
+Aurora is only available for Windows, other operating systems **are not supported**.
 
-The AURORA Agent is a lightweight service. Memory usage of the agent is around 200 MB, which makes it very unobtrusive. The agent will use up to 50 MB of hard disk. There are no requirements pertaining to the CPU.
+The minimum supported versions of Windows are the following (any newer version will also work):
 
-Supported
-~~~~~~~~~
-- Windows 7 x86 / x64
-- Windows Server 2008 R2 x64
-- Windows 8.1
-- Windows Server 2012
-- Windows Server 2012 R2
-- Windows 10
-- Windows 11
-- Windows Server 2016
-- Windows Server 2019
-- Windows Server 2022
+- Windows 7
+- Windows Server 2008 R2
 
 Update Servers
 ~~~~~~~~~~~~~~

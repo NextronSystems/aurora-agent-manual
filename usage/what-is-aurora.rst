@@ -7,7 +7,7 @@ What is Aurora?
 - It writes its own events to various outputs: the Windows Eventlog, a log file and remote UDP/TCP targets
 
 What is Aurora Lite? 
-====================
+--------------------
 
 Aurora Lite is our free version of Aurora which is free for private and commercial
 use. The only limitation defined in the TOS is that it cannot be sold or used as
