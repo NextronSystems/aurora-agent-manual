@@ -31,7 +31,7 @@ The configuration presets effect the following settings:
 
 .. list-table::
    :header-rows: 1
-   :widths: 25, 20, 20, 20, 15
+   :widths: 27, 20, 20, 20, 13
 
    * - Affected Setting
      - Minimal
@@ -77,7 +77,7 @@ The configuration presets effect the following settings:
      - Normal
      - Normal
      - Normal
-   * - Minimum Reporting Level
+   * - Minimum Sigma Level [1]_
      - High
      - High
      - Medium
@@ -89,6 +89,10 @@ The configuration presets effect the following settings:
      - LSASS Dump Detector
      -
      -
+
+.. [1] Aurora will skip over any Sigma Rules with a lower ``Level``, e.g. a configuration
+       with a **Minimum Sigma Level** of ``Medium`` will not add any ``Low`` Level Sigma Rules
+       during runtime.
 
 .. warning::
     Intense preset uses the most system resources and can put the system under heavy load,
