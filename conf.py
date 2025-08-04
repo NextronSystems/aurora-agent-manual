@@ -1,7 +1,7 @@
 import os
 
 project = 'Aurora Agent User Manual'
-copyright = '2024, Nextron Systems GmbH'
+copyright = '2025, Nextron Systems GmbH'
 author = 'Nextron Systems GmbH'
 version="1.0"
 extensions = [
