@@ -6,6 +6,32 @@ This chapter contains all new changes of Aurora.
 Aurora Agent 1.2
 ################
 
+Aurora Agent Version 1.2.5
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Feature
+      - Added sigma tags to output when printing Sigma matches
+
+Aurora Agent Version 1.2.4
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+    :header-rows: 1
+    :widths: 15, 85
+
+    * - Type
+      - Description
+    * - Bugfix
+      - Fixed a bug where the integrity levle of user processes was not correctly determined
+    * - Bugfix
+      - Fixed a bug where process starts were seen as remote thread creations
+
 Aurora Agent Version 1.2.3
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
