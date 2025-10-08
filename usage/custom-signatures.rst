@@ -15,7 +15,7 @@ Signature updates and Aurora upgrades can be executed for all end points from th
    :alt: Asgard Rule Management
 
 The rule management is described in more detail in
-`this <https://asgard-manual.nextron-systems.com/en/latest/administration/sigma.html>`_
+`this <https://asgard-manual.nextron-systems.com/latest/administration/sigma.html>`_
 section of the ASGARD Management Center manual.
 
 Manual signature management
@@ -47,7 +47,7 @@ Signature format
 ^^^^^^^^^^^^^^^^
 
 IOCs follow the same format that THOR IOCs do; the full description can
-be found in the `THOR manual <https://thor-manual.nextron-systems.com/en/latest/usage/custom-signatures.html#simple-iocs>`_.
+be found in the `THOR manual <https://thor-manual.nextron-systems.com/latest/usage/custom-signatures.html#simple-iocs>`_.
 
 Sigma rules must adhere to the specification found in the `Sigma repository <https://github.com/SigmaHQ/sigma/wiki/Specification>`_.
 

@@ -147,5 +147,5 @@ Installation using ASGARD
 -------------------------
 
 When using ASGARD Management Center, Aurora can be installed using the ``Service Control`` tab;
-see the `relevant chapter in the ASGARD manual <https://asgard-manual.nextron-systems.com/en/latest/administration/aurora.html>`_
+see the `relevant chapter in the ASGARD manual <https://asgard-manual.nextron-systems.com/latest/administration/aurora.html>`_
 for details.
