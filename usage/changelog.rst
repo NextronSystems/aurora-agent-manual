@@ -6,6 +6,9 @@ This chapter contains all new changes of Aurora.
 Aurora Agent 1.2
 ################
 
+broken link for testing
+https://127.0.0.1:8888
+
 Aurora Agent Version 1.2.5
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
