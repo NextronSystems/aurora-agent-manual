@@ -15,7 +15,7 @@ part of a paid service. We offer special licensing options for managed detection
 
 Features and services that are not included in the Aurora Lite version:
 
-- No comfortable Sigma rule management via ASGARD Management Center
+- No comfortable Sigma rule management via Management Center
 - No additional detection modules (non-Sigma-based detection; e.g. Cobalt Strike beaconing, LSASS dumping)
 - No private Nextron Sigma rule feed 
 - No private Nextron IOC rule feed 

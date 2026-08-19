@@ -1,22 +1,21 @@
 Custom Signatures and IOCs
 ==========================
 
-Management using ASGARD
------------------------
+Management Center
+-----------------
 
-ASGARD Management Center allows you to create rule sets of sigma rules and apply 
-hem to groups of end systems. It also features a "difference view" that shows you
+The Management Center allows you to create rule sets of sigma rules and apply 
+them to groups of end systems. It also features a "difference view" that shows you
 rules that have changed in the remote Sigma repository and allows you to accept
 or deny the changes. It also provides ways to filter false positives right at the source.
 
 Signature updates and Aurora upgrades can be executed for all end points from the Management Center.
 
-.. figure:: ../images/asgard-rule-management.png
-   :alt: Asgard Rule Management
+.. figure:: ../images/mgmt-center_rule-management.png
+   :alt: Management Center Rule Management
 
-The rule management is described in more detail in
-`this <https://asgard-manual.nextron-systems.com/en/latest/administration/sigma.html>`_
-section of the ASGARD Management Center manual.
+The rule management is described in more detail in the
+`Management Center manual <https://asgard-manual.nextron-systems.com/en/latest/administration/sigma.html>`_.
 
 Manual signature management
 ---------------------------

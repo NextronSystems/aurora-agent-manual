@@ -143,9 +143,9 @@ If the uninstaller fails due to unknown errors, you can uninstall Aurora manuall
     C:\Users\nextron>schtasks /Delete /F /TN aurora-agent-program-update
     C:\Users\nextron>schtasks /Delete /F /TN aurora-agent-signature-update
 
-Installation using ASGARD
--------------------------
+Installation with Management Center
+-----------------------------------
 
-When using ASGARD Management Center, Aurora can be installed using the ``Service Control`` tab;
-see the `relevant chapter in the ASGARD manual <https://asgard-manual.nextron-systems.com/en/latest/administration/aurora.html>`_
+When using the Management Center, Aurora can be installed using the ``Service Control`` tab;
+see the `relevant chapter in the Management Center manual <https://asgard-manual.nextron-systems.com/en/latest/administration/aurora.html>`_
 for details.

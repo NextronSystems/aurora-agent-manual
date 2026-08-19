@@ -1,14 +1,13 @@
 Upgrading and Updating Aurora
 =============================
 
-Management Aurora using ASGARD
-------------------------------
+Via Management Center
+---------------------
 
-When using ASGARD Management Center, you can update Aurora Agent and its
-signatures for all end systems from the Management Center. 
-Doing so is described in more detail in
-`this <https://asgard-manual.nextron-systems.com/en/latest/administration/aurora.html>`_
-section of the ASGARD Management Center manual.
+When using the Management Center, you can update the Aurora Agent
+and its signatures for all endpoints via the Web Console.
+Doing so is described in more detail in the
+`Management Center manual <https://asgard-manual.nextron-systems.com/en/latest/administration/aurora.html>`_.
 
 Automatic Updates via Scheduled Tasks 
 -------------------------------------
