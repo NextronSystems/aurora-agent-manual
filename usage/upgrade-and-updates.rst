@@ -7,7 +7,7 @@ Via Management Center
 When using the Management Center, you can update the Aurora Agent
 and its signatures for all endpoints via the Web Console.
 Doing so is described in more detail in the
-`Management Center manual <https://asgard-manual.nextron-systems.com/en/latest/administration/aurora.html>`_.
+`Management Center manual <https://management-center-manual.nextron-systems.com/en/latest/administration/aurora.html>`_.
 
 Automatic Updates via Scheduled Tasks 
 -------------------------------------

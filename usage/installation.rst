@@ -147,5 +147,5 @@ Installation with Management Center
 -----------------------------------
 
 When using the Management Center, Aurora can be installed using the ``Service Control`` tab;
-see the `relevant chapter in the Management Center manual <https://asgard-manual.nextron-systems.com/en/latest/administration/aurora.html>`_
+see the `relevant chapter in the Management Center manual <https://management-center-manual.nextron-systems.com/en/latest/administration/aurora.html>`_
 for details.
