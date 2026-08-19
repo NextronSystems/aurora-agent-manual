@@ -250,7 +250,7 @@ Aurora Agent Version 1.0.2
     * - Type
       - Description
     * - Feature
-      - Made additional flags available from ASGARD
+      - Made additional flags available from Management Center
     * - Feature
       - Added a warning when using keyword IOCs
 
@@ -621,7 +621,7 @@ Aurora Agent Version 0.5.7
     * - Type
       - Description
     * - Feature
-      - Added additional information for ASGARD's parameter representation
+      - Added additional information for Management Center's parameter representation
     * - Change
       - Unified module list for Windows and Linux builds
     * - Change
@@ -651,7 +651,7 @@ Aurora Agent Version 0.5.5
     * - Type
       - Description
     * - Feature
-      - Added '--quiet' flag for ASGARD
+      - Added '--quiet' flag for Management Center
     * - Feature
       - Added more log IDs for identification
     * - Bugfix
