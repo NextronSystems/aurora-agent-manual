@@ -15,7 +15,7 @@ Signature updates and Aurora upgrades can be executed for all end points from th
    :alt: Management Center Rule Management
 
 The rule management is described in more detail in the
-`Management Center manual <https://asgard-manual.nextron-systems.com/en/latest/administration/sigma.html>`_.
+`Management Center manual <https://management-center-manual.nextron-systems.com/en/latest/administration/sigma.html>`_.
 
 Manual signature management
 ---------------------------
